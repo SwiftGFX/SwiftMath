@@ -2,6 +2,8 @@ public typealias vec2 = Vector2f
 
 public extension Vector2f {
     
+    public static let zero = Vector2f()
+    
     public var x: Float { get { return d.x } set { d.x = newValue } }
     public var y: Float { get { return d.y } set { d.y = newValue } }
     
