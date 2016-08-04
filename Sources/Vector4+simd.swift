@@ -22,6 +22,10 @@
             self.d = float4(scalar)
         }
         
+        public init(float4 scalar4: float4) {
+            self.d = scalar4
+        }
+        
         public init(_ x: Float, _ y: Float, _ z: Float, _ w: Float) {
             self.d = float4(x, y, z, w)
         }
