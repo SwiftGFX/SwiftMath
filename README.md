@@ -8,7 +8,7 @@ License (BSD 2-clause)
 
 Copyright 2016 Stuart Carnie. All rights reserved.
 
-https://github.com/SwiftGFC/SwiftMath
+https://github.com/SwiftGFX/SwiftMath
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
