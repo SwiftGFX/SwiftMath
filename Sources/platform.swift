@@ -1,9 +1,5 @@
-//
-//  math+platform.swift
-//  SwiftBGFX
-//
-//  Created by Stuart Carnie on 6/29/16.
-//  Copyright © 2016 SGC. All rights reserved.
+// Copyright 2016 Stuart Carnie.
+// License: https://github.com/SwiftGFX/SwiftMath#license-bsd-2-clause
 //
 
 #if !(os(OSX) || os(iOS) || os(tvOS) || os(watchOS))

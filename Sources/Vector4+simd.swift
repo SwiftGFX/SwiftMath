@@ -1,9 +1,5 @@
-//
-//  Vector4.swift
-//  SwiftBGFX
-//
-//  Created by Stuart Carnie on 6/29/16.
-//  Copyright © 2016 SGC. All rights reserved.
+// Copyright 2016 Stuart Carnie.
+// License: https://github.com/SwiftGFX/SwiftMath#license-bsd-2-clause
 //
 
 #if !NOSIMD
@@ -68,6 +64,16 @@
             return simd.dot(self.d, x.d)
         }
         
+        /// Linear interpolation to the target vector
+        ///
+        /// - note:
+        ///     * when factor is 0, returns self
+        ///     * when factor is 1, returns `to`
+        ///
+        /// - parameter to:     target vector
+        /// - parameter factor: factor
+        ///
+        /// - returns: interpolated vector
         public func interpolated(to: Vector4f, factor: Float) -> Vector4f {
             return unsafeBitCast(simd.mix(d, to.d, t: factor), to: Vector4f.self)
         }
