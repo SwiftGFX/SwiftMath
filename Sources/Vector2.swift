@@ -1,3 +1,7 @@
+// Copyright 2016 Stuart Carnie.
+// License: https://github.com/SwiftGFX/SwiftMath#license-bsd-2-clause
+//
+
 public typealias vec2 = Vector2f
 
 public extension Vector2f {
