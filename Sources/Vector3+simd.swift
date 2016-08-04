@@ -11,7 +11,10 @@
        
     public struct Vector3f {
         var d: float3
-        
+    }
+    
+    public extension Vector3f {
+    
         //MARK:- initializers
         
         public init() {
@@ -30,19 +33,31 @@
             self.d = float3(x, y, z)
         }
         
-        public subscript(x: Int) -> Float {
-            get {
-                return d[x]
-            }
-            
-            set {
-                d[x] = newValue
-            }
+        //MARK:- properties
+        
+        /// Length (two-norm or “Euclidean norm”) of x.
+        public var length: Float {
+            return simd.length(d)
         }
         
+        /// Length of x, squared. This is more efficient to compute than the length,
+        /// so you should use it if you only need to compare lengths to each other.
+        /// I.e. instead of writing:
+        ///
+        /// `if (length(x) < length(y)) { … }`
+        ///
+        /// use:
+        ///
+        /// `if (length_squared(x) < length_squared(y)) { … }`
+        ///
+        /// Doing it this way avoids one or two square roots, which is a fairly costly operation.
+        public var lengthSquared: Float {
+            return simd.length_squared(d)
+        }
+
         //MARK:- functions
         
-        public func normalize() -> Vector3f {
+        public func normalized() -> Vector3f {
             return unsafeBitCast(simd.normalize(self.d), to: Vector3f.self)
         }
         
@@ -52,6 +67,10 @@
         
         public func cross(_ y: Vector3f) -> Vector3f {
             return unsafeBitCast(simd.cross(self.d, y.d), to: Vector3f.self)
+        }
+        
+        public func interpolated(to: Vector3f, factor: Float) -> Vector3f {
+            return unsafeBitCast(simd.mix(d, to.d, t: factor), to: Vector3f.self)
         }
         
         //MARK:- operators

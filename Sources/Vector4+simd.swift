@@ -11,7 +11,9 @@
     
     public struct Vector4f {
         var d: float4
-        
+    }
+    
+    public extension Vector4f {
         //MARK:- initializers
         
         public init() {
@@ -34,14 +36,40 @@
             self.d = float4(x, y, z, w)
         }
         
+        //MARK:- properties
+        
+        /// Length (two-norm or “Euclidean norm”) of x.
+        public var length: Float {
+            return simd.length(d)
+        }
+        
+        /// Length of x, squared. This is more efficient to compute than the length,
+        /// so you should use it if you only need to compare lengths to each other.
+        /// I.e. instead of writing:
+        ///
+        /// `if (length(x) < length(y)) { … }`
+        ///
+        /// use:
+        ///
+        /// `if (length_squared(x) < length_squared(y)) { … }`
+        ///
+        /// Doing it this way avoids one or two square roots, which is a fairly costly operation.
+        public var lengthSquared: Float {
+            return simd.length_squared(d)
+        }
+        
         //MARK:- functions
         
-        public func normalize() -> Vector4f {
+        public func normalized() -> Vector4f {
             return unsafeBitCast(simd.normalize(self.d), to: Vector4f.self)
         }
         
         public func dot(x: Vector4f) -> Float {
             return simd.dot(self.d, x.d)
+        }
+        
+        public func interpolated(to: Vector4f, factor: Float) -> Vector4f {
+            return unsafeBitCast(simd.mix(d, to.d, t: factor), to: Vector4f.self)
         }
         
         //MARK:- operators
