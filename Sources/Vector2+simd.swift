@@ -25,24 +25,11 @@
         public init(x: Float, y: Float) {
             self.d = float2(x, y)
         }
-
         
-        //MARK:- functions
-        
-        public func normalize() -> Vector2f {
-            return unsafeBitCast(simd.normalize(d), to: Vector2f.self)
-        }
-        
-        public func dot(_ x: Vector2f) -> Float {
-            return simd.dot(d, x.d)
-        }
-        
-        public func cross(_ x: Vector2f) -> Vector2f {
-            return unsafeBitCast(simd.cross(d, x.d), to: Vector2f.self)
-        }
+        //MARK:- properties
         
         /// Length (two-norm or “Euclidean norm”) of x.
-        public func length() -> Float {
+        public var length: Float {
             return simd.length(d)
         }
         
@@ -57,8 +44,26 @@
         /// `if (length_squared(x) < length_squared(y)) { … }`
         ///
         /// Doing it this way avoids one or two square roots, which is a fairly costly operation.
-        public func lengthSquared() -> Float {
+        public var lengthSquared: Float {
             return simd.length_squared(d)
+        }
+        
+        //MARK:- functions
+        
+        public func normalized() -> Vector2f {
+            return unsafeBitCast(simd.normalize(d), to: Vector2f.self)
+        }
+        
+        public func dot(_ x: Vector2f) -> Float {
+            return simd.dot(d, x.d)
+        }
+        
+        public func cross(_ x: Vector2f) -> Vector2f {
+            return unsafeBitCast(simd.cross(d, x.d), to: Vector2f.self)
+        }
+        
+        public func interpolated(to: Vector2f, factor: Float) -> Vector2f {
+            return unsafeBitCast(simd.mix(d, to.d, t: factor), to: Vector2f.self)
         }
         
         //MARK:- operators

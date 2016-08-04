@@ -1,11 +1,11 @@
 #if !NOSIMD
-import simd
+    import simd
 #endif
 
 public extension Matrix4x4f {
     /// returns the identity matrix
     public static let identity = Matrix4x4f(diagonal: vec4(1.0))
-   
+    
     public init(
         _ r00: Float, _ r01: Float, _ r02: Float, _ r03: Float,
         _ r10: Float, _ r11: Float, _ r12: Float, _ r13: Float,
@@ -21,24 +21,24 @@ public extension Matrix4x4f {
     
     //MARK: matrix operations
     
-    public static func lookAt(eye:Vector3f, at:Vector3f, up:Vector3f = Vector3f(0.0, 1.0, 0.0)) -> Matrix4x4f {
+    public static func lookAt(eye: Vector3f, at: Vector3f, up: Vector3f = Vector3f(0.0, 1.0, 0.0)) -> Matrix4x4f {
         return lookAtLH(eye: eye, at: at, up: up)
     }
     
-    public static func lookAtLH(eye:Vector3f, at:Vector3f, up:Vector3f) -> Matrix4x4f {
-        let view = (at - eye).normalize()
+    public static func lookAtLH(eye: Vector3f, at: Vector3f, up: Vector3f) -> Matrix4x4f {
+        let view = (at - eye).normalized()
         return lookAt(eye: eye, view: view, up: up)
     }
     
-    static func lookAt(eye:Vector3f, view:Vector3f, up:Vector3f) -> Matrix4x4f {
-        let right = up.cross(view).normalize()
+    static func lookAt(eye: Vector3f, view: Vector3f, up: Vector3f) -> Matrix4x4f {
+        let right = up.cross(view).normalized()
         let u     = view.cross(right)
         
         return Matrix4x4f(
             right[0],        u[0],        view[0],       0.0,
             right[1],        u[1],        view[1],       0.0,
             right[2],        u[2],        view[2],       0.0,
-           -right.dot(eye), -u.dot(eye), -view.dot(eye), 1.0
+            -right.dot(eye), -u.dot(eye), -view.dot(eye), 1.0
         )
     }
     
@@ -131,7 +131,7 @@ public extension Matrix4x4f {
         
         return r
     }
-
+    
     
     //MARK: subscript operations
     
@@ -268,7 +268,7 @@ public extension Matrix4x4f {
         return r
     }
     
-    /// Creates a translation, rotation and scaling matrix
+    /// Creates a matrix which can be used to scale, rotate and translate vectors
     public static func scaleRotateTranslate(sx _sx: Float, sy _sy: Float, sz _sz: Float,
                                             ax: Float, ay: Float, az: Float,
                                             tx: Float, ty: Float, tz: Float) -> Matrix4x4f {
