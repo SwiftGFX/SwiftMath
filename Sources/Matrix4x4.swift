@@ -165,6 +165,15 @@ public extension Matrix4x4f {
         return Matrix4x4f(diagonal: vec4(sx, sy, sz, 1.0))
     }
     
+    public static func translate(tx: Float, ty: Float, tz: Float) -> Matrix4x4f {
+        return Matrix4x4f(
+            1.0, 0.0, 0.0, 0.0,
+            0.0, 1.0, 0.0, 0.0,
+            0.0, 0.0, 1.0, 0.0,
+            tx,  ty,  tz,  1.0
+        )
+    }
+    
     public static func rotate(x: Float) -> Matrix4x4f {
         var sx: Float = 0.0, cx: Float = 0.0
         __sincosf(x, &sx, &cx)

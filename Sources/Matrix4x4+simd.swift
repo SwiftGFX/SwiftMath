@@ -22,6 +22,12 @@
             self.d = float4x4(matrix_float4x4(columns: (r0.d, r1.d, r2.d, r3.d)))
         }
         
+        //MARK:- properties
+        
+        public var inversed: Matrix4x4f {
+            return unsafeBitCast(d.inverse, to: Matrix4x4f.self)
+        }
+        
         //MARK:- operators
         
         public static prefix func -(lhs: Matrix4x4f) -> Matrix4x4f {
