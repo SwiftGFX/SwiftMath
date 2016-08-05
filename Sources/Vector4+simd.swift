@@ -12,22 +12,27 @@
     public extension Vector4f {
         //MARK:- initializers
         
+        @inline(__always)
         public init() {
             self.d = float4()
         }
         
+        @inline(__always)
         public init(_ scalar: Float) {
             self.d = float4(scalar)
         }
         
+        @inline(__always)
         public init(float4 scalar4: float4) {
             self.d = scalar4
         }
         
+        @inline(__always)
         public init(_ x: Float, _ y: Float, _ z: Float, _ w: Float) {
             self.d = float4(x, y, z, w)
         }
         
+        @inline(__always)
         public init(x: Float, y: Float, z: Float, w: Float) {
             self.d = float4(x, y, z, w)
         }
