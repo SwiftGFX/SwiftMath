@@ -26,4 +26,12 @@ public extension Vector2f {
             d[x] = newValue
         }
     }
+    
+    //MARK:- initializers
+    
+    @inline(__always)
+    public init(_ v: Vector4f) {
+        self.init(v.d.x, v.d.y)
+    }
+}
 }

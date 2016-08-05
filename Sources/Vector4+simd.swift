@@ -96,7 +96,11 @@
         public static func *(lhs: Vector4f, rhs: Vector4f) -> Vector4f {
             return unsafeBitCast(lhs.d * rhs.d, to: Vector4f.self)
         }
-        
+
+        public static func *(lhs: Matrix4x4f, rhs: Vector4f) -> Vector4f {
+            return unsafeBitCast(lhs.d * rhs.d, to: Vector4f.self)
+        }
+
         public static func *(lhs: Vector4f, rhs: Matrix4x4f) -> Vector4f {
             return unsafeBitCast(lhs.d * rhs.d, to: Vector4f.self)
         }
