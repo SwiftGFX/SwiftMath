@@ -34,4 +34,9 @@ public extension Vector2f {
         self.init(v.d.x, v.d.y)
     }
 }
+
+extension Vector2f: CustomStringConvertible {
+    public var description: String {
+        return "Vector2f(x: \(d.x), y: \(d.y))"
+    }
 }
