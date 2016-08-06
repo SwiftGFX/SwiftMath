@@ -303,3 +303,14 @@ public extension Matrix4x4f {
         )
     }
 }
+
+extension Matrix4x4f: CustomStringConvertible {
+    public var description: String {
+        return "Matrix4x4f(\n" +
+            "m00: \(d[0,0]), m01: \(d[0,1]), m02: \(d[0,2]), m03: \(d[0,3]),\n" +
+            "m10: \(d[1,0]), m11: \(d[1,1]), m12: \(d[1,2]), m13: \(d[1,3]),\n" +
+            "m20: \(d[2,0]), m21: \(d[2,1]), m22: \(d[2,2]), m23: \(d[2,3]),\n" +
+            "m30: \(d[3,0]), m31: \(d[3,1]), m32: \(d[3,2]), m33: \(d[3,3]),\n" +
+            ")"
+    }
+}
