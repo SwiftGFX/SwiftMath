@@ -5,6 +5,8 @@
 #if !NOSIMD
 import simd
 
+/// Represents a standard 4x4 transformation matrix. Matrices are stored
+/// in column-major order
 public struct Matrix4x4f {
     var d: float4x4
     
@@ -20,9 +22,15 @@ public struct Matrix4x4f {
         self.d = float4x4(diagonal: v.d)
     }
     
+    /// Initialize a new matrix with the specified columns
+    ///
+    /// - parameter c0: column 0
+    /// - parameter c1: column 1
+    /// - parameter c2: column 2
+    /// - parameter c3: column 3
     @inline(__always)
-    public init(_ r0: Vector4f, _ r1: Vector4f, _ r2: Vector4f, _ r3: Vector4f) {
-        self.d = float4x4(matrix_float4x4(columns: (r0.d, r1.d, r2.d, r3.d)))
+    public init(_ c0: Vector4f, _ c1: Vector4f, _ c2: Vector4f, _ c3: Vector4f) {
+        self.d = float4x4(matrix_float4x4(columns: (c0.d, c1.d, c2.d, c3.d)))
     }
     
     //MARK:- properties
