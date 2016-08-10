@@ -95,6 +95,10 @@ public extension Vector3f {
         return unsafeBitCast(lhs.d * rhs.d, to: Vector3f.self)
     }
     
+    @inline(__always)
+    public static func *=(lhs: inout Vector3f, rhs: Float) {
+        lhs.d *= rhs
+    }
 }
 
 #endif

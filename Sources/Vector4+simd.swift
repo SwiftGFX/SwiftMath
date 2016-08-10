@@ -109,6 +109,11 @@ public extension Vector4f {
     public static func *(lhs: Vector4f, rhs: Matrix4x4f) -> Vector4f {
         return unsafeBitCast(lhs.d * rhs.d, to: Vector4f.self)
     }
+    
+    @inline(__always)
+    public static func *=(lhs: inout Vector4f, rhs: Float) {
+        lhs.d *= rhs
+    }
 }
 
 #endif
