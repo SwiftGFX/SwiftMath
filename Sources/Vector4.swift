@@ -37,3 +37,9 @@ public extension Vector4f {
         self.init(v.d.x, v.d.y, 0.0, 0.0)
     }
 }
+
+public extension Vector4f {
+    public var isZero: Bool {
+        return x == 0.0 && y == 0.0 && z == 0.0 && w == 0.0
+    }
+}
