@@ -111,6 +111,10 @@ public extension Vector2f {
         return Vector2f(Vector4f(lhs).d * rhs.d)
     }
     
+    @inline(__always)
+    public static func *=(lhs: inout Vector2f, rhs: Float) {
+        lhs.d *= rhs
+    }
 }
 
 extension Vector2f: Equatable {
