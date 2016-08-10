@@ -61,11 +61,11 @@ public extension Vector2f {
         return simd.length_squared(d)
     }
     
-    //MARK:- functions
-    
-    public func normalized() -> Vector2f {
+    public var normalized: Vector2f {
         return unsafeBitCast(simd.normalize(d), to: Vector2f.self)
     }
+    
+    //MARK:- functions
     
     public func dot(_ x: Vector2f) -> Float {
         return simd.dot(d, x.d)

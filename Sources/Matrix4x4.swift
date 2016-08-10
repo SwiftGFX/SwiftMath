@@ -30,12 +30,12 @@ public extension Matrix4x4f {
     }
     
     public static func lookAtLH(eye: Vector3f, at: Vector3f, up: Vector3f) -> Matrix4x4f {
-        let view = (at - eye).normalized()
+        let view = (at - eye).normalized
         return lookAt(eye: eye, view: view, up: up)
     }
     
     static func lookAt(eye: Vector3f, view: Vector3f, up: Vector3f) -> Matrix4x4f {
-        let right = up.cross(view).normalized()
+        let right = up.cross(view).normalized
         let u     = view.cross(right)
         
         return Matrix4x4f(
