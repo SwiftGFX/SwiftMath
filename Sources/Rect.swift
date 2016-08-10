@@ -42,7 +42,7 @@ public struct Rect {
 
 extension Rect: CustomStringConvertible {
     public var description: String {
-        return "Rect(origin: (\(origin.x), \(origin.x)), size: (\(size.x), \(size.y)))"
+        return "Rect(origin: (\(origin.x), \(origin.y)), size: (\(size.x), \(size.y)))"
     }
 }
 
