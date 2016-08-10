@@ -28,3 +28,9 @@ public extension Vector3f {
         }
     }
 }
+
+public extension Vector3f {
+    public var isZero: Bool {
+        return x == 0.0 && y == 0.0 && z == 0.0
+    }
+}
