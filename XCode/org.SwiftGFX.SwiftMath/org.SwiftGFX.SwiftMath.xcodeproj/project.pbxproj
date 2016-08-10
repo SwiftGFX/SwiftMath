@@ -19,6 +19,7 @@
 		088ECE151D5A9AE800E48EC9 /* Vector4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088ECE021D5A9A8B00E48EC9 /* Vector4.swift */; };
 		088ECE171D5A9B1700E48EC9 /* Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088ECE161D5A9B1700E48EC9 /* Rect.swift */; };
 		088ECE191D5A9FA100E48EC9 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088ECE181D5A9FA100E48EC9 /* Point.swift */; };
+		088ECE241D5AA90D00E48EC9 /* Matrix4x4+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088ECE231D5AA90D00E48EC9 /* Matrix4x4+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		088ECE071D5A9ADA00E48EC9 /* libSwiftMath-macOS.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libSwiftMath-macOS.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		088ECE161D5A9B1700E48EC9 /* Rect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rect.swift; sourceTree = "<group>"; };
 		088ECE181D5A9FA100E48EC9 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		088ECE231D5AA90D00E48EC9 /* Matrix4x4+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Matrix4x4+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				088ECDF91D5A9A8B00E48EC9 /* functions.swift */,
 				088ECDFA1D5A9A8B00E48EC9 /* Matrix4x4+simd.swift */,
 				088ECDFB1D5A9A8B00E48EC9 /* Matrix4x4.swift */,
+				088ECE231D5AA90D00E48EC9 /* Matrix4x4+Extensions.swift */,
 				088ECDFC1D5A9A8B00E48EC9 /* platform.swift */,
 				088ECDFD1D5A9A8B00E48EC9 /* Vector2+simd.swift */,
 				088ECDFE1D5A9A8B00E48EC9 /* Vector2.swift */,
@@ -161,6 +164,7 @@
 				088ECE0F1D5A9AE800E48EC9 /* platform.swift in Sources */,
 				088ECE131D5A9AE800E48EC9 /* Vector3.swift in Sources */,
 				088ECE0C1D5A9AE800E48EC9 /* functions.swift in Sources */,
+				088ECE241D5AA90D00E48EC9 /* Matrix4x4+Extensions.swift in Sources */,
 				088ECE141D5A9AE800E48EC9 /* Vector4+simd.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
