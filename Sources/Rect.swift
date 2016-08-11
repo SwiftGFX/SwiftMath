@@ -10,11 +10,21 @@ public typealias Size = Vector2f
 
 public extension Size {
     var width: Float {
-        return x
+        get {
+           return x
+        }
+        set {
+            x = newValue
+        }
     }
     
     var height: Float {
-        return y
+        get {
+            return y
+        }
+        set {
+            y = newValue
+        }
     }
     
     init(width: Float, height: Float) {
