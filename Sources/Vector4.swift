@@ -34,7 +34,12 @@ public extension Vector4f {
     
     @inline(__always)
     public init(_ v: Vector2f) {
-        self.init(v.d.x, v.d.y, 0.0, 0.0)
+        self.init(v.d.x, v.d.y, 0.0, 1.0)
+    }
+    
+    @inline(__always)
+    public init(_ v: Vector3f) {
+        self.init(v.d.x, v.d.y,v.d.z, 1.0)
     }
 }
 

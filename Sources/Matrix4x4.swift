@@ -16,10 +16,10 @@ public extension Matrix4x4f {
         _ r20: Float, _ r21: Float, _ r22: Float, _ r23: Float,
         _ r30: Float, _ r31: Float, _ r32: Float, _ r33: Float) {
         self.init(
-            vec4(r00, r01, r02, r03),
-            vec4(r10, r11, r12, r13),
-            vec4(r20, r21, r22, r23),
-            vec4(r30, r31, r32, r33)
+            vec4(r00, r10, r20, r30),
+            vec4(r01, r11, r21, r31),
+            vec4(r02, r12, r22, r32),
+            vec4(r03, r13, r23, r33)
         )
     }
     
@@ -30,19 +30,19 @@ public extension Matrix4x4f {
     }
     
     public static func lookAtLH(eye: Vector3f, at: Vector3f, up: Vector3f) -> Matrix4x4f {
-        let view = (at - eye).normalized()
+        let view = (at - eye).normalized
         return lookAt(eye: eye, view: view, up: up)
     }
     
     static func lookAt(eye: Vector3f, view: Vector3f, up: Vector3f) -> Matrix4x4f {
-        let right = up.cross(view).normalized()
+        let right = up.cross(view).normalized
         let u     = view.cross(right)
         
         return Matrix4x4f(
-            right[0],        u[0],        view[0],       0.0,
-            right[1],        u[1],        view[1],       0.0,
-            right[2],        u[2],        view[2],       0.0,
-            -right.dot(eye), -u.dot(eye), -view.dot(eye), 1.0
+            vec4(right[0],        u[0],        view[0],        0.0),
+            vec4(right[1],        u[1],        view[1],        0.0),
+            vec4(right[2],        u[2],        view[2],        0.0),
+            vec4(-right.dot(eye), -u.dot(eye), -view.dot(eye), 1.0)
         )
     }
     
@@ -167,10 +167,10 @@ public extension Matrix4x4f {
     
     public static func translate(tx: Float, ty: Float, tz: Float) -> Matrix4x4f {
         return Matrix4x4f(
-            1.0, 0.0, 0.0, 0.0,
-            0.0, 1.0, 0.0, 0.0,
-            0.0, 0.0, 1.0, 0.0,
-            tx,  ty,  tz,  1.0
+            vec4(1.0, 0.0, 0.0, 0.0),
+            vec4(0.0, 1.0, 0.0, 0.0),
+            vec4(0.0, 0.0, 1.0, 0.0),
+            vec4(tx,  ty,  tz,  1.0)
         )
     }
     
@@ -296,21 +296,22 @@ public extension Matrix4x4f {
         let cycz = cy*cz
         
         return Matrix4x4f(
-            _sx * (cycz - sxsz*sy),   _sx * -cx*sz, _sx * (cz*sy + cy*sxsz), 0.0,
-            _sy * (cz*sx*sy + cy*sz), _sy * cx*cz,  _sy * (sy*sz - cycz*sx), 0.0,
-            _sz * -cx*sy,             _sz * sx,     cx*cy,                   0.0,
-            tx,                       ty,           tz,                      1.0
+            vec4(_sx * (cycz - sxsz*sy),   _sx * -cx*sz, _sx * (cz*sy + cy*sxsz), 0.0),
+            vec4(_sy * (cz*sx*sy + cy*sz), _sy * cx*cz,  _sy * (sy*sz - cycz*sx), 0.0),
+            vec4(_sz * -cx*sy,             _sz * sx,     cx*cy,                   0.0),
+            vec4(tx,                       ty,           tz,                      1.0)
         )
     }
 }
 
 extension Matrix4x4f: CustomStringConvertible {
+    /// Displays the matrix in row-major order
     public var description: String {
         return "Matrix4x4f(\n" +
-            "m00: \(d[0,0]), m01: \(d[0,1]), m02: \(d[0,2]), m03: \(d[0,3]),\n" +
-            "m10: \(d[1,0]), m11: \(d[1,1]), m12: \(d[1,2]), m13: \(d[1,3]),\n" +
-            "m20: \(d[2,0]), m21: \(d[2,1]), m22: \(d[2,2]), m23: \(d[2,3]),\n" +
-            "m30: \(d[3,0]), m31: \(d[3,1]), m32: \(d[3,2]), m33: \(d[3,3]),\n" +
-            ")"
+            "m00: \(d[0,0]), m01: \(d[1,0]), m02: \(d[2,0]), m03: \(d[3,0]),\n" +
+            "m10: \(d[0,1]), m11: \(d[1,1]), m12: \(d[2,1]), m13: \(d[3,1]),\n" +
+            "m20: \(d[0,2]), m21: \(d[1,2]), m22: \(d[2,2]), m23: \(d[3,2]),\n" +
+            "m30: \(d[0,3]), m31: \(d[1,3]), m32: \(d[2,3]), m33: \(d[3,3]),\n" +
+        ")"
     }
 }

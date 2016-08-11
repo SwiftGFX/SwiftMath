@@ -18,4 +18,26 @@ public extension Matrix4x4f {
                  self[0, 3] * v.x + self[1, 3] * v.y + self[2, 3] * v.z + self[3, 3])
         )
     }
+    
+    /// Multiplies a 4×4 matrix by a position vector to create a vector in
+    /// homogenous coordinates, then projects the result to a 3-component vector.
+    ///
+    /// - parameter v: the position vector
+    ///
+    /// - remark:
+    ///
+    ///     ```
+    ///     var r = self × vec4(v)
+    ///     r *= 1.0/r.w
+    ///     return vec3(r.x, r.y, r.z)
+    ///     ```
+    ///
+    /// - returns: 
+    /// A new vector created by first multiplying the matrix by the
+    /// vector and then performing perspective division on the result vector.
+    public func multiplyAndProject(v: Vector3f) -> Vector3f {
+        var r = self * Vector4f(v)
+        r *= 1.0/r.w
+        return Vector3f(r.x, r.y, r.z)
+    }
 }
