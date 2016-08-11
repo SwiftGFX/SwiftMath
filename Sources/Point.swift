@@ -7,6 +7,7 @@
 //
 
 public typealias Point = Vector2f
+public typealias p2d = Point
 
 public extension Rect {
     public nonmutating func contains(point: Point) -> Bool {
