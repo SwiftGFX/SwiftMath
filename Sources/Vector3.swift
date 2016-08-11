@@ -35,7 +35,7 @@ public extension Vector3f {
     }
 }
 
-public extension Vector2f {
+public extension Vector3f {
     public var xy: Vector2f {
         return Vector2f(x, y)
     }
