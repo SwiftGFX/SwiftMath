@@ -34,3 +34,9 @@ public extension Vector3f {
         return x == 0.0 && y == 0.0 && z == 0.0
     }
 }
+
+public extension Vector2f {
+    public var xy: Vector2f {
+        return Vector2f(x, y)
+    }
+}
