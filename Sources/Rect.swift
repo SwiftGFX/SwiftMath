@@ -6,6 +6,18 @@
 //
 //
 
+public typealias Size = Vector2f
+
+public extension Size {
+    var width: Float {
+        return x
+    }
+    
+    var height: Float {
+        return y
+    }
+}
+
 // TODO:  
 // - rect union
 // - rect intersection
@@ -13,7 +25,7 @@
 public struct Rect {
     public var origin: Point
     // TODO: Gracefully handle negative size case or forbid it
-    public var size:   Vector2f
+    public var size:   Size
     
     public var minX: Float { return origin.x }
     public var minY: Float { return origin.y }
@@ -26,6 +38,9 @@ public struct Rect {
     public var bottomRight: Point { return Point(maxX, maxY) }
     public var topLeft:     Point { return Point(minX, maxY) }
     public var topRight:    Point { return Point(maxX, maxY) }
+    
+    public var width : Float { return size.width }
+    public var height: Float { return size.height }
     
     init(bottomLeft: Point, topRight: Point) {
         origin = bottomLeft
