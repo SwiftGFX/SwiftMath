@@ -61,7 +61,7 @@ public struct Rect {
         size = topRight - bottomLeft
     }
     
-    init(origin: Point, size: Vector2f) {
+    init(origin: Point, size: Size) {
         self.origin = origin
         self.size   = size
     }
@@ -72,6 +72,12 @@ public struct Rect {
 extension Rect: CustomStringConvertible {
     public var description: String {
         return "Rect(origin: (\(origin.x), \(origin.y)), size: (\(size.x), \(size.y)))"
+    }
+}
+
+public extension Rect {
+    public func scaled(by s: Float) -> Rect {
+        return Rect(origin: origin * s, size: size * s)
     }
 }
 
