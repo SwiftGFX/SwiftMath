@@ -41,6 +41,12 @@ public extension Vector2f {
     }
 }
 
+public extension Vector2f {
+    public var extendedToVec3: Vector3f {
+        return Vector3f(x, y, 0.0)
+    }
+}
+
 extension Vector2f: CustomStringConvertible {
     public var description: String {
         return "Vector2f(x: \(d.x), y: \(d.y))"
