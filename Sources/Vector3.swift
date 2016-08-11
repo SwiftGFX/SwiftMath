@@ -27,6 +27,18 @@ public extension Vector3f {
             d[x] = newValue
         }
     }
+    
+    //MARK:- initializers
+    
+    @inline(__always)
+    public init(_ v: Vector4f) {
+        self.init(v.d.x, v.d.y, v.d.z)
+    }
+    
+    @inline(__always)
+    public init(_ v: Vector2f) {
+        self.init(v.d.x, v.d.y, 0.0)
+    }
 }
 
 public extension Vector3f {

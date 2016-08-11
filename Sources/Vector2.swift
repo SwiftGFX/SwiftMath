@@ -33,6 +33,11 @@ public extension Vector2f {
     public init(_ v: Vector4f) {
         self.init(v.d.x, v.d.y)
     }
+    
+    @inline(__always)
+    public init(_ v: Vector3f) {
+        self.init(v.d.x, v.d.y)
+    }
 }
 
 public extension Vector2f {
