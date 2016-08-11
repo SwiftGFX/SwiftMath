@@ -16,6 +16,10 @@ public extension Size {
     var height: Float {
         return y
     }
+    
+    init(width: Float, height: Float) {
+        self.init(width, height)
+    }
 }
 
 // TODO:  
