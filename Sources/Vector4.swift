@@ -48,3 +48,13 @@ public extension Vector4f {
         return x == 0.0 && y == 0.0 && z == 0.0 && w == 0.0
     }
 }
+
+public extension Vector4f {
+    public var xy: Vector2f {
+        return Vector2f(x, y)
+    }
+    
+    public var xyz: Vector3f {
+        return Vector3f(x, y, z)
+    }
+}
