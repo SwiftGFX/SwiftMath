@@ -92,6 +92,11 @@ public extension Vector2f {
     }
     
     @inline(__always)
+    public static func +(lhs: Vector2f, rhs: Vector2f) -> Vector2f {
+        return unsafeBitCast(lhs.d + rhs.d, to: Vector2f.self)
+    }
+    
+    @inline(__always)
     public static func *(lhs: Vector2f, rhs: Float) -> Vector2f {
         return unsafeBitCast(lhs.d * rhs, to: Vector2f.self)
     }
