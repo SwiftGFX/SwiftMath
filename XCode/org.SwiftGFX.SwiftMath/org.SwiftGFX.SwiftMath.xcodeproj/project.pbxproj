@@ -7,36 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		088ECE0C1D5A9AE800E48EC9 /* functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088ECDF91D5A9A8B00E48EC9 /* functions.swift */; };
-		088ECE0D1D5A9AE800E48EC9 /* Matrix4x4+simd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088ECDFA1D5A9A8B00E48EC9 /* Matrix4x4+simd.swift */; };
-		088ECE0E1D5A9AE800E48EC9 /* Matrix4x4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088ECDFB1D5A9A8B00E48EC9 /* Matrix4x4.swift */; };
-		088ECE0F1D5A9AE800E48EC9 /* platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088ECDFC1D5A9A8B00E48EC9 /* platform.swift */; };
-		088ECE101D5A9AE800E48EC9 /* Vector2+simd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088ECDFD1D5A9A8B00E48EC9 /* Vector2+simd.swift */; };
-		088ECE111D5A9AE800E48EC9 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088ECDFE1D5A9A8B00E48EC9 /* Vector2.swift */; };
-		088ECE121D5A9AE800E48EC9 /* Vector3+simd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088ECDFF1D5A9A8B00E48EC9 /* Vector3+simd.swift */; };
-		088ECE131D5A9AE800E48EC9 /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088ECE001D5A9A8B00E48EC9 /* Vector3.swift */; };
-		088ECE141D5A9AE800E48EC9 /* Vector4+simd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088ECE011D5A9A8B00E48EC9 /* Vector4+simd.swift */; };
-		088ECE151D5A9AE800E48EC9 /* Vector4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088ECE021D5A9A8B00E48EC9 /* Vector4.swift */; };
-		088ECE171D5A9B1700E48EC9 /* Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088ECE161D5A9B1700E48EC9 /* Rect.swift */; };
-		088ECE191D5A9FA100E48EC9 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088ECE181D5A9FA100E48EC9 /* Point.swift */; };
-		088ECE241D5AA90D00E48EC9 /* Matrix4x4+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088ECE231D5AA90D00E48EC9 /* Matrix4x4+Extensions.swift */; };
+		089917761D637C2F00DA51E8 /* Matrix4x4+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089917681D637C2F00DA51E8 /* Matrix4x4+Extensions.swift */; };
+		089917771D637C2F00DA51E8 /* trigonometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089917691D637C2F00DA51E8 /* trigonometry.swift */; };
+		089917781D637C2F00DA51E8 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899176A1D637C2F00DA51E8 /* Vector2.swift */; };
+		089917791D637C2F00DA51E8 /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899176B1D637C2F00DA51E8 /* Vector3.swift */; };
+		0899177A1D637C2F00DA51E8 /* functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899176C1D637C2F00DA51E8 /* functions.swift */; };
+		0899177B1D637C2F00DA51E8 /* Matrix4x4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899176D1D637C2F00DA51E8 /* Matrix4x4.swift */; };
+		0899177C1D637C2F00DA51E8 /* Matrix4x4+simd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899176E1D637C2F00DA51E8 /* Matrix4x4+simd.swift */; };
+		0899177D1D637C2F00DA51E8 /* platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899176F1D637C2F00DA51E8 /* platform.swift */; };
+		0899177E1D637C2F00DA51E8 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089917701D637C2F00DA51E8 /* Point.swift */; };
+		0899177F1D637C2F00DA51E8 /* Rect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089917711D637C2F00DA51E8 /* Rect.swift */; };
+		089917801D637C2F00DA51E8 /* Vector2+simd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089917721D637C2F00DA51E8 /* Vector2+simd.swift */; };
+		089917811D637C2F00DA51E8 /* Vector3+simd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089917731D637C2F00DA51E8 /* Vector3+simd.swift */; };
+		089917821D637C2F00DA51E8 /* Vector4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089917741D637C2F00DA51E8 /* Vector4.swift */; };
+		089917831D637C2F00DA51E8 /* Vector4+simd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089917751D637C2F00DA51E8 /* Vector4+simd.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		088ECDF91D5A9A8B00E48EC9 /* functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = functions.swift; sourceTree = "<group>"; };
-		088ECDFA1D5A9A8B00E48EC9 /* Matrix4x4+simd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Matrix4x4+simd.swift"; sourceTree = "<group>"; };
-		088ECDFB1D5A9A8B00E48EC9 /* Matrix4x4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix4x4.swift; sourceTree = "<group>"; };
-		088ECDFC1D5A9A8B00E48EC9 /* platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = platform.swift; sourceTree = "<group>"; };
-		088ECDFD1D5A9A8B00E48EC9 /* Vector2+simd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vector2+simd.swift"; sourceTree = "<group>"; };
-		088ECDFE1D5A9A8B00E48EC9 /* Vector2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector2.swift; sourceTree = "<group>"; };
-		088ECDFF1D5A9A8B00E48EC9 /* Vector3+simd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vector3+simd.swift"; sourceTree = "<group>"; };
-		088ECE001D5A9A8B00E48EC9 /* Vector3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
-		088ECE011D5A9A8B00E48EC9 /* Vector4+simd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vector4+simd.swift"; sourceTree = "<group>"; };
-		088ECE021D5A9A8B00E48EC9 /* Vector4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector4.swift; sourceTree = "<group>"; };
 		088ECE071D5A9ADA00E48EC9 /* libSwiftMath-macOS.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libSwiftMath-macOS.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
-		088ECE161D5A9B1700E48EC9 /* Rect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rect.swift; sourceTree = "<group>"; };
-		088ECE181D5A9FA100E48EC9 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
-		088ECE231D5AA90D00E48EC9 /* Matrix4x4+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Matrix4x4+Extensions.swift"; sourceTree = "<group>"; };
+		089917681D637C2F00DA51E8 /* Matrix4x4+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Matrix4x4+Extensions.swift"; sourceTree = "<group>"; };
+		089917691D637C2F00DA51E8 /* trigonometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = trigonometry.swift; sourceTree = "<group>"; };
+		0899176A1D637C2F00DA51E8 /* Vector2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector2.swift; sourceTree = "<group>"; };
+		0899176B1D637C2F00DA51E8 /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
+		0899176C1D637C2F00DA51E8 /* functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = functions.swift; sourceTree = "<group>"; };
+		0899176D1D637C2F00DA51E8 /* Matrix4x4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix4x4.swift; sourceTree = "<group>"; };
+		0899176E1D637C2F00DA51E8 /* Matrix4x4+simd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Matrix4x4+simd.swift"; sourceTree = "<group>"; };
+		0899176F1D637C2F00DA51E8 /* platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = platform.swift; sourceTree = "<group>"; };
+		089917701D637C2F00DA51E8 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		089917711D637C2F00DA51E8 /* Rect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rect.swift; sourceTree = "<group>"; };
+		089917721D637C2F00DA51E8 /* Vector2+simd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Vector2+simd.swift"; sourceTree = "<group>"; };
+		089917731D637C2F00DA51E8 /* Vector3+simd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Vector3+simd.swift"; sourceTree = "<group>"; };
+		089917741D637C2F00DA51E8 /* Vector4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector4.swift; sourceTree = "<group>"; };
+		089917751D637C2F00DA51E8 /* Vector4+simd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Vector4+simd.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,19 +63,20 @@
 		088ECDF81D5A9A8B00E48EC9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				088ECDF91D5A9A8B00E48EC9 /* functions.swift */,
-				088ECDFA1D5A9A8B00E48EC9 /* Matrix4x4+simd.swift */,
-				088ECDFB1D5A9A8B00E48EC9 /* Matrix4x4.swift */,
-				088ECE231D5AA90D00E48EC9 /* Matrix4x4+Extensions.swift */,
-				088ECDFC1D5A9A8B00E48EC9 /* platform.swift */,
-				088ECDFD1D5A9A8B00E48EC9 /* Vector2+simd.swift */,
-				088ECDFE1D5A9A8B00E48EC9 /* Vector2.swift */,
-				088ECDFF1D5A9A8B00E48EC9 /* Vector3+simd.swift */,
-				088ECE001D5A9A8B00E48EC9 /* Vector3.swift */,
-				088ECE011D5A9A8B00E48EC9 /* Vector4+simd.swift */,
-				088ECE021D5A9A8B00E48EC9 /* Vector4.swift */,
-				088ECE161D5A9B1700E48EC9 /* Rect.swift */,
-				088ECE181D5A9FA100E48EC9 /* Point.swift */,
+				089917681D637C2F00DA51E8 /* Matrix4x4+Extensions.swift */,
+				089917691D637C2F00DA51E8 /* trigonometry.swift */,
+				0899176A1D637C2F00DA51E8 /* Vector2.swift */,
+				0899176B1D637C2F00DA51E8 /* Vector3.swift */,
+				0899176C1D637C2F00DA51E8 /* functions.swift */,
+				0899176D1D637C2F00DA51E8 /* Matrix4x4.swift */,
+				0899176E1D637C2F00DA51E8 /* Matrix4x4+simd.swift */,
+				0899176F1D637C2F00DA51E8 /* platform.swift */,
+				089917701D637C2F00DA51E8 /* Point.swift */,
+				089917711D637C2F00DA51E8 /* Rect.swift */,
+				089917721D637C2F00DA51E8 /* Vector2+simd.swift */,
+				089917731D637C2F00DA51E8 /* Vector3+simd.swift */,
+				089917741D637C2F00DA51E8 /* Vector4.swift */,
+				089917751D637C2F00DA51E8 /* Vector4+simd.swift */,
 			);
 			name = Sources;
 			path = ../../Sources;
@@ -153,19 +156,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				088ECE0D1D5A9AE800E48EC9 /* Matrix4x4+simd.swift in Sources */,
-				088ECE191D5A9FA100E48EC9 /* Point.swift in Sources */,
-				088ECE111D5A9AE800E48EC9 /* Vector2.swift in Sources */,
-				088ECE171D5A9B1700E48EC9 /* Rect.swift in Sources */,
-				088ECE0E1D5A9AE800E48EC9 /* Matrix4x4.swift in Sources */,
-				088ECE151D5A9AE800E48EC9 /* Vector4.swift in Sources */,
-				088ECE121D5A9AE800E48EC9 /* Vector3+simd.swift in Sources */,
-				088ECE101D5A9AE800E48EC9 /* Vector2+simd.swift in Sources */,
-				088ECE0F1D5A9AE800E48EC9 /* platform.swift in Sources */,
-				088ECE131D5A9AE800E48EC9 /* Vector3.swift in Sources */,
-				088ECE0C1D5A9AE800E48EC9 /* functions.swift in Sources */,
-				088ECE241D5AA90D00E48EC9 /* Matrix4x4+Extensions.swift in Sources */,
-				088ECE141D5A9AE800E48EC9 /* Vector4+simd.swift in Sources */,
+				089917801D637C2F00DA51E8 /* Vector2+simd.swift in Sources */,
+				089917821D637C2F00DA51E8 /* Vector4.swift in Sources */,
+				0899177A1D637C2F00DA51E8 /* functions.swift in Sources */,
+				089917831D637C2F00DA51E8 /* Vector4+simd.swift in Sources */,
+				089917771D637C2F00DA51E8 /* trigonometry.swift in Sources */,
+				0899177B1D637C2F00DA51E8 /* Matrix4x4.swift in Sources */,
+				0899177D1D637C2F00DA51E8 /* platform.swift in Sources */,
+				089917761D637C2F00DA51E8 /* Matrix4x4+Extensions.swift in Sources */,
+				089917791D637C2F00DA51E8 /* Vector3.swift in Sources */,
+				0899177C1D637C2F00DA51E8 /* Matrix4x4+simd.swift in Sources */,
+				089917811D637C2F00DA51E8 /* Vector3+simd.swift in Sources */,
+				0899177E1D637C2F00DA51E8 /* Point.swift in Sources */,
+				089917781D637C2F00DA51E8 /* Vector2.swift in Sources */,
+				0899177F1D637C2F00DA51E8 /* Rect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +304,7 @@
 				088ECE0B1D5A9ADA00E48EC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
