@@ -41,5 +41,18 @@ class AngleTests: XCTestCase {
         XCTAssertEqualWithAccuracy(3.141592, a.radians, accuracy: 0.001)
         XCTAssertEqualWithAccuracy(180.0, a.degrees, accuracy: 0.1)
     }
+    
+    func testMakeAngleFromIntegerInDegrees() {
+        let a = 180.degrees
+        XCTAssertEqual(Float.pi, a.radians)
+    }
+    
+    // MARK: - operator tests
+    
+    func testAngleMultiplyLiteral() {
+        var a = 180.0°
+        a = a * 0.5
+        XCTAssertEqual(90.0, a.degrees)
+    }
 
 }

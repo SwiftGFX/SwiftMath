@@ -28,6 +28,46 @@ extension Angle: ExpressibleByFloatLiteral {
     }
 }
 
+extension Angle: CustomStringConvertible, CustomDebugStringConvertible, CustomPlaygroundQuickLookable {
+    public var description: String {
+        return "\(degrees)°"
+    }
+    
+    public var debugDescription: String {
+        return "\(degrees)°"
+    }
+    
+    public var customPlaygroundQuickLook: PlaygroundQuickLook {
+        return .text(description)
+    }
+}
+
+extension Int {
+    /// Return the integer value as an angle in degrees
+    public var degrees: Angle<Float> {
+        return Angle(degrees: Float(self))
+    }
+}
+
+extension Angle {
+    // MARK: - operators
+    
+    @inline(__always)
+    public static func *(lhs: Angle<T>, rhs: Angle<T>) -> Angle<T> {
+        return Angle(radians: lhs.radians * rhs.radians)
+    }
+    
+    @inline(__always)
+    public static func *(lhs: Angle<T>, rhs: T) -> Angle<T> {
+        return Angle(radians: lhs.radians * rhs)
+    }
+    
+    @inline(__always)
+    public static func *=(lhs: inout Angle<T>, rhs: Angle<T>) {
+        lhs = Angle(radians: lhs.radians * rhs.radians)
+    }
+}
+
 /// Degree operator, unicode symbol U+00B0 DEGREE SIGN
 postfix operator °
 
