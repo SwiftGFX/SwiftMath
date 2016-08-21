@@ -25,7 +25,8 @@ import Darwin
 internal func sincosf(_ a: Angle<Float>) -> (sin: Float, cos: Float) {
     var s: Float = 0.0
     var c: Float = 0.0
-    __sincosf(a.radians, &s, &c)
+    __sincospif(a.degrees / 180.0, &s, &c)
+    
     return (sin: s, cos: c)
 }
 

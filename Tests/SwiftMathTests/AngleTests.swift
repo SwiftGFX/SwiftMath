@@ -25,7 +25,7 @@ class AngleTests: XCTestCase {
             return x
         }
         
-        let a = test(x: 3.141592)
+        let a = test(x: 180.0)
         
         XCTAssertEqualWithAccuracy(3.141592, a.radians, accuracy: 0.001)
         XCTAssertEqualWithAccuracy(180.0, a.degrees, accuracy: 0.1)
@@ -36,7 +36,7 @@ class AngleTests: XCTestCase {
             return x
         }
         
-        let a = test(x: 3.141592)
+        let a = test(x: 180.0)
         
         XCTAssertEqualWithAccuracy(3.141592, a.radians, accuracy: 0.001)
         XCTAssertEqualWithAccuracy(180.0, a.degrees, accuracy: 0.1)

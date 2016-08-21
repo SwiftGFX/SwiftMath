@@ -3,28 +3,34 @@
 //
 
 public struct Angle<T: BinaryFloatingPoint> {
-    public let radians: T
+    public let degrees: T
     
-    public var degrees: T {
-        return radians * 180.0 / T.pi
+    public var radians: T {
+        return degrees * T.pi / 180.0
     }
-    
+
     @inline(__always)
     public init(radians val: T) {
-        radians = val
+        degrees = val / T.pi * 180.0
     }
     
     @inline(__always)
     public init(degrees val: T) {
-        radians = val * T.pi / 180.0
+        degrees = val
+    }
+    
+    @inline(__always)
+    internal init(_ val: T) {
+        degrees = val
     }
 }
 
 extension Angle: ExpressibleByFloatLiteral {
     
-    /// Initializes a new angle from a floating point value specified in radians
+    /// Initializes a new angle from a floating point value specified in degrees
+    @inline(__always)
     public init(floatLiteral value: FloatLiteralType) {
-        radians = T(value)
+        self.degrees = T(value)
     }
 }
 
@@ -54,24 +60,24 @@ extension Angle {
     
     @inline(__always)
     public static func *(lhs: Angle<T>, rhs: Angle<T>) -> Angle<T> {
-        return Angle(radians: lhs.radians * rhs.radians)
+        return Angle(lhs.degrees * rhs.degrees)
     }
     
     // explicit Float and Double overloads to simplify combination of Angle<T>
     
     @inline(__always)
     public static func *(lhs: Angle<T>, rhs: Float) -> Angle<T> {
-        return Angle(radians: lhs.radians * T(rhs))
+        return Angle(lhs.degrees * T(rhs))
     }
     
     @inline(__always)
     public static func *(lhs: Angle<T>, rhs: Double) -> Angle<T> {
-        return Angle(radians: lhs.radians * T(rhs))
+        return Angle(lhs.degrees * T(rhs))
     }
     
     @inline(__always)
     public static func *=(lhs: inout Angle<T>, rhs: Angle<T>) {
-        lhs = Angle(radians: lhs.radians * rhs.radians)
+        lhs = Angle(lhs.degrees * rhs.degrees)
     }
 }
 
