@@ -126,7 +126,7 @@ extension Vector2f: Equatable {
     public static func ==(lhs: Vector2f, rhs: Vector2f) -> Bool {
         return
             lhs.d.x == rhs.d.x &&
-                lhs.d.y == rhs.d.y
+            lhs.d.y == rhs.d.y
     }
 }
 
