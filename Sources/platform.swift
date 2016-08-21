@@ -5,14 +5,31 @@
 #if !(os(OSX) || os(iOS) || os(tvOS) || os(watchOS))
 
 @inline(__always)
-func __sincosf(_ a: Float, _ sina: inout Float, cosa: inout Float) {
+internal func __sincosf(_ a: Float, _ sina: inout Float, cosa: inout Float) {
     sina = sin(a)
     cosa = cos(a)
 }
 
 @inline(__always)
-func __tanpif(_ a: Float) -> Float {
+internal func __tanpif(_ a: Float) -> Float {
     return tan(a * Float.pi)
 }
+    
+#else
+    
+import Darwin
 
 #endif
+
+@inline(__always)
+internal func sincosf(_ a: Angle<Float>) -> (sin: Float, cos: Float) {
+    var s: Float = 0.0
+    var c: Float = 0.0
+    __sincosf(a.radians, &s, &c)
+    return (sin: s, cos: c)
+}
+
+@inline(__always)
+internal func tanpif(_ a: Angle<Float>) -> Float {
+    return __tanpif(a.radians)
+}
