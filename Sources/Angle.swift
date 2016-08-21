@@ -20,6 +20,15 @@ public struct Angle<T: BinaryFloatingPoint> {
     }
 }
 
+extension Angle: ExpressibleByFloatLiteral {
+    
+    /// Initializes a new angle from a floating point value specified in radians
+    public init(floatLiteral value: FloatLiteralType) {
+        radians = T(value)
+    }
+}
+
+/// Degree operator, unicode symbol U+00B0 DEGREE SIGN
 postfix operator °
 
 /// The degree operator constructs an `Angle` from the specified floating point value in degrees
