@@ -57,9 +57,16 @@ extension Angle {
         return Angle(radians: lhs.radians * rhs.radians)
     }
     
+    // explicit Float and Double overloads to simplify combination of Angle<T>
+    
     @inline(__always)
-    public static func *(lhs: Angle<T>, rhs: T) -> Angle<T> {
-        return Angle(radians: lhs.radians * rhs)
+    public static func *(lhs: Angle<T>, rhs: Float) -> Angle<T> {
+        return Angle(radians: lhs.radians * T(rhs))
+    }
+    
+    @inline(__always)
+    public static func *(lhs: Angle<T>, rhs: Double) -> Angle<T> {
+        return Angle(radians: lhs.radians * T(rhs))
     }
     
     @inline(__always)
