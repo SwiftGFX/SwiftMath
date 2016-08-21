@@ -174,6 +174,12 @@ public extension Matrix4x4f {
         )
     }
     
+    
+    /// Create a matrix with rotates around the x axis
+    ///
+    /// - parameter x: angle, in radians
+    ///
+    /// - returns: a new rotation matrix
     public static func rotate(x: Float) -> Matrix4x4f {
         var sx: Float = 0.0, cx: Float = 0.0
         __sincosf(x, &sx, &cx)

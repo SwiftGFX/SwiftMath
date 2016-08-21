@@ -19,18 +19,3 @@ class ClampTests: XCTestCase {
         XCTAssertEqual(2.0, a)
     }
 }
-
-class FloatExtensionTests: XCTestCase {
-    
-    func testRadians() {
-        let deg: Float = 180.0
-        let rad = deg.radians
-        XCTAssertEqual(Float.pi, rad)
-    }
-    
-    func testDegrees() {
-        let rad: Float = 2.0 * Float.pi
-        let deg = rad.degrees
-        XCTAssertEqual(360.0, deg)
-    }
-}
