@@ -30,6 +30,6 @@ internal func sincosf(_ a: Angle<Float>) -> (sin: Float, cos: Float) {
 }
 
 @inline(__always)
-internal func tanpif(_ a: Angle<Float>) -> Float {
-    return __tanpif(a.radians)
+internal func tanf(_ a: Angle<Float>) -> Float {
+    return __tanpif(a.degrees / 180.0)
 }

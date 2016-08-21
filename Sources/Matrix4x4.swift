@@ -47,8 +47,8 @@ public extension Matrix4x4f {
     }
     
     /// Creates a left-handed perspective projection matrix
-    public static func proj(fovy: Float, aspect: Float, near: Float, far: Float) -> Matrix4x4f {
-        let height = 1.0 / __tanpif(fovy / 180.0 * 0.5)
+    public static func proj(fovy: Angle<Float>, aspect: Float, near: Float, far: Float) -> Matrix4x4f {
+        let height = 1.0 / tanf(fovy * 0.5)
         let width  = height * 1.0/aspect;
         return projLH(x: 0, y: 0, w: width, h: height, near: near, far: far)
     }
