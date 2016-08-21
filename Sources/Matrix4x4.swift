@@ -177,12 +177,11 @@ public extension Matrix4x4f {
     
     /// Create a matrix with rotates around the x axis
     ///
-    /// - parameter x: angle, in radians
+    /// - parameter x: angle
     ///
     /// - returns: a new rotation matrix
-    public static func rotate(x: Float) -> Matrix4x4f {
-        var sx: Float = 0.0, cx: Float = 0.0
-        __sincosf(x, &sx, &cx)
+    public static func rotate(x: Angle<Float>) -> Matrix4x4f {
+        let (sin: sx, cos: cx) = sincosf(x)
         
         var r = Matrix4x4f()
         r[0,0] = 1.0
@@ -195,9 +194,8 @@ public extension Matrix4x4f {
         return r
     }
     
-    public static func rotate(y: Float) -> Matrix4x4f {
-        var sy: Float = 0.0, cy: Float = 0.0
-        __sincosf(y, &sy, &cy)
+    public static func rotate(y: Angle<Float>) -> Matrix4x4f {
+        let (sin: sy, cos: cy) = sincosf(y)
         
         var r = Matrix4x4f()
         r[0,0] = cy
@@ -211,9 +209,8 @@ public extension Matrix4x4f {
     }
     
     /// rotate returns a rotation matrix around the z plane
-    public static func rotate(z: Float) -> Matrix4x4f {
-        var sz: Float = 0.0, cz: Float = 0.0
-        __sincosf(z, &sz, &cz)
+    public static func rotate(z: Angle<Float>) -> Matrix4x4f {
+        let (sin: sz, cos: cz) = sincosf(z)
         
         var r = Matrix4x4f()
         r[0,0] = cz
@@ -227,11 +224,9 @@ public extension Matrix4x4f {
     }
     
     /// rotate returns a rotation matrix around the x and y planes
-    public static func rotate(x: Float, y: Float) -> Matrix4x4f {
-        var sx: Float = 0.0, cx: Float = 0.0
-        __sincosf(x, &sx, &cx)
-        var sy: Float = 0.0, cy: Float = 0.0
-        __sincosf(y, &sy, &cy)
+    public static func rotate(x: Angle<Float>, y: Angle<Float>) -> Matrix4x4f {
+        let (sin: sx, cos: cx) = sincosf(x)
+        let (sin: sy, cos: cy) = sincosf(y)
         
         return Matrix4x4f(
             vec4(cy,     0.0, sy,     0.0),
@@ -241,13 +236,10 @@ public extension Matrix4x4f {
         )
     }
     
-    public static func rotate(x: Float, y: Float, z: Float) -> Matrix4x4f {
-        var sx: Float = 0.0, cx: Float = 0.0
-        __sincosf(x, &sx, &cx)
-        var sy: Float = 0.0, cy: Float = 0.0
-        __sincosf(y, &sy, &cy)
-        var sz: Float = 0.0, cz: Float = 0.0
-        __sincosf(z, &sz, &cz)
+    public static func rotate(x: Angle<Float>, y: Angle<Float>, z: Angle<Float>) -> Matrix4x4f {
+        let (sin: sx, cos: cx) = sincosf(x)
+        let (sin: sy, cos: cy) = sincosf(y)
+        let (sin: sz, cos: cz) = sincosf(z)
         
         var r = Matrix4x4f()
         r[0,0] = cy*cz
@@ -264,13 +256,10 @@ public extension Matrix4x4f {
         return r
     }
     
-    public static func rotate(z: Float, y: Float, x: Float) -> Matrix4x4f {
-        var sx: Float = 0.0, cx: Float = 0.0
-        __sincosf(x, &sx, &cx)
-        var sy: Float = 0.0, cy: Float = 0.0
-        __sincosf(y, &sy, &cy)
-        var sz: Float = 0.0, cz: Float = 0.0
-        __sincosf(z, &sz, &cz)
+    public static func rotate(z: Angle<Float>, y: Angle<Float>, x: Angle<Float>) -> Matrix4x4f {
+        let (sin: sx, cos: cx) = sincosf(x)
+        let (sin: sy, cos: cy) = sincosf(y)
+        let (sin: sz, cos: cz) = sincosf(z)
         
         var r = Matrix4x4f()
         r[0,0] = cy*cz
@@ -289,14 +278,11 @@ public extension Matrix4x4f {
     
     /// Creates a matrix which can be used to scale, rotate and translate vectors
     public static func scaleRotateTranslate(sx _sx: Float, sy _sy: Float, sz _sz: Float,
-                                            ax: Float, ay: Float, az: Float,
+                                            ax: Angle<Float>, ay: Angle<Float>, az: Angle<Float>,
                                             tx: Float, ty: Float, tz: Float) -> Matrix4x4f {
-        var sx: Float = 0.0, cx: Float = 0.0
-        __sincosf(ax, &sx, &cx)
-        var sy: Float = 0.0, cy: Float = 0.0
-        __sincosf(ay, &sy, &cy)
-        var sz: Float = 0.0, cz: Float = 0.0
-        __sincosf(az, &sz, &cz)
+        let (sin: sx, cos: cx) = sincosf(ax)
+        let (sin: sy, cos: cy) = sincosf(ay)
+        let (sin: sz, cos: cz) = sincosf(az)
         
         let sxsz = sx*sz
         let cycz = cy*cz
