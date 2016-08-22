@@ -6,6 +6,7 @@ import XCTest
 @testable import SwiftMath
 
 class AngleTests: XCTestCase {
+    
     func testPostfixConstructsAngleFromDoubleInDegrees() {
         let a = 180.0°
         
@@ -27,10 +28,58 @@ class AngleTests: XCTestCase {
     
     // MARK: - operator tests
     
-    func testAngleMultiplyLiteral() {
+    // MARK: multiplication (scaling)
+    
+    func testAngleMultiplyLiteralDouble() {
         var a = 180.0°
         a = a * 0.5
         XCTAssertEqual(90.0, a.degrees)
+    }
+    
+    func testAngleMultiplyLiteralFloat() {
+        var a = Float(180.0)°
+        a = a * 0.5
+        XCTAssertEqual(90.0, a.degrees)
+    }
+    
+    // MARK: division (scaling)
+    
+    func testAngleDivideLiteralDouble() {
+        var a = 180.0°
+        a = a / 2.0
+        XCTAssertEqual(90.0, a.degrees)
+    }
+    
+    func testAngleDivideLiteralFloat() {
+        var a = Float(180.0)°
+        a = a / 2.0
+        XCTAssertEqual(90.0, a.degrees)
+    }
+    
+    // MARK: addition
+    
+    func testAngleAddition() {
+        let a = 60.0° + 30.0°
+        XCTAssertEqual(90.0, a.degrees)
+    }
+    
+    func testAngleCompoundAdditionAndAssignment() {
+        var a = 60.0°
+        a += 30°
+        XCTAssertEqual(90.0, a.degrees)
+    }
+    
+    // MARK: subtraction
+    
+    func testAngleSubtraction() {
+        let a = 60.0° - 30.0°
+        XCTAssertEqual(30.0, a.degrees)
+    }
+    
+    func testAngleCompoundSubtractionAndAssignment() {
+        var a = 60.0°
+        a -= 30°
+        XCTAssertEqual(30.0, a.degrees)
     }
 
 }
