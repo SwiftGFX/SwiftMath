@@ -49,26 +49,52 @@ extension Int {
 extension Angle {
     // MARK: - operators
     
-    @inline(__always)
-    public static func *(lhs: Angle<T>, rhs: Angle<T>) -> Angle<T> {
-        return Angle(lhs.degrees * rhs.degrees)
-    }
-    
-    // explicit Float and Double overloads to simplify combination of Angle<T>
+    // MARK: multiplication (scaling)
     
     @inline(__always)
-    public static func *(lhs: Angle<T>, rhs: Float) -> Angle<T> {
-        return Angle(lhs.degrees * T(rhs))
+    public static func *=(lhs: inout Angle<T>, rhs: T) {
+        lhs = Angle(lhs.degrees * rhs)
     }
     
     @inline(__always)
-    public static func *(lhs: Angle<T>, rhs: Double) -> Angle<T> {
-        return Angle(lhs.degrees * T(rhs))
+    public static func *(lhs: Angle<T>, rhs: T) -> Angle<T> {
+        return Angle(lhs.degrees * rhs)
+    }
+    
+    // MARK: division (scaling)
+    
+    @inline(__always)
+    public static func /=(lhs: inout Angle<T>, rhs: T) {
+        lhs = Angle(lhs.degrees / rhs)
     }
     
     @inline(__always)
-    public static func *=(lhs: inout Angle<T>, rhs: Angle<T>) {
-        lhs = Angle(lhs.degrees * rhs.degrees)
+    public static func /(lhs: Angle<T>, rhs: T) -> Angle<T> {
+        return Angle(lhs.degrees / rhs)
+    }
+    
+    // MARK: addition
+    
+    @inline(__always)
+    public static func +=(lhs: inout Angle<T>, rhs: Angle<T>) {
+        lhs = Angle(lhs.degrees + rhs.degrees)
+    }
+    
+    @inline(__always)
+    public static func +(lhs: Angle<T>, rhs: Angle<T>) -> Angle<T> {
+        return Angle(lhs.degrees + rhs.degrees)
+    }
+    
+    // MARK: subtraction
+    
+    @inline(__always)
+    public static func -=(lhs: inout Angle<T>, rhs: Angle<T>) {
+        lhs = Angle(lhs.degrees - rhs.degrees)
+    }
+    
+    @inline(__always)
+    public static func -(lhs: Angle<T>, rhs: Angle<T>) -> Angle<T> {
+        return Angle(lhs.degrees - rhs.degrees)
     }
 }
 
