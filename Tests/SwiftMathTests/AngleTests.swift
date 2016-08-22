@@ -20,28 +20,6 @@ class AngleTests: XCTestCase {
         XCTAssertEqual(180.0, a.degrees)
     }
     
-    func testAngleFloatExpressibleByFloatLiteral() {
-        func test(x: Angle<Float>) -> Angle<Float> {
-            return x
-        }
-        
-        let a = test(x: 180.0)
-        
-        XCTAssertEqualWithAccuracy(3.141592, a.radians, accuracy: 0.001)
-        XCTAssertEqualWithAccuracy(180.0, a.degrees, accuracy: 0.1)
-    }
-    
-    func testAngleDoubleExpressibleByFloatLiteral() {
-        func test(x: Angle<Double>) -> Angle<Double> {
-            return x
-        }
-        
-        let a = test(x: 180.0)
-        
-        XCTAssertEqualWithAccuracy(3.141592, a.radians, accuracy: 0.001)
-        XCTAssertEqualWithAccuracy(180.0, a.degrees, accuracy: 0.1)
-    }
-    
     func testMakeAngleFromIntegerInDegrees() {
         let a = 180.degrees
         XCTAssertEqual(Float.pi, a.radians)

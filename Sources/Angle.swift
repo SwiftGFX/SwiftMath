@@ -25,15 +25,6 @@ public struct Angle<T: BinaryFloatingPoint> {
     }
 }
 
-extension Angle: ExpressibleByFloatLiteral {
-    
-    /// Initializes a new angle from a floating point value specified in degrees
-    @inline(__always)
-    public init(floatLiteral value: FloatLiteralType) {
-        self.degrees = T(value)
-    }
-}
-
 extension Angle: CustomStringConvertible, CustomDebugStringConvertible, CustomPlaygroundQuickLookable {
     public var description: String {
         return "\(degrees)°"
