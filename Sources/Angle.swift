@@ -98,6 +98,15 @@ extension Angle {
     }
 }
 
+// MARK: Equatable
+extension Angle: Equatable {
+    public static func ==(lhs: Angle, rhs: Angle) -> Bool {
+        return
+            lhs.degrees == rhs.degrees
+    }
+}
+
+
 /// Degree operator, unicode symbol U+00B0 DEGREE SIGN
 postfix operator ° {}
 
