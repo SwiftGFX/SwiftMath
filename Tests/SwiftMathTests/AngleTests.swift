@@ -7,10 +7,10 @@ import XCTest
 
 class AngleTests: XCTestCase {
     
-    func testPostfixConstructsAngleFromDoubleInDegrees() {
+    func testPostfixConstructsAngleFromFloatInDegrees() {
         let a = 180.0°
         
-        XCTAssertEqual(Double.pi, a.radians)
+        XCTAssertEqual(Float.pi, a.radians)
         XCTAssertEqual(180.0, a.degrees)
     }
     
@@ -30,28 +30,16 @@ class AngleTests: XCTestCase {
     
     // MARK: multiplication (scaling)
     
-    func testAngleMultiplyLiteralDouble() {
+    func testAngleMultiply() {
         var a = 180.0°
-        a = a * 0.5
-        XCTAssertEqual(90.0, a.degrees)
-    }
-    
-    func testAngleMultiplyLiteralFloat() {
-        var a = Float(180.0)°
         a = a * 0.5
         XCTAssertEqual(90.0, a.degrees)
     }
     
     // MARK: division (scaling)
     
-    func testAngleDivideLiteralDouble() {
+    func testAngleDivide() {
         var a = 180.0°
-        a = a / 2.0
-        XCTAssertEqual(90.0, a.degrees)
-    }
-    
-    func testAngleDivideLiteralFloat() {
-        var a = Float(180.0)°
         a = a / 2.0
         XCTAssertEqual(90.0, a.degrees)
     }
