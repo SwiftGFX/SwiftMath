@@ -99,7 +99,7 @@ extension Angle {
 }
 
 /// Degree operator, unicode symbol U+00B0 DEGREE SIGN
-postfix operator °
+postfix operator ° {}
 
 /// The degree operator constructs an `Angle` from the specified floating point value in degrees
 ///
