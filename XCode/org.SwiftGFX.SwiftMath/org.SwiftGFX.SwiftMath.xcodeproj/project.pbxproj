@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		089917761D637C2F00DA51E8 /* Matrix4x4+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089917681D637C2F00DA51E8 /* Matrix4x4+Extensions.swift */; };
-		089917771D637C2F00DA51E8 /* trigonometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089917691D637C2F00DA51E8 /* trigonometry.swift */; };
 		089917781D637C2F00DA51E8 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899176A1D637C2F00DA51E8 /* Vector2.swift */; };
 		089917791D637C2F00DA51E8 /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899176B1D637C2F00DA51E8 /* Vector3.swift */; };
 		0899177A1D637C2F00DA51E8 /* functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899176C1D637C2F00DA51E8 /* functions.swift */; };
@@ -21,12 +20,13 @@
 		089917811D637C2F00DA51E8 /* Vector3+simd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089917731D637C2F00DA51E8 /* Vector3+simd.swift */; };
 		089917821D637C2F00DA51E8 /* Vector4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089917741D637C2F00DA51E8 /* Vector4.swift */; };
 		089917831D637C2F00DA51E8 /* Vector4+simd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089917751D637C2F00DA51E8 /* Vector4+simd.swift */; };
+		08FF662B1D731E8200C6ADDC /* Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FF66291D731E8200C6ADDC /* Angle.swift */; };
+		08FF662C1D731E8200C6ADDC /* Vector+swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FF662A1D731E8200C6ADDC /* Vector+swizzle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		088ECE071D5A9ADA00E48EC9 /* libSwiftMath-macOS.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libSwiftMath-macOS.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		089917681D637C2F00DA51E8 /* Matrix4x4+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Matrix4x4+Extensions.swift"; sourceTree = "<group>"; };
-		089917691D637C2F00DA51E8 /* trigonometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = trigonometry.swift; sourceTree = "<group>"; };
 		0899176A1D637C2F00DA51E8 /* Vector2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector2.swift; sourceTree = "<group>"; };
 		0899176B1D637C2F00DA51E8 /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
 		0899176C1D637C2F00DA51E8 /* functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = functions.swift; sourceTree = "<group>"; };
@@ -39,6 +39,8 @@
 		089917731D637C2F00DA51E8 /* Vector3+simd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Vector3+simd.swift"; sourceTree = "<group>"; };
 		089917741D637C2F00DA51E8 /* Vector4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector4.swift; sourceTree = "<group>"; };
 		089917751D637C2F00DA51E8 /* Vector4+simd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Vector4+simd.swift"; sourceTree = "<group>"; };
+		08FF66291D731E8200C6ADDC /* Angle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Angle.swift; sourceTree = "<group>"; };
+		08FF662A1D731E8200C6ADDC /* Vector+swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Vector+swizzle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +66,9 @@
 			isa = PBXGroup;
 			children = (
 				089917681D637C2F00DA51E8 /* Matrix4x4+Extensions.swift */,
-				089917691D637C2F00DA51E8 /* trigonometry.swift */,
 				0899176A1D637C2F00DA51E8 /* Vector2.swift */,
+				08FF66291D731E8200C6ADDC /* Angle.swift */,
+				08FF662A1D731E8200C6ADDC /* Vector+swizzle.swift */,
 				0899176B1D637C2F00DA51E8 /* Vector3.swift */,
 				0899176C1D637C2F00DA51E8 /* functions.swift */,
 				0899176D1D637C2F00DA51E8 /* Matrix4x4.swift */,
@@ -160,12 +163,13 @@
 				089917821D637C2F00DA51E8 /* Vector4.swift in Sources */,
 				0899177A1D637C2F00DA51E8 /* functions.swift in Sources */,
 				089917831D637C2F00DA51E8 /* Vector4+simd.swift in Sources */,
-				089917771D637C2F00DA51E8 /* trigonometry.swift in Sources */,
+				08FF662C1D731E8200C6ADDC /* Vector+swizzle.swift in Sources */,
 				0899177B1D637C2F00DA51E8 /* Matrix4x4.swift in Sources */,
 				0899177D1D637C2F00DA51E8 /* platform.swift in Sources */,
 				089917761D637C2F00DA51E8 /* Matrix4x4+Extensions.swift in Sources */,
 				089917791D637C2F00DA51E8 /* Vector3.swift in Sources */,
 				0899177C1D637C2F00DA51E8 /* Matrix4x4+simd.swift in Sources */,
+				08FF662B1D731E8200C6ADDC /* Angle.swift in Sources */,
 				089917811D637C2F00DA51E8 /* Vector3+simd.swift in Sources */,
 				0899177E1D637C2F00DA51E8 /* Point.swift in Sources */,
 				089917781D637C2F00DA51E8 /* Vector2.swift in Sources */,
