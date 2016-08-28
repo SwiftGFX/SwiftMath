@@ -98,14 +98,41 @@ extension Angle {
     }
 }
 
-// MARK: Equatable
+// MARK: - Equatable
+
 extension Angle: Equatable {
+	@inline(__always)
     public static func ==(lhs: Angle, rhs: Angle) -> Bool {
         return
             lhs.degrees == rhs.degrees
     }
 }
 
+// MARK: - Comparable
+
+extension Angle: Comparable {
+	@inline(__always)
+	public static func <(lhs: Angle, rhs: Angle) -> Bool {
+		return lhs.degrees < rhs.degrees
+	}
+	
+	@inline(__always)
+	public static func <=(lhs: Angle, rhs: Angle) -> Bool {
+		return lhs.degrees <= rhs.degrees
+	}
+	
+	@inline(__always)
+	public static func >(lhs: Angle, rhs: Angle) -> Bool {
+		return lhs.degrees > rhs.degrees
+	}
+	
+	@inline(__always)
+	public static func >=(lhs: Angle, rhs: Angle) -> Bool {
+		return lhs.degrees >= rhs.degrees
+	}
+}
+
+// MARK: - Degrees
 
 /// Degree operator, unicode symbol U+00B0 DEGREE SIGN
 postfix operator °
@@ -125,6 +152,8 @@ public postfix func °(lhs: Float) -> Angle {
 public postfix func °(lhs: Int) -> Angle {
     return Angle(degrees: Float(lhs))
 }
+
+// MARK: - Convenience functions
 
 /// Constructs an `Angle` from the specified floating point value in degrees
 @inline(__always)
