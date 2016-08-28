@@ -2,25 +2,25 @@
 // License: https://github.com/SwiftGFX/SwiftMath#license-bsd-2-clause
 //
 
-public struct Angle<T: BinaryFloatingPoint> {
-    public let degrees: T
+public struct Angle {
+    public let degrees: Float
     
-    public var radians: T {
-        return degrees * T.pi / 180.0
+    public var radians: Float {
+        return degrees * Float.pi / 180.0
     }
 
     @inline(__always)
-    public init(radians val: T) {
-        degrees = val / T.pi * 180.0
+    public init(radians val: Float) {
+        degrees = val / Float.pi * 180.0
     }
     
     @inline(__always)
-    public init(degrees val: T) {
+    public init(degrees val: Float) {
         degrees = val
     }
     
     @inline(__always)
-    internal init(_ val: T) {
+    internal init(_ val: Float) {
         degrees = val
     }
 }
@@ -41,7 +41,7 @@ extension Angle: CustomStringConvertible, CustomDebugStringConvertible, CustomPl
 
 extension Int {
     /// Return the integer value as an angle in degrees
-    public var degrees: Angle<Float> {
+    public var degrees: Angle {
         return Angle(degrees: Float(self))
     }
 }
@@ -52,48 +52,48 @@ extension Angle {
     // MARK: multiplication (scaling)
     
     @inline(__always)
-    public static func *=(lhs: inout Angle<T>, rhs: T) {
+    public static func *=(lhs: inout Angle, rhs: Float) {
         lhs = Angle(lhs.degrees * rhs)
     }
     
     @inline(__always)
-    public static func *(lhs: Angle<T>, rhs: T) -> Angle<T> {
+    public static func *(lhs: Angle, rhs: Float) -> Angle {
         return Angle(lhs.degrees * rhs)
     }
     
     // MARK: division (scaling)
     
     @inline(__always)
-    public static func /=(lhs: inout Angle<T>, rhs: T) {
+    public static func /=(lhs: inout Angle, rhs: Float) {
         lhs = Angle(lhs.degrees / rhs)
     }
     
     @inline(__always)
-    public static func /(lhs: Angle<T>, rhs: T) -> Angle<T> {
+    public static func /(lhs: Angle, rhs: Float) -> Angle {
         return Angle(lhs.degrees / rhs)
     }
     
     // MARK: addition
     
     @inline(__always)
-    public static func +=(lhs: inout Angle<T>, rhs: Angle<T>) {
+    public static func +=(lhs: inout Angle, rhs: Angle) {
         lhs = Angle(lhs.degrees + rhs.degrees)
     }
     
     @inline(__always)
-    public static func +(lhs: Angle<T>, rhs: Angle<T>) -> Angle<T> {
+    public static func +(lhs: Angle, rhs: Angle) -> Angle {
         return Angle(lhs.degrees + rhs.degrees)
     }
     
     // MARK: subtraction
     
     @inline(__always)
-    public static func -=(lhs: inout Angle<T>, rhs: Angle<T>) {
+    public static func -=(lhs: inout Angle, rhs: Angle) {
         lhs = Angle(lhs.degrees - rhs.degrees)
     }
     
     @inline(__always)
-    public static func -(lhs: Angle<T>, rhs: Angle<T>) -> Angle<T> {
+    public static func -(lhs: Angle, rhs: Angle) -> Angle {
         return Angle(lhs.degrees - rhs.degrees)
     }
 }
@@ -116,24 +116,24 @@ postfix operator °
 /// * Degree operator is the unicode symbol U+00B0 DEGREE SIGN
 /// * macOS shortcut is ⌘+⇧+8
 @inline(__always)
-public postfix func °<T: BinaryFloatingPoint>(lhs: T) -> Angle<T> {
+public postfix func °(lhs: Float) -> Angle {
     return Angle(degrees: lhs)
 }
 
 /// Constructs an `Angle` from the specified `Int` value in degrees
 @inline(__always)
-public postfix func °(lhs: Int) -> Angle<Float> {
+public postfix func °(lhs: Int) -> Angle {
     return Angle(degrees: Float(lhs))
 }
 
 /// Constructs an `Angle` from the specified floating point value in degrees
 @inline(__always)
-public func deg<T: BinaryFloatingPoint>(_ a: T) -> Angle<T> {
+public func deg(_ a: Float) -> Angle {
     return Angle(degrees: a)
 }
 
 /// Constructs an `Angle` from the specified floating point value in radians
 @inline(__always)
-public func rad<T: BinaryFloatingPoint>(_ a: T) -> Angle<T> {
+public func rad(_ a: Float) -> Angle {
     return Angle(radians: a)
 }
