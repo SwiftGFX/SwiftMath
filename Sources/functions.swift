@@ -2,26 +2,6 @@
 // License: https://github.com/SwiftGFX/SwiftMath#license-bsd-2-clause
 //
 
-/// converts value from degrees to radians
-///
-/// - parameter deg: value in degrees
-///
-/// - returns: value in radians
-public func radians<T:BinaryFloatingPoint>(_ deg: T) -> T {
-    return deg * T.pi / 180.0
-}
-
-
-/// convert value from radians to degrees
-///
-/// - parameter rad: value in radians
-///
-/// - returns: value in degrees
-public func degrees<T:BinaryFloatingPoint>(_ rad: T) -> T {
-    return rad * 180.0 / T.pi
-}
-
-
 /// clamps x, where min ≤ x ≤ max
 ///
 /// - parameter x:    value to be clamped
