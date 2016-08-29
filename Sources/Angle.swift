@@ -23,6 +23,17 @@ public struct Angle {
     internal init(_ val: Float) {
         degrees = val
     }
+    
+    // MARK: Constants
+    public static let zero  = 0°
+    public static let pi_6  = 30°
+    public static let pi_4  = 45°
+    public static let pi_3  = 60°
+    public static let pi_2  = 90°
+    public static let pi2_3 = 120°
+    public static let pi    = 180°
+    public static let pi3_2 = 270°
+    public static let pi2   = 360°
 }
 
 extension Angle: CustomStringConvertible, CustomDebugStringConvertible, CustomPlaygroundQuickLookable {
