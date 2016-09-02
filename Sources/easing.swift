@@ -201,3 +201,125 @@ func elasticEaseInOut(_ time: Float, period: Float) -> Float {
     }
     return newT
 }
+
+
+// MARK: Back Ease
+func backEaseIn(_ time: Float, overshoot: Float) -> Float {
+    let overshoot: Float = 1.70158
+    return time * time * ((overshoot + 1) * time - overshoot)
+}
+
+func backEaseOut(_ time: Float, overshoot: Float) -> Float {
+    let overshoot: Float = 1.70158
+    var time = time
+    time = time - 1
+    return time * time * ((overshoot + 1) * time + overshoot) + 1
+}
+
+func backEaseInOut(_ time: Float, overshoot: Float) -> Float {
+    let overshoot: Float = 1.70158 * 1.525
+    var time = time
+    time = time * 2
+    if time < 1 {
+        return (time * time * ((overshoot + 1) * time - overshoot)) / 2
+    }
+    else {
+        time = time - 2
+        time *= time
+        time *= (overshoot + 1) * time + overshoot
+        return time / 2 + 1
+    }
+}
+
+
+// MARK: Bounce Ease
+func bounceTime(_ time: Float) -> Float {
+    var time = time
+    if time < 1 / 2.75 {
+        return 7.5625 * time * time
+    }
+    else if time < 2 / 2.75 {
+        time -= 1.5 / 2.75
+        return 7.5625 * time * time + 0.75
+    }
+    else if time < 2.5 / 2.75 {
+        time -= 2.25 / 2.75
+        return 7.5625 * time * time + 0.9375
+    }
+    
+    time -= 2.625 / 2.75
+    return 7.5625 * time * time + 0.984375
+}
+
+func bounceEaseIn(_ time: Float) -> Float {
+    return 1 - bounceTime(1 - time)
+}
+
+func bounceEaseOut(_ time: Float) -> Float {
+    return bounceTime(time)
+}
+
+func bounceEaseInOut(_ time: Float) -> Float {
+    var time = time
+    var newT: Float = 0
+    if time < 0.5 {
+        time = time * 2
+        newT = (1 - bounceTime(1 - time)) * 0.5
+    }
+    else {
+        newT = bounceTime(time * 2 - 1) * 0.5 + 0.5
+    }
+    return newT
+}
+
+
+// MARK: Custom Ease
+func customEase(_ time: Float, easingParam: [Float]) -> Float {
+    guard easingParam.count == 8 else {
+        print("WARNING: Wrong easing param")
+        return time
+    }
+    let tt: Float = 1 - time
+    return easingParam[1] * tt * tt * tt + 3 * easingParam[3] * time * tt * tt + 3 * easingParam[5] * time * time * tt + easingParam[7] * time * time * time
+}
+
+func easeIn(_ time: Float, rate: Float) -> Float {
+    return powf(time, rate)
+}
+
+func easeOut(_ time: Float, rate: Float) -> Float {
+    return powf(time, 1 / rate)
+}
+
+func easeInOut(_ time: Float, rate: Float) -> Float {
+    var time = time
+    time *= 2
+    if time < 1 {
+        return 0.5 * powf(time, rate)
+    }
+    else {
+        return (1.0 - 0.5 * powf(2 - time, rate))
+    }
+}
+
+func quadraticIn(_ time: Float) -> Float {
+    return powf(time, 2)
+}
+
+func quadraticOut(_ time: Float) -> Float {
+    return -time * (time - 2)
+}
+
+func quadraticInOut(_ time: Float) -> Float {
+    var time = time
+    var resultTime: Float = time
+    time = time * 2
+    if time < 1 {
+        resultTime = time * time * 0.5
+    }
+    else {
+        time -= 1
+        resultTime = -0.5 * (time * (time - 2) - 1)
+    }
+    return resultTime
+}
