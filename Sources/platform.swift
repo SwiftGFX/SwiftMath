@@ -9,12 +9,23 @@ internal func __sincosf(_ a: Float, _ sina: inout Float, cosa: inout Float) {
     sina = sin(a)
     cosa = cos(a)
 }
+	
+@inline(__always)
+internal func __sinpif(_ a: Float) -> Float {
+	return sin(a * Float.pi)
+}
+
+
+@inline(__always)
+internal func __cospif(_ a: Float) -> Float {
+	return cos(a * Float.pi)
+}
 
 @inline(__always)
 internal func __tanpif(_ a: Float) -> Float {
     return tan(a * Float.pi)
 }
-    
+
 #else
     
 import Darwin
@@ -28,6 +39,16 @@ internal func sincosf(_ a: Angle) -> (sin: Float, cos: Float) {
     __sincospif(a.degrees / 180.0, &s, &c)
     
     return (sin: s, cos: c)
+}
+
+@inline(__always)
+internal func sinf(_ a: Angle) -> Float {
+	return __sinpif(a.degrees / 180.0)
+}
+
+@inline(__always)
+internal func cosf(_ a: Angle) -> Float {
+	return __cospif(a.degrees / 180.0)
 }
 
 @inline(__always)
