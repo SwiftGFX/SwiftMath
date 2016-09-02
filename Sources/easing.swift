@@ -19,7 +19,7 @@ func linear(_ time: Float) -> Float {
 
 // MARK: Sine Ease
 func sineEaseIn(_ time: Float) -> Float {
-    return -1 * cosf(time * Angle.pi_2.radians) + 1
+    return -cosf(time * Angle.pi_2.radians) + 1
 }
 
 func sineEaseOut(_ time: Float) -> Float {
@@ -36,7 +36,7 @@ func quadEaseIn(_ time: Float) -> Float {
 }
 
 func quadEaseOut(_ time: Float) -> Float {
-    return -1 * time * (time - 2)
+    return -time * (time - 2)
 }
 
 func quadEaseInOut(_ time: Float) -> Float {
@@ -132,7 +132,7 @@ func expoEaseInOut(_ time: Float) -> Float {
 
 // MARK: Circ Ease
 func circEaseIn(_ time: Float) -> Float {
-    return -1 * (sqrt(1 - time * time) - 1)
+    return -(sqrt(1 - time * time) - 1)
 }
 
 func circEaseOut(_ time: Float) -> Float {
