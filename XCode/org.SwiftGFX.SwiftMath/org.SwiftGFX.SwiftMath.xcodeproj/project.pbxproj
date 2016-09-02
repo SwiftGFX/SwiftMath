@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		088509881D7A2A55003EF800 /* easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088509871D7A2A55003EF800 /* easing.swift */; };
 		089917761D637C2F00DA51E8 /* Matrix4x4+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089917681D637C2F00DA51E8 /* Matrix4x4+Extensions.swift */; };
 		089917781D637C2F00DA51E8 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899176A1D637C2F00DA51E8 /* Vector2.swift */; };
 		089917791D637C2F00DA51E8 /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899176B1D637C2F00DA51E8 /* Vector3.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		088509871D7A2A55003EF800 /* easing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = easing.swift; sourceTree = "<group>"; };
 		088ECE071D5A9ADA00E48EC9 /* libSwiftMath-macOS.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libSwiftMath-macOS.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		089917681D637C2F00DA51E8 /* Matrix4x4+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Matrix4x4+Extensions.swift"; sourceTree = "<group>"; };
 		0899176A1D637C2F00DA51E8 /* Vector2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector2.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				08FF662A1D731E8200C6ADDC /* Vector+swizzle.swift */,
 				0899176B1D637C2F00DA51E8 /* Vector3.swift */,
 				0899176C1D637C2F00DA51E8 /* functions.swift */,
+				088509871D7A2A55003EF800 /* easing.swift */,
 				0899176D1D637C2F00DA51E8 /* Matrix4x4.swift */,
 				0899176E1D637C2F00DA51E8 /* Matrix4x4+simd.swift */,
 				0899176F1D637C2F00DA51E8 /* platform.swift */,
@@ -173,6 +176,7 @@
 				089917811D637C2F00DA51E8 /* Vector3+simd.swift in Sources */,
 				0899177E1D637C2F00DA51E8 /* Point.swift in Sources */,
 				089917781D637C2F00DA51E8 /* Vector2.swift in Sources */,
+				088509881D7A2A55003EF800 /* easing.swift in Sources */,
 				0899177F1D637C2F00DA51E8 /* Rect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
