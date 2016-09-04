@@ -114,6 +114,12 @@ extension Angle {
     public static func %(lhs: Angle, rhs: Angle) -> Angle {
         return Angle(lhs.degrees.truncatingRemainder(dividingBy: rhs.degrees))
     }
+    
+    // MARK: Unary
+    @inline(__always)
+    public static prefix func -(lhs: Angle) -> Angle {
+        return Angle(-lhs.degrees)
+    }
 }
 
 // MARK: - Equatable
