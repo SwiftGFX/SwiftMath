@@ -107,6 +107,13 @@ extension Angle {
     public static func -(lhs: Angle, rhs: Angle) -> Angle {
         return Angle(lhs.degrees - rhs.degrees)
     }
+    
+    // MARK: Modulus
+    
+    @inline(__always)
+    public static func %(lhs: Angle, rhs: Angle) -> Angle {
+        return Angle(lhs.degrees.truncatingRemainder(dividingBy: rhs.degrees))
+    }
 }
 
 // MARK: - Equatable
