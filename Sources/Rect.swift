@@ -30,6 +30,10 @@ public extension Size {
     init(width: Float, height: Float) {
         self.init(width, height)
     }
+    
+    init(width: Int, height: Int) {
+        self.init(Float(width), Float(height))
+    }
 }
 
 // TODO:  
