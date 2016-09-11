@@ -7,7 +7,7 @@
 import simd
 
 public struct Vector2f {
-    var d: float2
+    internal var d: float2
 }
 
 public extension Vector2f {

@@ -9,7 +9,7 @@
     /// - remark:
     /// Matrices are stored in column-major order
     public struct Matrix3x3f {
-        var d: float3x3
+        internal var d: float3x3
         
         //MARK: - initializers
         

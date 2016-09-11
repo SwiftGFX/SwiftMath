@@ -9,7 +9,7 @@ import simd
 /// - remark:
 /// Matrices are stored in column-major order
 public struct Matrix4x4f {
-    var d: float4x4
+    internal var d: float4x4
     
     //MARK: - initializers
 	

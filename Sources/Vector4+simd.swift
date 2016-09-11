@@ -6,7 +6,7 @@
 import simd
 
 public struct Vector4f {
-    var d: float4
+    internal var d: float4
 }
 
 public extension Vector4f {
@@ -23,7 +23,7 @@ public extension Vector4f {
     }
     
     @inline(__always)
-    public init(float4 scalar4: float4) {
+    internal init(float4 scalar4: float4) {
         self.d = scalar4
     }
     
