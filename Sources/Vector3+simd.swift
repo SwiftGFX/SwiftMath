@@ -6,7 +6,7 @@
 import simd
 
 public struct Vector3f {
-    var d: float3
+    internal var d: float3
 }
 
 public extension Vector3f {
