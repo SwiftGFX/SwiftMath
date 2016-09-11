@@ -86,6 +86,16 @@ public extension Vector4f {
     //MARK: - operators
     
     @inline(__always)
+    public static func +(lhs: Vector4f, rhs: Vector4f) -> Vector4f {
+        return unsafeBitCast(lhs.d + rhs.d, to: Vector4f.self)
+    }
+    
+    @inline(__always)
+    public static func -(lhs: Vector4f, rhs: Vector4f) -> Vector4f {
+        return unsafeBitCast(lhs.d - rhs.d, to: Vector4f.self)
+    }
+
+    @inline(__always)
     public static prefix func -(lhs: Vector4f) -> Vector4f {
         return unsafeBitCast(-lhs.d, to: Vector4f.self)
     }

@@ -82,18 +82,18 @@ public extension Vector2f {
     //MARK: - operators
     
     @inline(__always)
-    public static prefix func -(lhs: Vector2f) -> Vector2f {
-        return unsafeBitCast(-lhs.d, to: Vector2f.self)
+    public static func +(lhs: Vector2f, rhs: Vector2f) -> Vector2f {
+        return unsafeBitCast(lhs.d + rhs.d, to: Vector2f.self)
     }
     
     @inline(__always)
     public static func -(lhs: Vector2f, rhs: Vector2f) -> Vector2f {
         return unsafeBitCast(lhs.d - rhs.d, to: Vector2f.self)
     }
-    
+
     @inline(__always)
-    public static func +(lhs: Vector2f, rhs: Vector2f) -> Vector2f {
-        return unsafeBitCast(lhs.d + rhs.d, to: Vector2f.self)
+    public static prefix func -(lhs: Vector2f) -> Vector2f {
+        return unsafeBitCast(-lhs.d, to: Vector2f.self)
     }
     
     @inline(__always)

@@ -76,13 +76,18 @@ public extension Vector3f {
     //MARK: - operators
     
     @inline(__always)
-    public static prefix func -(lhs: Vector3f) -> Vector3f {
-        return unsafeBitCast(-lhs.d, to: Vector3f.self)
+    public static func +(lhs: Vector3f, rhs: Vector3f) -> Vector3f {
+        return unsafeBitCast(lhs.d + rhs.d, to: Vector3f.self)
     }
-    
+
     @inline(__always)
     public static func -(lhs: Vector3f, rhs: Vector3f) -> Vector3f {
         return unsafeBitCast(lhs.d - rhs.d, to: Vector3f.self)
+    }
+
+    @inline(__always)
+    public static prefix func -(lhs: Vector3f) -> Vector3f {
+        return unsafeBitCast(-lhs.d, to: Vector3f.self)
     }
     
     @inline(__always)
