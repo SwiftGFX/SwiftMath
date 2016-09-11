@@ -38,6 +38,16 @@ public extension Vector2f {
     public init(_ v: Vector3f) {
         self.init(v.d.x, v.d.y)
     }
+    
+    @inline(__always)
+    public init(x: Int, y: Int) {
+        self.init(x: Float(x), y: Float(y))
+    }
+    
+    @inline(__always)
+    public init(_ x: Int, _ y: Int) {
+        self.init(x: Float(x), y: Float(y))
+    }
 }
 
 public extension Vector2f {
