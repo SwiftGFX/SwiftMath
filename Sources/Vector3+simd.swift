@@ -96,6 +96,16 @@ public extension Vector3f {
     }
     
     @inline(__always)
+    public static func *(lhs: Matrix3x3f, rhs: Vector3f) -> Vector3f {
+        return unsafeBitCast(lhs.d * rhs.d, to: Vector3f.self)
+    }
+    
+    @inline(__always)
+    public static func *(lhs: Vector3f, rhs: Matrix3x3f) -> Vector3f {
+        return unsafeBitCast(lhs.d * rhs.d, to: Vector3f.self)
+    }
+    
+    @inline(__always)
     public static func *=(lhs: inout Vector3f, rhs: Float) {
         lhs.d *= rhs
     }
