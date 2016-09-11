@@ -7,19 +7,20 @@
 #endif
 
 public extension Matrix4x4f {
-    /// returns the identity matrix
+    /// Returns the identity matrix
     public static let identity = Matrix4x4f(diagonal: vec4(1.0))
-    
+	
+	/// Creates a new instance from the values provided in row-major order
     public init(
-        _ r00: Float, _ r01: Float, _ r02: Float, _ r03: Float,
-        _ r10: Float, _ r11: Float, _ r12: Float, _ r13: Float,
-        _ r20: Float, _ r21: Float, _ r22: Float, _ r23: Float,
-        _ r30: Float, _ r31: Float, _ r32: Float, _ r33: Float) {
+        _ m00: Float, _ m01: Float, _ m02: Float, _ m03: Float,
+        _ m10: Float, _ m11: Float, _ m12: Float, _ m13: Float,
+        _ m20: Float, _ m21: Float, _ m22: Float, _ m23: Float,
+        _ m30: Float, _ m31: Float, _ m32: Float, _ m33: Float) {
         self.init(
-            vec4(r00, r10, r20, r30),
-            vec4(r01, r11, r21, r31),
-            vec4(r02, r12, r22, r32),
-            vec4(r03, r13, r23, r33)
+            vec4(m00, m10, m20, m30),
+            vec4(m01, m11, m21, m31),
+            vec4(m02, m12, m22, m32),
+            vec4(m03, m13, m23, m33)
         )
     }
     
@@ -137,8 +138,10 @@ public extension Matrix4x4f {
     }
     
     
-    //MARK: subscript operations
-    
+    // MARK: - subscript operations
+	
+	
+    /// Access the `col`th column vector
     public subscript(col: Int) -> Vector4f {
         get {
             return unsafeBitCast(d[col], to: Vector4f.self)
@@ -148,7 +151,8 @@ public extension Matrix4x4f {
             d[col] = newValue.d
         }
     }
-    
+	
+	/// Access the `col`th column vector and then `row`th element
     public subscript(col: Int, row: Int) -> Float {
         get {
             return d[col, row]
@@ -194,6 +198,7 @@ public extension Matrix4x4f {
         return r
     }
     
+	/// Returns a transformation matrix that rotates around the y axis
     public static func rotate(y: Angle) -> Matrix4x4f {
         let (sin: sy, cos: cy) = sincosf(y)
         
@@ -208,7 +213,7 @@ public extension Matrix4x4f {
         return r
     }
     
-    /// rotate returns a rotation matrix around the z plane
+    /// Returns a transformation matrix that rotates around the z axis
     public static func rotate(z: Angle) -> Matrix4x4f {
         let (sin: sz, cos: cz) = sincosf(z)
         
@@ -223,7 +228,7 @@ public extension Matrix4x4f {
         return r
     }
     
-    /// rotate returns a rotation matrix around the x and y planes
+    /// Returns a transformation matrix that rotates around the x and then y axes
     public static func rotate(x: Angle, y: Angle) -> Matrix4x4f {
         let (sin: sx, cos: cx) = sincosf(x)
         let (sin: sy, cos: cy) = sincosf(y)
@@ -236,6 +241,7 @@ public extension Matrix4x4f {
         )
     }
     
+	/// Returns a transformation matrix that rotates around the x, y and then z axes
     public static func rotate(x: Angle, y: Angle, z: Angle) -> Matrix4x4f {
         let (sin: sx, cos: cx) = sincosf(x)
         let (sin: sy, cos: cy) = sincosf(y)
@@ -255,7 +261,8 @@ public extension Matrix4x4f {
         
         return r
     }
-    
+	
+	/// Returns a transformation matrix that rotates around the z, y and then x axes
     public static func rotate(z: Angle, y: Angle, x: Angle) -> Matrix4x4f {
         let (sin: sx, cos: cx) = sincosf(x)
         let (sin: sy, cos: cy) = sincosf(y)
@@ -276,7 +283,7 @@ public extension Matrix4x4f {
         return r
     }
     
-    /// Creates a matrix which can be used to scale, rotate and translate vectors
+    /// Returns a transformation matrix which can be used to scale, rotate and translate vectors
     public static func scaleRotateTranslate(sx _sx: Float, sy _sy: Float, sz _sz: Float,
                                             ax: Angle, ay: Angle, az: Angle,
                                             tx: Float, ty: Float, tz: Float) -> Matrix4x4f {
