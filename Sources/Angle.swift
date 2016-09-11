@@ -2,18 +2,24 @@
 // License: https://github.com/SwiftGFX/SwiftMath#license-bsd-2-clause
 //
 
+/// A floating point value that represents an angle
 public struct Angle {
+	
+    /// The value of the angle in degrees
     public let degrees: Float
-    
+	
+    /// The value of the angle in radians
     public var radians: Float {
         return degrees * Float.pi / 180.0
     }
 
+	/// Creates an instance using the value in radians
     @inline(__always)
     public init(radians val: Float) {
         degrees = val / Float.pi * 180.0
     }
-    
+	
+	/// Creates an instance using the value in degrees
     @inline(__always)
     public init(degrees val: Float) {
         degrees = val
@@ -51,7 +57,7 @@ extension Angle: CustomStringConvertible, CustomDebugStringConvertible, CustomPl
 }
 
 extension Int {
-    /// Return the integer value as an angle in degrees
+    /// Returns the integer value as an angle in degrees
     public var degrees: Angle {
         return Angle(degrees: Float(self))
     }
@@ -127,8 +133,7 @@ extension Angle {
 extension Angle: Equatable {
 	@inline(__always)
     public static func ==(lhs: Angle, rhs: Angle) -> Bool {
-        return
-            lhs.degrees == rhs.degrees
+        return lhs.degrees == rhs.degrees
     }
 }
 

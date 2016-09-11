@@ -30,7 +30,7 @@ public extension Vector4f {
         }
     }
     
-    //MARK:- initializers
+    //MARK: - initializers
     
     @inline(__always)
     public init(_ v: Vector2f) {

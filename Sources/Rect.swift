@@ -56,12 +56,12 @@ public struct Rect {
     public var width : Float { return size.width }
     public var height: Float { return size.height }
     
-    init(bottomLeft: Point, topRight: Point) {
+    public init(bottomLeft: Point, topRight: Point) {
         origin = bottomLeft
         size = topRight - bottomLeft
     }
     
-    init(origin: Point, size: Size) {
+    public init(origin: Point, size: Size) {
         self.origin = origin
         self.size   = size
     }

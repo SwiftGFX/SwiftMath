@@ -2,22 +2,21 @@
 // License: https://github.com/SwiftGFX/SwiftMath#license-bsd-2-clause
 //
 
-/// clamps x, where min ≤ x ≤ max
+/// Returns x, such that min ≤ x ≤ max
 ///
-/// - parameter x:    value to be clamped
+/// - parameter x:   value to be clamped
 /// - parameter min: minimum
 /// - parameter max: maximum
-///
-/// - returns: x
 public func clamp<T:Comparable>(_ x: T, min _min: T, max _max: T) -> T {
     return min(max(x, _min), _max)
 }
 
-public func saturate<T:BinaryFloatingPoint>(x: T) -> T {
+/// Returns x, where 0.0 ≤ x ≤ 1.0
+public func saturate<T:BinaryFloatingPoint>(_ x: T) -> T {
     return clamp(x, min: 0.0, max: 1.0)
 }
 
-/// performs a linear interpolation between a and b by the interpolant t
+/// Performs a linear interpolation between a and b by the interpolant t
 ///
 /// - parameter a: start value
 /// - parameter b: end value

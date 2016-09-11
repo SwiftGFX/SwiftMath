@@ -10,7 +10,7 @@ public struct Vector4f {
 }
 
 public extension Vector4f {
-    //MARK:- initializers
+    //MARK: - initializers
     
     @inline(__always)
     public init() {
@@ -37,7 +37,7 @@ public extension Vector4f {
         self.d = float4(x, y, z, w)
     }
     
-    //MARK:- properties
+    //MARK: - properties
     
     /// Length (two-norm or “Euclidean norm”) of x.
     public var length: Float {
@@ -63,7 +63,7 @@ public extension Vector4f {
         return unsafeBitCast(simd.normalize(self.d), to: Vector4f.self)
     }
     
-    //MARK:- functions
+    //MARK: - functions
     
     public func dot(x: Vector4f) -> Float {
         return simd.dot(self.d, x.d)
@@ -83,7 +83,7 @@ public extension Vector4f {
         return unsafeBitCast(simd.mix(d, to.d, t: factor), to: Vector4f.self)
     }
     
-    //MARK:- operators
+    //MARK: - operators
     
     @inline(__always)
     public static prefix func -(lhs: Vector4f) -> Vector4f {
