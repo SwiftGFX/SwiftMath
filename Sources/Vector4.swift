@@ -41,6 +41,16 @@ public extension Vector4f {
     public init(_ v: Vector3f) {
         self.init(v.d.x, v.d.y,v.d.z, 1.0)
     }
+    
+    @inline(__always)
+    public init(x: Int, y: Int, z: Int, w: Int) {
+        self.init(x: Float(x), y: Float(y), z: Float(z), w: Float(w))
+    }
+    
+    @inline(__always)
+    public init(_ x: Int, _ y: Int, _ z: Int, _ w: Int) {
+        self.init(x: Float(x), y: Float(y), z: Float(z), w: Float(w))
+    }
 }
 
 public extension Vector4f {
