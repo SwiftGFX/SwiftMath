@@ -36,6 +36,17 @@ public extension Size {
     }
 }
 
+public extension Size {
+    /**
+     Check if a size has power of two dimensions.
+     */
+    public var isPOT: Bool {
+        let w = UInt(width)
+        let h = UInt(height)
+        return w == w.nextPOT && h == h.nextPOT
+    }
+}
+
 // TODO:  
 // - rect union
 // - rect intersection
@@ -80,6 +91,14 @@ extension Rect: CustomStringConvertible {
 }
 
 public extension Rect {
+    public func sizeScaled(by s: Float) -> Rect {
+        return Rect(origin: origin, size: size * s)
+    }
+    
+    public func originScaled(by s: Float) -> Rect {
+        return Rect(origin: origin * s, size: size)
+    }
+    
     public func scaled(by s: Float) -> Rect {
         return Rect(origin: origin * s, size: size * s)
     }

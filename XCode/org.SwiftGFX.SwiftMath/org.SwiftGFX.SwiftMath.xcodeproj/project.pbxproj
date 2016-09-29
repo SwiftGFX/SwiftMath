@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		080307251D9D3E27008CAC8E /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080307241D9D3E27008CAC8E /* utils.swift */; };
+		080307291D9D4226008CAC8E /* random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080307281D9D4226008CAC8E /* random.swift */; };
+		0803072C1D9D4403008CAC8E /* Matrix3x3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803072A1D9D4403008CAC8E /* Matrix3x3.swift */; };
+		0803072D1D9D4403008CAC8E /* Matrix3x3+simd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0803072B1D9D4403008CAC8E /* Matrix3x3+simd.swift */; };
 		088509881D7A2A55003EF800 /* easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088509871D7A2A55003EF800 /* easing.swift */; };
 		089917761D637C2F00DA51E8 /* Matrix4x4+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089917681D637C2F00DA51E8 /* Matrix4x4+Extensions.swift */; };
 		089917781D637C2F00DA51E8 /* Vector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899176A1D637C2F00DA51E8 /* Vector2.swift */; };
@@ -26,6 +30,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		080307241D9D3E27008CAC8E /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
+		080307281D9D4226008CAC8E /* random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = random.swift; sourceTree = "<group>"; };
+		0803072A1D9D4403008CAC8E /* Matrix3x3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix3x3.swift; sourceTree = "<group>"; };
+		0803072B1D9D4403008CAC8E /* Matrix3x3+simd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Matrix3x3+simd.swift"; sourceTree = "<group>"; };
 		088509871D7A2A55003EF800 /* easing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = easing.swift; sourceTree = "<group>"; };
 		088ECE071D5A9ADA00E48EC9 /* libSwiftMath-macOS.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libSwiftMath-macOS.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		089917681D637C2F00DA51E8 /* Matrix4x4+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Matrix4x4+Extensions.swift"; sourceTree = "<group>"; };
@@ -72,8 +80,12 @@
 				08FF66291D731E8200C6ADDC /* Angle.swift */,
 				08FF662A1D731E8200C6ADDC /* Vector+swizzle.swift */,
 				0899176B1D637C2F00DA51E8 /* Vector3.swift */,
+				080307241D9D3E27008CAC8E /* utils.swift */,
 				0899176C1D637C2F00DA51E8 /* functions.swift */,
+				080307281D9D4226008CAC8E /* random.swift */,
 				088509871D7A2A55003EF800 /* easing.swift */,
+				0803072A1D9D4403008CAC8E /* Matrix3x3.swift */,
+				0803072B1D9D4403008CAC8E /* Matrix3x3+simd.swift */,
 				0899176D1D637C2F00DA51E8 /* Matrix4x4.swift */,
 				0899176E1D637C2F00DA51E8 /* Matrix4x4+simd.swift */,
 				0899176F1D637C2F00DA51E8 /* platform.swift */,
@@ -174,10 +186,14 @@
 				0899177C1D637C2F00DA51E8 /* Matrix4x4+simd.swift in Sources */,
 				08FF662B1D731E8200C6ADDC /* Angle.swift in Sources */,
 				089917811D637C2F00DA51E8 /* Vector3+simd.swift in Sources */,
+				080307291D9D4226008CAC8E /* random.swift in Sources */,
 				0899177E1D637C2F00DA51E8 /* Point.swift in Sources */,
 				089917781D637C2F00DA51E8 /* Vector2.swift in Sources */,
+				0803072C1D9D4403008CAC8E /* Matrix3x3.swift in Sources */,
 				088509881D7A2A55003EF800 /* easing.swift in Sources */,
 				0899177F1D637C2F00DA51E8 /* Rect.swift in Sources */,
+				0803072D1D9D4403008CAC8E /* Matrix3x3+simd.swift in Sources */,
+				080307251D9D3E27008CAC8E /* utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
