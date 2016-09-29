@@ -18,6 +18,12 @@ public struct Matrix4x4f {
     public init() {
         self.d = float4x4()
     }
+    
+    /// Initializes from another Matrix4x4
+    @inline(__always)
+    public init(_ m: Matrix4x4f) {
+        self.d = m.d
+    }
 	
 	/// Creates an instance using the vector to initialize the diagonal elements
     @inline(__always)
