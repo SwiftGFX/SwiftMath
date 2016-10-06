@@ -18,12 +18,6 @@ public struct Matrix4x4f {
     public init() {
         self.d = float4x4()
     }
-    
-    /// Initializes from another Matrix4x4
-    @inline(__always)
-    public init(_ m: Matrix4x4f) {
-        self.d = m.d
-    }
 	
 	/// Creates an instance using the vector to initialize the diagonal elements
     @inline(__always)
@@ -46,6 +40,30 @@ public struct Matrix4x4f {
     
     public var inversed: Matrix4x4f {
         return unsafeBitCast(d.inverse, to: Matrix4x4f.self)
+    }
+    
+    // MARK: - subscript operations
+    
+    /// Access the `col`th column vector
+    public subscript(col: Int) -> Vector4f {
+        get {
+            return unsafeBitCast(d[col], to: Vector4f.self)
+        }
+        
+        set {
+            d[col] = newValue.d
+        }
+    }
+    
+    /// Access the `col`th column vector and then `row`th element
+    public subscript(col: Int, row: Int) -> Float {
+        get {
+            return d[col, row]
+        }
+        
+        set {
+            d[col, row] = newValue
+        }
     }
     
     //MARK:- operators
