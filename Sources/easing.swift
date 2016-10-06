@@ -9,7 +9,7 @@
 #if (os(OSX) || os(iOS) || os(tvOS) || os(watchOS))
 import Darwin
 #else
-// TODO: Manage x-platform math
+import Glibc
 #endif
 
 // MARK: Linear

@@ -4,6 +4,8 @@
 
 #if !(os(OSX) || os(iOS) || os(tvOS) || os(watchOS))
 
+import Glibc
+    
 @inline(__always)
 internal func __sincosf(_ a: Float, _ sina: inout Float, cosa: inout Float) {
     sina = sin(a)

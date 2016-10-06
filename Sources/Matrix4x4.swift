@@ -137,32 +137,6 @@ public extension Matrix4x4f {
         return r
     }
     
-    
-    // MARK: - subscript operations
-	
-	
-    /// Access the `col`th column vector
-    public subscript(col: Int) -> Vector4f {
-        get {
-            return unsafeBitCast(d[col], to: Vector4f.self)
-        }
-        
-        set {
-            d[col] = newValue.d
-        }
-    }
-	
-	/// Access the `col`th column vector and then `row`th element
-    public subscript(col: Int, row: Int) -> Float {
-        get {
-            return d[col, row]
-        }
-        
-        set {
-            d[col, row] = newValue
-        }
-    }
-    
     //MARK: matrix operations
     
     public static func scale(sx: Float, sy: Float, sz: Float) -> Matrix4x4f {
@@ -307,10 +281,10 @@ extension Matrix4x4f: CustomStringConvertible {
     /// Displays the matrix in row-major order
     public var description: String {
         return "Matrix4x4f(\n" +
-            "m00: \(d[0,0]), m01: \(d[1,0]), m02: \(d[2,0]), m03: \(d[3,0]),\n" +
-            "m10: \(d[0,1]), m11: \(d[1,1]), m12: \(d[2,1]), m13: \(d[3,1]),\n" +
-            "m20: \(d[0,2]), m21: \(d[1,2]), m22: \(d[2,2]), m23: \(d[3,2]),\n" +
-            "m30: \(d[0,3]), m31: \(d[1,3]), m32: \(d[2,3]), m33: \(d[3,3]),\n" +
+            "m00: \(self[0,0]), m01: \(self[1,0]), m02: \(self[2,0]), m03: \(self[3,0]),\n" +
+            "m10: \(self[0,1]), m11: \(self[1,1]), m12: \(self[2,1]), m13: \(self[3,1]),\n" +
+            "m20: \(self[0,2]), m21: \(self[1,2]), m22: \(self[2,2]), m23: \(self[3,2]),\n" +
+            "m30: \(self[0,3]), m31: \(self[1,3]), m32: \(self[2,3]), m33: \(self[3,3]),\n" +
         ")"
     }
 }

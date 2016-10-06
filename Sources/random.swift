@@ -8,9 +8,21 @@
 
 // @note copied from SwiftRandom which is MIT Licensed
 
-// each type has its own random
+#if (os(OSX) || os(iOS) || os(tvOS) || os(watchOS))
 import Darwin
+#else
+import Glibc
 
+internal func arc4random() -> UInt32 {
+    return random()
+}
+    
+internal func arc4random_uniform(_ val: UInt32) -> UInt32 {
+    return random() % val
+}
+#endif
+
+// each type has its own random
 public extension Bool {
     /// SwiftRandom extension
     public static func random() -> Bool {
