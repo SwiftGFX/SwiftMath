@@ -26,6 +26,16 @@
             self.x = x
             self.y = y
         }
+        
+        @inline(__always)
+        public init(_ scalar: Float) {
+            self.init(x: scalar, y: scalar)
+        }
+        
+        @inline(__always)
+        public init(_ x: Float, _ y: Float) {
+            self.init(x: x, y: y)
+        }
     }
     
     extension Vector2f: Equatable {
@@ -117,6 +127,11 @@
         @inline(__always)
         public static func *(lhs: Matrix4x4f, rhs: Vector2f) -> Vector2f {
             return (lhs * Vector4f(rhs)).xy
+        }
+        
+        @inline(__always)
+        public static func *(lhs: Vector2f, rhs: Matrix4x4f) -> Vector2f {
+            return (Vector4f(lhs) * rhs).xy
         }
         
     }

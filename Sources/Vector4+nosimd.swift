@@ -137,8 +137,8 @@ extension Vector4f: Equatable {
         )
     }
     
-    public static func *(rhs: Matrix4x4f, lhs: Vector4f) -> Vector4f {
-        return lhs * rhs
+    public static func *(lhs: Matrix4x4f, rhs: Vector4f) -> Vector4f {
+        return rhs * lhs
     }
     
     public static func /(lhs: Vector4f, rhs: Vector4f) -> Vector4f {

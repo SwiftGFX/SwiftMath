@@ -26,16 +26,6 @@ public extension Vector2f {
     public init(_ x: Int, _ y: Int) {
         self.init(x: Float(x), y: Float(y))
     }
-    
-    @inline(__always)
-    public init(_ scalar: Float) {
-        self.init(x: scalar, y: scalar)
-    }
-    
-    @inline(__always)
-    public init(_ x: Float, _ y: Float) {
-        self.init(x: x, y: y)
-    }
 }
 
 public extension Vector2f {
