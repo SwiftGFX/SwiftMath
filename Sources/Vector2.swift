@@ -5,38 +5,16 @@
 public typealias vec2 = Vector2f
 
 public extension Vector2f {
-    
-    public static let zero = Vector2f()
-    
-    public var x: Float { get { return d.x } set { d.x = newValue } }
-    public var y: Float { get { return d.y } set { d.y = newValue } }
-    
-    public var r: Float { get { return d.x } set { d.x = newValue } }
-    public var g: Float { get { return d.y } set { d.y = newValue } }
-    
-    public var s: Float { get { return d.x } set { d.x = newValue } }
-    public var t: Float { get { return d.y } set { d.y = newValue } }
-    
-    public subscript(x: Int) -> Float {
-        get {
-            return d[x]
-        }
-        
-        set {
-            d[x] = newValue
-        }
-    }
-    
     //MARK: - initializers
     
     @inline(__always)
     public init(_ v: Vector4f) {
-        self.init(v.d.x, v.d.y)
+        self.init(v.x, v.y)
     }
     
     @inline(__always)
     public init(_ v: Vector3f) {
-        self.init(v.d.x, v.d.y)
+        self.init(v.x, v.y)
     }
     
     @inline(__always)
@@ -48,22 +26,30 @@ public extension Vector2f {
     public init(_ x: Int, _ y: Int) {
         self.init(x: Float(x), y: Float(y))
     }
+    
+    @inline(__always)
+    public init(_ scalar: Float) {
+        self.init(x: scalar, y: scalar)
+    }
+    
+    @inline(__always)
+    public init(_ x: Float, _ y: Float) {
+        self.init(x: x, y: y)
+    }
 }
 
 public extension Vector2f {
+    
+    public static let zero = Vector2f()
+    
     public var isZero: Bool {
         return x == 0.0 && y == 0.0
     }
 }
 
-public extension Vector2f {
-    public var extendedToVec3: Vector3f {
-        return Vector3f(x, y, 0.0)
+extension Vector2f: CustomStringConvertible {
+    public var description: String {
+        return "Vector2f(x: \(x), y: \(y))"
     }
 }
 
-extension Vector2f: CustomStringConvertible {
-    public var description: String {
-        return "Vector2f(x: \(d.x), y: \(d.y))"
-    }
-}

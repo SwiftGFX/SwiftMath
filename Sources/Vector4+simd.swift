@@ -7,10 +7,33 @@ import simd
 
 public struct Vector4f {
     internal var d: float4
-}
-
-public extension Vector4f {
-    //MARK: - initializers
+    
+    public var x: Float { get { return d.x } set { d.x = newValue } }
+    public var y: Float { get { return d.y } set { d.y = newValue } }
+    public var z: Float { get { return d.z } set { d.z = newValue } }
+    public var w: Float { get { return d.w } set { d.w = newValue } }
+    
+    public var r: Float { get { return d.x } set { d.x = newValue } }
+    public var g: Float { get { return d.y } set { d.y = newValue } }
+    public var b: Float { get { return d.z } set { d.z = newValue } }
+    public var a: Float { get { return d.w } set { d.w = newValue } }
+    
+    public var s: Float { get { return d.x } set { d.x = newValue } }
+    public var t: Float { get { return d.y } set { d.y = newValue } }
+    public var p: Float { get { return d.z } set { d.z = newValue } }
+    public var q: Float { get { return d.w } set { d.w = newValue } }
+    
+    public subscript(x: Int) -> Float {
+        get {
+            return d[x]
+        }
+        
+        set {
+            d[x] = newValue
+        }
+    }
+    
+    // MARK: - initializers
     
     @inline(__always)
     public init() {
@@ -37,7 +60,11 @@ public extension Vector4f {
         self.d = float4(x, y, z, w)
     }
     
-    //MARK: - properties
+}
+
+public extension Vector4f {
+
+    // MARK: - properties
     
     /// Length (two-norm or “Euclidean norm”) of x.
     public var length: Float {
@@ -63,7 +90,7 @@ public extension Vector4f {
         return unsafeBitCast(simd.normalize(self.d), to: Vector4f.self)
     }
     
-    //MARK: - functions
+    // MARK: - functions
     
     public func dot(x: Vector4f) -> Float {
         return simd.dot(self.d, x.d)
@@ -83,7 +110,7 @@ public extension Vector4f {
         return unsafeBitCast(simd.mix(d, to.d, t: factor), to: Vector4f.self)
     }
     
-    //MARK: - operators
+    // MARK: - operators
     
     @inline(__always)
     public static func +(lhs: Vector4f, rhs: Vector4f) -> Vector4f {

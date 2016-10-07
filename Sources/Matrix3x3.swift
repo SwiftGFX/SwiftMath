@@ -2,9 +2,9 @@
 // License: https://github.com/SwiftGFX/SwiftMath#license-bsd-2-clause
 //
 
+// Currently available only under SIMD implementation
 #if !NOSIMD
-    import simd
-#endif
+import simd
 
 public extension Matrix3x3f {
     /// Returns the identity matrix
@@ -58,3 +58,5 @@ extension Matrix3x3f: CustomStringConvertible {
         ")"
     }
 }
+
+#endif

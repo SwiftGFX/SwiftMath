@@ -9,22 +9,22 @@
 #if NOSIMD
     
 public struct Matrix4x4f {
-    fileprivate var m11: Float = 0.0
-    fileprivate var m12: Float = 0.0
-    fileprivate var m13: Float = 0.0
-    fileprivate var m14: Float = 0.0
-    fileprivate var m21: Float = 0.0
-    fileprivate var m22: Float = 0.0
-    fileprivate var m23: Float = 0.0
-    fileprivate var m24: Float = 0.0
-    fileprivate var m31: Float = 0.0
-    fileprivate var m32: Float = 0.0
-    fileprivate var m33: Float = 0.0
-    fileprivate var m34: Float = 0.0
-    fileprivate var m41: Float = 0.0
-    fileprivate var m42: Float = 0.0
-    fileprivate var m43: Float = 0.0
-    fileprivate var m44: Float = 0.0
+    internal var m11: Float = 0.0
+    internal var m12: Float = 0.0
+    internal var m13: Float = 0.0
+    internal var m14: Float = 0.0
+    internal var m21: Float = 0.0
+    internal var m22: Float = 0.0
+    internal var m23: Float = 0.0
+    internal var m24: Float = 0.0
+    internal var m31: Float = 0.0
+    internal var m32: Float = 0.0
+    internal var m33: Float = 0.0
+    internal var m34: Float = 0.0
+    internal var m41: Float = 0.0
+    internal var m42: Float = 0.0
+    internal var m43: Float = 0.0
+    internal var m44: Float = 0.0
     
     public func toArray() -> [Float] {
         return [m11, m12, m13, m14, m21, m22, m23, m24, m31, m32, m33, m34, m41, m42, m43, m44]

@@ -7,7 +7,7 @@
 import Glibc
     
 @inline(__always)
-internal func __sincosf(_ a: Float, _ sina: inout Float, cosa: inout Float) {
+internal func __sincospif(_ a: Float, _ sina: inout Float, _ cosa: inout Float) {
     sina = sin(a)
     cosa = cos(a)
 }
