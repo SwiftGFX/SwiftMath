@@ -8,15 +8,36 @@ import simd
 
 public struct Vector2f {
     internal var d: float2
-}
-
-public extension Vector2f {
+    
+    public var x: Float { get { return d.x } set { d.x = newValue } }
+    public var y: Float { get { return d.y } set { d.y = newValue } }
+    
+    public var r: Float { get { return d.x } set { d.x = newValue } }
+    public var g: Float { get { return d.y } set { d.y = newValue } }
+    
+    public var s: Float { get { return d.x } set { d.x = newValue } }
+    public var t: Float { get { return d.y } set { d.y = newValue } }
+    
+    public subscript(x: Int) -> Float {
+        get {
+            return d[x]
+        }
+        
+        set {
+            d[x] = newValue
+        }
+    }
     
     //MARK: - initializers
     
     @inline(__always)
     public init() {
         self.d = float2()
+    }
+    
+    @inline(__always)
+    public init(x: Float, y: Float) {
+        self.d = float2(x, y)
     }
     
     @inline(__always)
@@ -28,17 +49,10 @@ public extension Vector2f {
     public init(_ x: Float, _ y: Float) {
         self.d = float2(x, y)
     }
-    
-    @inline(__always)
-    public init(x: Float, y: Float) {
-        self.d = float2(x, y)
-    }
-    
-    @inline(__always)
-    internal init(_ v: float4) {
-        self.d = float2(v.x, v.y)
-    }
-    
+}
+
+public extension Vector2f {
+
     //MARK: - properties
     
     /// Length (two-norm or “Euclidean norm”) of x.
@@ -108,12 +122,14 @@ public extension Vector2f {
     
     @inline(__always)
     public static func *(lhs: Matrix4x4f, rhs: Vector2f) -> Vector2f {
-        return Vector2f(lhs.d * Vector4f(rhs).d)
+        let res = lhs.d * Vector4f(rhs).d
+        return Vector2f(res.x, res.y)
     }
     
     @inline(__always)
     public static func *(lhs: Vector2f, rhs: Matrix4x4f) -> Vector2f {
-        return Vector2f(Vector4f(lhs).d * rhs.d)
+        let res = Vector4f(lhs).d * rhs.d
+        return Vector2f(res.x, res.y)
     }
     
     @inline(__always)

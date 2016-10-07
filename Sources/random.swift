@@ -12,13 +12,14 @@
 import Darwin
 #else
 import Glibc
+import SwiftGlibc
 
 internal func arc4random() -> UInt32 {
-    return random()
+    return UInt32(random())
 }
     
 internal func arc4random_uniform(_ val: UInt32) -> UInt32 {
-    return random() % val
+    return UInt32(random()) % val
 }
 #endif
 

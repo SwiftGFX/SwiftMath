@@ -5,41 +5,16 @@
 public typealias vec4 = Vector4f
 
 public extension Vector4f {
-    public var x: Float { get { return d.x } set { d.x = newValue } }
-    public var y: Float { get { return d.y } set { d.y = newValue } }
-    public var z: Float { get { return d.z } set { d.z = newValue } }
-    public var w: Float { get { return d.w } set { d.w = newValue } }
-    
-    public var r: Float { get { return d.x } set { d.x = newValue } }
-    public var g: Float { get { return d.y } set { d.y = newValue } }
-    public var b: Float { get { return d.z } set { d.z = newValue } }
-    public var a: Float { get { return d.w } set { d.w = newValue } }
-    
-    public var s: Float { get { return d.x } set { d.x = newValue } }
-    public var t: Float { get { return d.y } set { d.y = newValue } }
-    public var p: Float { get { return d.z } set { d.z = newValue } }
-    public var q: Float { get { return d.w } set { d.w = newValue } }
-    
-    public subscript(x: Int) -> Float {
-        get {
-            return d[x]
-        }
-        
-        set {
-            d[x] = newValue
-        }
-    }
-    
     //MARK: - initializers
     
     @inline(__always)
     public init(_ v: Vector2f) {
-        self.init(v.d.x, v.d.y, 0.0, 1.0)
+        self.init(v.x, v.y, 0.0, 1.0)
     }
     
     @inline(__always)
     public init(_ v: Vector3f) {
-        self.init(v.d.x, v.d.y,v.d.z, 1.0)
+        self.init(v.x, v.y, v.z, 1.0)
     }
     
     @inline(__always)
@@ -57,14 +32,55 @@ public extension Vector4f {
     public var isZero: Bool {
         return x == 0.0 && y == 0.0 && z == 0.0 && w == 0.0
     }
+    
+    public static let zero = Vector4f()
 }
 
 public extension Vector4f {
-    public var xy: Vector2f {
-        return Vector2f(x, y)
+    public var xyz: Vector3f {
+        get {
+            return Vector3f(x, y, z)
+        }
+        set (v) {
+            x = v.x
+            y = v.y
+            z = v.z
+        }
     }
     
-    public var xyz: Vector3f {
-        return Vector3f(x, y, z)
+    public var xy: Vector2f {
+        get {
+            return Vector2f(x, y)
+        }
+        set (v) {
+            x = v.x
+            y = v.y
+        }
+    }
+    
+    public var xz: Vector2f {
+        get {
+            return Vector2f(x, z)
+        }
+        set (v) {
+            x = v.x
+            z = v.y
+        }
+    }
+    
+    public var yz: Vector2f {
+        get {
+            return Vector2f(y, z)
+        }
+        set (v) {
+            y = v.x
+            z = v.y
+        }
+    }
+}
+
+extension Vector4f: CustomStringConvertible {
+    public var description: String {
+        return "Vector4f(x: \(x), y: \(y), z: \(z), w: \(w))"
     }
 }
