@@ -25,11 +25,3 @@ public extension UInt {
         return x + 1
     }
 }
-
-public extension Float {
-    
-    public static func ~=(lhs: Float, rhs: Float) -> Bool {
-        return abs(lhs - rhs) < .ulpOfOne
-    }
-    
-}
