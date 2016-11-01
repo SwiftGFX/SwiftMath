@@ -76,7 +76,7 @@ public struct Rect {
         size = topRight - bottomLeft
     }
     
-    public init(origin: Point, size: Size) {
+    public init(origin: Point = .zero, size: Size = .zero) {
         self.origin = origin
         self.size   = size
     }
