@@ -90,6 +90,14 @@ extension Rect: CustomStringConvertible {
     }
 }
 
+extension Rect: Equatable {
+    public static func ==(lhs: Rect, rhs: Rect) -> Bool {
+        return
+            lhs.size == rhs.size &&
+            lhs.origin == rhs.origin
+    }
+}
+
 public extension Rect {
     public func sizeScaled(by s: Float) -> Rect {
         return Rect(origin: origin, size: size * s)
