@@ -9,7 +9,7 @@
 public typealias Size = Vector2f
 
 public extension Size {
-    var width: Float {
+    public var width: Float {
         get {
            return x
         }
@@ -18,7 +18,7 @@ public extension Size {
         }
     }
     
-    var height: Float {
+    public var height: Float {
         get {
             return y
         }
@@ -27,11 +27,11 @@ public extension Size {
         }
     }
     
-    init(width: Float, height: Float) {
+    public init(width: Float, height: Float) {
         self.init(width, height)
     }
     
-    init(width: Int, height: Int) {
+    public init(width: Int, height: Int) {
         self.init(Float(width), Float(height))
     }
 }
