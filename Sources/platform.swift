@@ -35,7 +35,7 @@ import Darwin
 #endif
 
 @inline(__always)
-internal func sincosf(_ a: Angle) -> (sin: Float, cos: Float) {
+public func sincos(_ a: Angle) -> (sin: Float, cos: Float) {
     var s: Float = 0.0
     var c: Float = 0.0
     __sincospif(a.degrees / 180.0, &s, &c)
@@ -44,16 +44,16 @@ internal func sincosf(_ a: Angle) -> (sin: Float, cos: Float) {
 }
 
 @inline(__always)
-internal func sinf(_ a: Angle) -> Float {
+public func sin(_ a: Angle) -> Float {
 	return __sinpif(a.degrees / 180.0)
 }
 
 @inline(__always)
-internal func cosf(_ a: Angle) -> Float {
+public func cos(_ a: Angle) -> Float {
 	return __cospif(a.degrees / 180.0)
 }
 
 @inline(__always)
-internal func tanf(_ a: Angle) -> Float {
+public func tan(_ a: Angle) -> Float {
     return __tanpif(a.degrees / 180.0)
 }

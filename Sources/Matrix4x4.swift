@@ -49,7 +49,7 @@ public extension Matrix4x4f {
     
     /// Creates a left-handed perspective projection matrix
     public static func proj(fovy: Angle, aspect: Float, near: Float, far: Float) -> Matrix4x4f {
-        let height = 1.0 / tanf(fovy * 0.5)
+        let height = 1.0 / tan(fovy * 0.5)
         let width  = height * 1.0/aspect;
         return projLH(x: 0, y: 0, w: width, h: height, near: near, far: far)
     }
@@ -159,7 +159,7 @@ public extension Matrix4x4f {
     ///
     /// - returns: a new rotation matrix
     public static func rotate(x: Angle) -> Matrix4x4f {
-        let (sin: sx, cos: cx) = sincosf(x)
+        let (sin: sx, cos: cx) = sincos(x)
         
         var r = Matrix4x4f()
         r[0,0] = 1.0
@@ -174,7 +174,7 @@ public extension Matrix4x4f {
     
 	/// Returns a transformation matrix that rotates around the y axis
     public static func rotate(y: Angle) -> Matrix4x4f {
-        let (sin: sy, cos: cy) = sincosf(y)
+        let (sin: sy, cos: cy) = sincos(y)
         
         var r = Matrix4x4f()
         r[0,0] = cy
@@ -189,7 +189,7 @@ public extension Matrix4x4f {
     
     /// Returns a transformation matrix that rotates around the z axis
     public static func rotate(z: Angle) -> Matrix4x4f {
-        let (sin: sz, cos: cz) = sincosf(z)
+        let (sin: sz, cos: cz) = sincos(z)
         
         var r = Matrix4x4f()
         r[0,0] = cz
@@ -204,8 +204,8 @@ public extension Matrix4x4f {
     
     /// Returns a transformation matrix that rotates around the x and then y axes
     public static func rotate(x: Angle, y: Angle) -> Matrix4x4f {
-        let (sin: sx, cos: cx) = sincosf(x)
-        let (sin: sy, cos: cy) = sincosf(y)
+        let (sin: sx, cos: cx) = sincos(x)
+        let (sin: sy, cos: cy) = sincos(y)
         
         return Matrix4x4f(
             vec4(cy,     0.0, sy,     0.0),
@@ -217,9 +217,9 @@ public extension Matrix4x4f {
     
 	/// Returns a transformation matrix that rotates around the x, y and then z axes
     public static func rotate(x: Angle, y: Angle, z: Angle) -> Matrix4x4f {
-        let (sin: sx, cos: cx) = sincosf(x)
-        let (sin: sy, cos: cy) = sincosf(y)
-        let (sin: sz, cos: cz) = sincosf(z)
+        let (sin: sx, cos: cx) = sincos(x)
+        let (sin: sy, cos: cy) = sincos(y)
+        let (sin: sz, cos: cz) = sincos(z)
         
         var r = Matrix4x4f()
         r[0,0] = cy*cz
@@ -238,9 +238,9 @@ public extension Matrix4x4f {
 	
 	/// Returns a transformation matrix that rotates around the z, y and then x axes
     public static func rotate(z: Angle, y: Angle, x: Angle) -> Matrix4x4f {
-        let (sin: sx, cos: cx) = sincosf(x)
-        let (sin: sy, cos: cy) = sincosf(y)
-        let (sin: sz, cos: cz) = sincosf(z)
+        let (sin: sx, cos: cx) = sincos(x)
+        let (sin: sy, cos: cy) = sincos(y)
+        let (sin: sz, cos: cz) = sincos(z)
         
         var r = Matrix4x4f()
         r[0,0] = cy*cz
@@ -261,9 +261,9 @@ public extension Matrix4x4f {
     public static func scaleRotateTranslate(sx _sx: Float, sy _sy: Float, sz _sz: Float,
                                             ax: Angle, ay: Angle, az: Angle,
                                             tx: Float, ty: Float, tz: Float) -> Matrix4x4f {
-        let (sin: sx, cos: cx) = sincosf(ax)
-        let (sin: sy, cos: cy) = sincosf(ay)
-        let (sin: sz, cos: cz) = sincosf(az)
+        let (sin: sx, cos: cx) = sincos(ax)
+        let (sin: sy, cos: cy) = sincos(ay)
+        let (sin: sz, cos: cz) = sincos(az)
         
         let sxsz = sx*sz
         let cycz = cy*cz
