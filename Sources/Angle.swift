@@ -78,6 +78,11 @@ extension Angle {
         return Angle(lhs.degrees * rhs)
     }
     
+    @inline(__always)
+    public static func *(lhs: Float, rhs: Angle) -> Angle {
+        return Angle(rhs.degrees * lhs)
+    }
+    
     // MARK: division (scaling)
     
     @inline(__always)
