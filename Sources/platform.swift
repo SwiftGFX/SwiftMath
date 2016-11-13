@@ -8,8 +8,8 @@ import Glibc
     
 @inline(__always)
 internal func __sincospif(_ a: Float, _ sina: inout Float, _ cosa: inout Float) {
-    sina = sin(a)
-    cosa = cos(a)
+    sina = sin(a * Float.pi)
+    cosa = cos(a * Float.pi)
 }
 	
 @inline(__always)
