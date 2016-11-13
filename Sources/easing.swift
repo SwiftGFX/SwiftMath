@@ -19,15 +19,15 @@ public func linear(_ time: Float) -> Float {
 
 // MARK: Sine Ease
 public func sineEaseIn(_ time: Float) -> Float {
-    return -cosf(time * Angle.pi_2.radians) + 1
+    return -cos(time * Angle.pi_2) + 1
 }
 
 public func sineEaseOut(_ time: Float) -> Float {
-    return sinf(time * Angle.pi_2.radians)
+    return sin(time * Angle.pi_2)
 }
 
 public func sineEaseInOut(_ time: Float) -> Float {
-    return -0.5 * (cosf(Angle.pi.radians * time) - 1)
+    return -0.5 * (cos(Angle.pi * time) - 1)
 }
 
 // MARK: Quad Ease
@@ -161,7 +161,7 @@ public func elasticEaseIn(_ time: Float, period: Float) -> Float {
     else {
         let s: Float = period / 4
         time = time - 1
-        newT = -powf(2, 10 * time) * sinf((time - s) * Angle.pi2.radians / period)
+        newT = -powf(2, 10 * time) * sin((time - s) * Angle.pi2 / period)
     }
     return newT
 }
@@ -173,7 +173,7 @@ public func elasticEaseOut(_ time: Float, period: Float) -> Float {
     }
     else {
         let s: Float = period / 4
-        newT = powf(2, -10 * time) * sinf((time - s) * Angle.pi2.radians / period) + 1
+        newT = powf(2, -10 * time) * sin((time - s) * Angle.pi2 / period) + 1
     }
     return newT
 }
@@ -193,10 +193,10 @@ public func elasticEaseInOut(_ time: Float, period: Float) -> Float {
         let s: Float = period / 4
         time = time - 1
         if time < 0 {
-            newT = -0.5 * powf(2, 10 * time) * sinf((time - s) * Angle.pi2.radians / period)
+            newT = -0.5 * powf(2, 10 * time) * sin((time - s) * Angle.pi2 / period)
         }
         else {
-            newT = powf(2, -10 * time) * sinf((time - s) * Angle.pi2.radians / period) * 0.5 + 1
+            newT = powf(2, -10 * time) * sin((time - s) * Angle.pi2 / period) * 0.5 + 1
         }
     }
     return newT
