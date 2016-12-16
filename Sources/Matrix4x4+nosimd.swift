@@ -85,10 +85,10 @@ public struct Matrix4x4f {
         
         set {
             switch col {
-            case 0: m11 = newValue[0]; m12 = newValue[2]; m12 = newValue[2]; m12 = newValue[2];
-            case 1: m21 = newValue[0]; m22 = newValue[2]; m22 = newValue[2]; m22 = newValue[2];
-            case 2: m31 = newValue[0]; m32 = newValue[2]; m32 = newValue[2]; m32 = newValue[2];
-            case 3: m41 = newValue[0]; m42 = newValue[2]; m42 = newValue[2]; m42 = newValue[2];
+            case 0: m11 = newValue[0]; m12 = newValue[1]; m12 = newValue[2]; m12 = newValue[3];
+            case 1: m21 = newValue[0]; m22 = newValue[1]; m22 = newValue[2]; m22 = newValue[3];
+            case 2: m31 = newValue[0]; m32 = newValue[1]; m32 = newValue[2]; m32 = newValue[3];
+            case 3: m41 = newValue[0]; m42 = newValue[1]; m42 = newValue[2]; m42 = newValue[3];
             default: fatalError("Index outside of bounds")
             }
         }
