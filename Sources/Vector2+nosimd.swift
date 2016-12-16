@@ -129,6 +129,17 @@
             return (lhs * Vector4f(rhs)).xy
         }
         
+        public static func * (lhs: Vector2f, rhs: Matrix3x3f) -> Vector2f {
+            return Vector2f(
+                lhs.x * rhs.m11 + lhs.y * rhs.m21 + rhs.m31,
+                lhs.x * rhs.m12 + lhs.y * rhs.m22 + rhs.m32
+            )
+        }
+        
+        public static func * (lhs: Matrix3x3f, rhs: Vector2f) -> Vector2f {
+            return rhs * lhs
+        }
+        
         @inline(__always)
         public static func *(lhs: Vector2f, rhs: Matrix4x4f) -> Vector2f {
             return (Vector4f(lhs) * rhs).xy

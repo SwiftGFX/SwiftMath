@@ -129,5 +129,17 @@ extension Vector3f: Equatable {
     public static func ~=(lhs: Vector3f, rhs: Vector3f) -> Bool {
         return lhs.x ~= rhs.x && lhs.y ~= rhs.y && lhs.z ~= rhs.z
     }
+    
+    public static func *(lhs: Vector3f, rhs: Matrix3x3f) -> Vector3f {
+        return Vector3f(
+            lhs.x * rhs.m11 + lhs.y * rhs.m21 + lhs.z * rhs.m31,
+            lhs.x * rhs.m12 + lhs.y * rhs.m22 + lhs.z * rhs.m32,
+            lhs.x * rhs.m13 + lhs.y * rhs.m23 + lhs.z * rhs.m33
+        )
+    }
+    
+    public static func *(lhs: Matrix3x3f, rhs: Vector3f) -> Vector3f {
+        return rhs * lhs
+    }
 }
 #endif

@@ -2,10 +2,6 @@
 // License: https://github.com/SwiftGFX/SwiftMath#license-bsd-2-clause
 //
 
-// Currently available only under SIMD implementation
-#if !NOSIMD
-import simd
-
 public extension Matrix3x3f {
     /// Returns the identity matrix
     public static let identity = Matrix3x3f(diagonal: vec3(1.0))
@@ -22,41 +18,16 @@ public extension Matrix3x3f {
         )
     }
     
-    // MARK: - subscript operations
-    
-    
-    /// Access the `col`th column vector
-    public subscript(col: Int) -> Vector3f {
-        get {
-            return unsafeBitCast(d[col], to: Vector3f.self)
-        }
-        
-        set {
-            d[col] = newValue.d
-        }
-    }
-    
-    /// Access the `col`th column vector and then `row`th element
-    public subscript(col: Int, row: Int) -> Float {
-        get {
-            return d[col, row]
-        }
-        
-        set {
-            d[col, row] = newValue
-        }
-    }
 }
 
 extension Matrix3x3f: CustomStringConvertible {
     /// Displays the matrix in row-major order
     public var description: String {
         return "Matrix3x3f(\n" +
-            "m00: \(d[0,0]), m01: \(d[1,0]), m02: \(d[2,0]),\n" +
-            "m10: \(d[0,1]), m11: \(d[1,1]), m12: \(d[2,1]),\n" +
-            "m20: \(d[0,2]), m21: \(d[1,2]), m22: \(d[2,2]),\n" +
+            "m00: \(self[0,0]), m01: \(self[1,0]), m02: \(self[2,0]),\n" +
+            "m10: \(self[0,1]), m11: \(self[1,1]), m12: \(self[2,1]),\n" +
+            "m20: \(self[0,2]), m21: \(self[1,2]), m22: \(self[2,2]),\n" +
         ")"
     }
 }
 
-#endif

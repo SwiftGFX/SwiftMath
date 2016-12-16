@@ -174,7 +174,7 @@ public struct Matrix4x4f {
     }
 }
     
-extension Matrix4x4f {
+public extension Matrix4x4f {
     public var adjugate: Matrix4x4f {
         var m = Matrix4x4f.identity
         
