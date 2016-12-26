@@ -30,11 +30,9 @@ public struct Matrix4x4f {
         return [m11, m12, m13, m14, m21, m22, m23, m24, m31, m32, m33, m34, m41, m42, m43, m44]
     }
     
-    @inline(__always)
     public init() {}
     
     /// Creates an instance using the vector to initialize the diagonal elements
-    @inline(__always)
     public init(diagonal v: Vector4f) {
         m11 = v[0]
         m22 = v[1]
@@ -48,7 +46,6 @@ public struct Matrix4x4f {
     /// - parameter c1: a vector representing column 1
     /// - parameter c2: a vector representing column 2
     /// - parameter c3: a vector representing column 3
-    @inline(__always)
     public init(_ c0: Vector4f, _ c1: Vector4f, _ c2: Vector4f, _ c3: Vector4f) {
         m11 = c0[0]
         m12 = c0[1]

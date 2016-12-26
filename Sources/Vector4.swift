@@ -7,22 +7,18 @@ public typealias vec4 = Vector4f
 public extension Vector4f {
     //MARK: - initializers
     
-    @inline(__always)
     public init(_ v: Vector2f) {
         self.init(v.x, v.y, 0.0, 1.0)
     }
-    
-    @inline(__always)
+  
     public init(_ v: Vector3f) {
         self.init(v.x, v.y, v.z, 1.0)
     }
     
-    @inline(__always)
     public init(x: Int, y: Int, z: Int, w: Int) {
         self.init(x: Float(x), y: Float(y), z: Float(z), w: Float(w))
     }
-    
-    @inline(__always)
+  
     public init(_ x: Int, _ y: Int, _ z: Int, _ w: Int) {
         self.init(x: Float(x), y: Float(y), z: Float(z), w: Float(w))
     }

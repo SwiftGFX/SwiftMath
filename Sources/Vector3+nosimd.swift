@@ -43,22 +43,18 @@ public struct Vector3f {
         }
     }
     
-    @inline(__always)
     public init() {}
     
-    @inline(__always)
     public init(_ x: Float, _ y: Float, _ z: Float) {
         self.x = x
         self.y = y
         self.z = z
     }
     
-    @inline(__always)
     public init(_ scalar: Float) {
         self.init(scalar, scalar, scalar)
     }
     
-    @inline(__always)
     public init(x: Float, y: Float, z: Float) {
         self.init(x, y, z)
     }

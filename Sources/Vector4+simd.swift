@@ -35,27 +35,22 @@ public struct Vector4f {
     
     // MARK: - initializers
     
-    @inline(__always)
     public init() {
         self.d = float4()
     }
     
-    @inline(__always)
     public init(_ scalar: Float) {
         self.d = float4(scalar)
     }
     
-    @inline(__always)
     internal init(float4 scalar4: float4) {
         self.d = scalar4
     }
     
-    @inline(__always)
     public init(_ x: Float, _ y: Float, _ z: Float, _ w: Float) {
         self.d = float4(x, y, z, w)
     }
     
-    @inline(__always)
     public init(x: Float, y: Float, z: Float, w: Float) {
         self.d = float4(x, y, z, w)
     }
@@ -112,42 +107,34 @@ public extension Vector4f {
     
     // MARK: - operators
     
-    @inline(__always)
     public static func +(lhs: Vector4f, rhs: Vector4f) -> Vector4f {
         return unsafeBitCast(lhs.d + rhs.d, to: Vector4f.self)
     }
     
-    @inline(__always)
     public static func -(lhs: Vector4f, rhs: Vector4f) -> Vector4f {
         return unsafeBitCast(lhs.d - rhs.d, to: Vector4f.self)
     }
 
-    @inline(__always)
     public static prefix func -(lhs: Vector4f) -> Vector4f {
         return unsafeBitCast(-lhs.d, to: Vector4f.self)
     }
     
-    @inline(__always)
     public static func *(lhs: Vector4f, rhs: Float) -> Vector4f {
         return unsafeBitCast(lhs.d * rhs, to: Vector4f.self)
     }
     
-    @inline(__always)
     public static func *(lhs: Vector4f, rhs: Vector4f) -> Vector4f {
         return unsafeBitCast(lhs.d * rhs.d, to: Vector4f.self)
     }
     
-    @inline(__always)
     public static func *(lhs: Matrix4x4f, rhs: Vector4f) -> Vector4f {
         return unsafeBitCast(lhs.d * rhs.d, to: Vector4f.self)
     }
     
-    @inline(__always)
     public static func *(lhs: Vector4f, rhs: Matrix4x4f) -> Vector4f {
         return unsafeBitCast(lhs.d * rhs.d, to: Vector4f.self)
     }
     
-    @inline(__always)
     public static func *=(lhs: inout Vector4f, rhs: Float) {
         lhs.d *= rhs
     }

@@ -14,13 +14,11 @@ public struct Matrix4x4f {
     //MARK: - initializers
 	
 	/// Creates an instance initialized to zero
-    @inline(__always)
     public init() {
         self.d = float4x4()
     }
 	
 	/// Creates an instance using the vector to initialize the diagonal elements
-    @inline(__always)
     public init(diagonal v: Vector4f) {
         self.d = float4x4(diagonal: v.d)
     }
@@ -31,7 +29,6 @@ public struct Matrix4x4f {
     /// - parameter c1: a vector representing column 1
     /// - parameter c2: a vector representing column 2
     /// - parameter c3: a vector representing column 3
-    @inline(__always)
     public init(_ c0: Vector4f, _ c1: Vector4f, _ c2: Vector4f, _ c3: Vector4f) {
         self.d = float4x4(matrix_float4x4(columns: (c0.d, c1.d, c2.d, c3.d)))
     }
@@ -68,17 +65,14 @@ public struct Matrix4x4f {
     
     //MARK:- operators
     
-    @inline(__always)
     public static prefix func -(lhs: Matrix4x4f) -> Matrix4x4f {
         return unsafeBitCast(-lhs.d, to: Matrix4x4f.self)
     }
     
-    @inline(__always)
     public static func *(lhs: Matrix4x4f, rhs: Float) -> Matrix4x4f {
         return unsafeBitCast(lhs.d * rhs, to: Matrix4x4f.self)
     }
     
-    @inline(__always)
     public static func *(lhs: Matrix4x4f, rhs: Matrix4x4f) -> Matrix4x4f {
         return unsafeBitCast(lhs.d * rhs.d, to: Matrix4x4f.self)
     }

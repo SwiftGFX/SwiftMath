@@ -21,12 +21,10 @@ public struct Matrix3x3f {
     public func toArray() -> [Float] {
         return [m11, m12, m13, m21, m22, m23, m31, m32, m33]
     }
-    
-    @inline(__always)
+  
     public init() {}
     
     /// Creates an instance using the vector to initialize the diagonal elements
-    @inline(__always)
     public init(diagonal v: Vector3f) {
         m11 = v[0]
         m22 = v[1]
@@ -38,7 +36,6 @@ public struct Matrix3x3f {
     /// - parameter c0: a vector representing column 0
     /// - parameter c1: a vector representing column 1
     /// - parameter c2: a vector representing column 2
-    @inline(__always)
     public init(_ c0: Vector3f, _ c1: Vector3f, _ c2: Vector3f) {
         m11 = c0[0]
         m12 = c0[1]

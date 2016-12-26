@@ -49,10 +49,8 @@ public struct Vector4f {
     
     //MARK: - initializers
     
-    @inline(__always)
     public init() {}
     
-    @inline(__always)
     public init(_ scalar: Float) {
         self.x = scalar
         self.y = scalar
@@ -60,7 +58,6 @@ public struct Vector4f {
         self.w = scalar
     }
     
-    @inline(__always)
     public init(_ x: Float, _ y: Float, _ z: Float, _ w: Float) {
         self.x = x
         self.y = y
@@ -68,7 +65,6 @@ public struct Vector4f {
         self.w = w
     }
     
-    @inline(__always)
     public init(x: Float, y: Float, z: Float, w: Float) {
         self.init(x, y, z, w)
     }
@@ -120,7 +116,6 @@ extension Vector4f: Equatable {
         return Vector4f(lhs.x * rhs, lhs.y * rhs, lhs.z * rhs, lhs.w * rhs)
     }
     
-    @inline(__always)
     public static func *=(lhs: inout Vector4f, rhs: Float) {
         lhs.x *= rhs
         lhs.y *= rhs

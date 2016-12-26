@@ -35,22 +35,18 @@ public extension Vector3f {
     
     //MARK: - initializers
     
-    @inline(__always)
     public init() {
         self.d = float3()
     }
     
-    @inline(__always)
     public init(_ scalar: Float) {
         self.d = float3(scalar)
     }
     
-    @inline(__always)
     public init(_ x: Float, _ y: Float, _ z: Float) {
         self.d = float3(x, y, z)
     }
     
-    @inline(__always)
     public init(x: Float, y: Float, z: Float) {
         self.d = float3(x, y, z)
     }
@@ -97,42 +93,34 @@ public extension Vector3f {
     
     //MARK: - operators
     
-    @inline(__always)
     public static func +(lhs: Vector3f, rhs: Vector3f) -> Vector3f {
         return unsafeBitCast(lhs.d + rhs.d, to: Vector3f.self)
     }
 
-    @inline(__always)
     public static func -(lhs: Vector3f, rhs: Vector3f) -> Vector3f {
         return unsafeBitCast(lhs.d - rhs.d, to: Vector3f.self)
     }
 
-    @inline(__always)
     public static prefix func -(lhs: Vector3f) -> Vector3f {
         return unsafeBitCast(-lhs.d, to: Vector3f.self)
     }
     
-    @inline(__always)
     public static func *(lhs: Vector3f, rhs: Float) -> Vector3f {
         return unsafeBitCast(lhs.d * rhs, to: Vector3f.self)
     }
     
-    @inline(__always)
     public static func *(lhs: Vector3f, rhs: Vector3f) -> Vector3f {
         return unsafeBitCast(lhs.d * rhs.d, to: Vector3f.self)
     }
     
-    @inline(__always)
     public static func *(lhs: Matrix3x3f, rhs: Vector3f) -> Vector3f {
         return unsafeBitCast(lhs.d * rhs.d, to: Vector3f.self)
     }
     
-    @inline(__always)
     public static func *(lhs: Vector3f, rhs: Matrix3x3f) -> Vector3f {
         return unsafeBitCast(lhs.d * rhs.d, to: Vector3f.self)
     }
     
-    @inline(__always)
     public static func *=(lhs: inout Vector3f, rhs: Float) {
         lhs.d *= rhs
     }

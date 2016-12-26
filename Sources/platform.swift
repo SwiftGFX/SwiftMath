@@ -34,12 +34,10 @@ import Darwin
 
 #endif
 
-@inline(__always)
 public func sincos(_ a: Angle, _ sina: inout Float, _ cosa: inout Float)  {
     __sincospif(a.degrees / 180.0, &sina, &cosa)
 }
 
-@inline(__always)
 public func sincos(_ a: Angle) -> (sin: Float, cos: Float) {
     var s: Float = 0.0
     var c: Float = 0.0
@@ -48,17 +46,14 @@ public func sincos(_ a: Angle) -> (sin: Float, cos: Float) {
     return (sin: s, cos: c)
 }
 
-@inline(__always)
 public func sin(_ a: Angle) -> Float {
 	return __sinpif(a.degrees / 180.0)
 }
 
-@inline(__always)
 public func cos(_ a: Angle) -> Float {
 	return __cospif(a.degrees / 180.0)
 }
 
-@inline(__always)
 public func tan(_ a: Angle) -> Float {
     return __tanpif(a.degrees / 180.0)
 }
