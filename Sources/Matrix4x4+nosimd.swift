@@ -252,10 +252,10 @@ public extension Matrix4x4f {
     
     public var transpose: Matrix4x4f {
         return Matrix4x4f(
-            m11, m21, m31, m41,
-            m12, m22, m32, m42,
-            m13, m23, m33, m43,
-            m14, m24, m34, m44
+            vec4(m11, m21, m31, m41),
+            vec4(m12, m22, m32, m42),
+            vec4(m13, m23, m33, m43),
+            vec4(m14, m24, m34, m44)
         )
     }
     
@@ -320,19 +320,19 @@ public extension Matrix4x4f {
     
     public static func *(lhs: Matrix4x4f, rhs: Float) -> Matrix4x4f {
         return Matrix4x4f(
-            lhs.m11 * rhs, lhs.m12 * rhs, lhs.m13 * rhs, lhs.m14 * rhs,
-            lhs.m21 * rhs, lhs.m22 * rhs, lhs.m23 * rhs, lhs.m24 * rhs,
-            lhs.m31 * rhs, lhs.m32 * rhs, lhs.m33 * rhs, lhs.m34 * rhs,
-            lhs.m41 * rhs, lhs.m42 * rhs, lhs.m43 * rhs, lhs.m44 * rhs
+            vec4(lhs.m11 * rhs, lhs.m12 * rhs, lhs.m13 * rhs, lhs.m14 * rhs),
+            vec4(lhs.m21 * rhs, lhs.m22 * rhs, lhs.m23 * rhs, lhs.m24 * rhs),
+            vec4(lhs.m31 * rhs, lhs.m32 * rhs, lhs.m33 * rhs, lhs.m34 * rhs),
+            vec4(lhs.m41 * rhs, lhs.m42 * rhs, lhs.m43 * rhs, lhs.m44 * rhs)
         )
     }
     
     public static prefix func -(lhs: Matrix4x4f) -> Matrix4x4f {
         return Matrix4x4f(
-            -lhs.m11, -lhs.m12, -lhs.m13, -lhs.m14,
-            -lhs.m21, -lhs.m22, -lhs.m23, -lhs.m24,
-            -lhs.m31, -lhs.m32, -lhs.m33, -lhs.m34,
-            -lhs.m41, -lhs.m42, -lhs.m43, -lhs.m44
+            vec4(-lhs.m11, -lhs.m12, -lhs.m13, -lhs.m14),
+            vec4(-lhs.m21, -lhs.m22, -lhs.m23, -lhs.m24),
+            vec4(-lhs.m31, -lhs.m32, -lhs.m33, -lhs.m34),
+            vec4(-lhs.m41, -lhs.m42, -lhs.m43, -lhs.m44)
         )
     }
 }
