@@ -250,7 +250,7 @@ public extension Matrix4x4f {
         return determinant(forAdjugate: adjugate)
     }
     
-    public var transpose: Matrix4x4f {
+    public var transposed: Matrix4x4f {
         return Matrix4x4f(
             vec4(m11, m21, m31, m41),
             vec4(m12, m22, m32, m42),

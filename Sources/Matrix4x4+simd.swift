@@ -35,6 +35,10 @@ public struct Matrix4x4f {
     
     //MARK:- properties
     
+    public var transposed: Matrix4x4f {
+        return unsafeBitCast(d.transpose, to: Matrix4x4f.self)
+    }
+    
     public var inversed: Matrix4x4f {
         return unsafeBitCast(d.inverse, to: Matrix4x4f.self)
     }
