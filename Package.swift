@@ -7,11 +7,11 @@ let package = Package(
         .library(
             name: "SwiftMath",
             type: .static,
-            targets: ["libSwiftMath"]),
+            targets: ["SwiftMath"]),
     ],
     targets: [
         .target(
-            name: "libSwiftMath",
+            name: "SwiftMath",
             path: ".",
             sources: ["Sources"])
     ]
