@@ -15,12 +15,12 @@ public struct Matrix3x3f {
     
     /// Creates an instance initialized to zero
     public init() {
-        self.d = float3x3()
+        self.d = matrix_float3x3()
     }
     
     /// Creates an instance using the vector to initialize the diagonal elements
     public init(diagonal v: Vector3f) {
-        self.d = float3x3(diagonal: v.d)
+        self.d = matrix_float3x3(diagonal: v.d)
     }
     
     /// Creates an instance with the specified columns
@@ -29,7 +29,7 @@ public struct Matrix3x3f {
     /// - parameter c1: a vector representing column 1
     /// - parameter c2: a vector representing column 2
     public init(_ c0: Vector3f, _ c1: Vector3f, _ c2: Vector3f) {
-        self.d = float3x3(matrix_float3x3(columns: (c0.d, c1.d, c2.d)))
+        self.d = matrix_float3x3(columns: (c0.d, c1.d, c2.d))
     }
     
     //MARK:- properties

@@ -15,12 +15,12 @@ public struct Matrix4x4f {
 	
 	/// Creates an instance initialized to zero
     public init() {
-        self.d = float4x4()
+        self.d = matrix_float4x4()
     }
 	
 	/// Creates an instance using the vector to initialize the diagonal elements
     public init(diagonal v: Vector4f) {
-        self.d = float4x4(diagonal: v.d)
+        self.d = matrix_float4x4(diagonal: v.d)
     }
     
     /// Creates an instance with the specified columns
@@ -30,7 +30,7 @@ public struct Matrix4x4f {
     /// - parameter c2: a vector representing column 2
     /// - parameter c3: a vector representing column 3
     public init(_ c0: Vector4f, _ c1: Vector4f, _ c2: Vector4f, _ c3: Vector4f) {
-        self.d = float4x4(matrix_float4x4(columns: (c0.d, c1.d, c2.d, c3.d)))
+        self.d = matrix_float4x4(columns: (c0.d, c1.d, c2.d, c3.d))
     }
     
     //MARK:- properties
