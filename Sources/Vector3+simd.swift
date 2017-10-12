@@ -126,4 +126,10 @@ public extension Vector3f {
     }
 }
 
+extension Vector3f: Equatable {
+    public static func ==(lhs: Vector3f, rhs: Vector3f) -> Bool {
+        return lhs.d == rhs.d
+    }
+}
+
 #endif

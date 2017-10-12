@@ -60,7 +60,7 @@ public struct Vector3f {
     }
 }
 
-extension Vector3f: Equatable {
+extension Vector3f {
 
     public var lengthSquared: Float {
         return x * x + y * y + z * z
@@ -118,10 +118,6 @@ extension Vector3f: Equatable {
         return Vector3f(lhs.x / rhs, lhs.y / rhs, lhs.z / rhs)
     }
     
-    public static func ==(lhs: Vector3f, rhs: Vector3f) -> Bool {
-        return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z
-    }
-    
     public static func ~=(lhs: Vector3f, rhs: Vector3f) -> Bool {
         return lhs.x ~= rhs.x && lhs.y ~= rhs.y && lhs.z ~= rhs.z
     }
@@ -136,6 +132,12 @@ extension Vector3f: Equatable {
     
     public static func *(lhs: Matrix3x3f, rhs: Vector3f) -> Vector3f {
         return rhs * lhs
+    }
+}
+    
+extension Vector3f: Equatable {
+    public static func ==(lhs: Vector3f, rhs: Vector3f) -> Bool {
+        return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z
     }
 }
 #endif
