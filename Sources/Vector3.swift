@@ -11,10 +11,6 @@ public extension Vector3f {
         self.init(v.x, v.y, v.z)
     }
     
-    public init(_ v: Vector2f) {
-        self.init(v.x, v.y, 0.0)
-    }
-    
     public init(x: Int, y: Int, z: Int) {
         self.init(x: Float(x), y: Float(y), z: Float(z))
     }
@@ -23,7 +19,7 @@ public extension Vector3f {
         self.init(x: Float(x), y: Float(y), z: Float(z))
     }
     
-    public init(_ v: Vector2f, _ z: Float) {
+    public init(_ v: Vector2f, _ z: Float = 0.0) {
         self.init(v.x, v.y, z)
     }
     
