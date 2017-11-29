@@ -22,6 +22,22 @@ public extension Vector3f {
     public init(_ x: Int, _ y: Int, _ z: Int) {
         self.init(x: Float(x), y: Float(y), z: Float(z))
     }
+    
+    public init(_ v: Vector2f, _ z: Float) {
+        self.init(v.x, v.y, z)
+    }
+    
+    public init(_ v: Vector2f, _ z: Int) {
+        self.init(v.x, v.y, Float(z))
+    }
+    
+    public init(_ x: Float, _ v: Vector2f) {
+        self.init(x, v.x, v.y)
+    }
+    
+    public init(_ x: Int, _ v: Vector2f) {
+        self.init(Float(x), v.x, v.y)
+    }
 }
 
 public extension Vector3f {
