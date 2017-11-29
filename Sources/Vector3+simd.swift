@@ -131,5 +131,11 @@ extension Vector3f: Equatable {
         return lhs.d == rhs.d
     }
 }
+    
+public extension float3 {
+    public init(_ v3f: Vector3f) {
+        self = v3f.d
+    }
+}
 
 #endif

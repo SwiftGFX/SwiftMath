@@ -134,4 +134,10 @@ extension Vector2f: Equatable {
     }
 }
 
+public extension float2 {
+    public init(_ v2f: Vector2f) {
+        self = v2f.d
+    }
+}
+
 #endif

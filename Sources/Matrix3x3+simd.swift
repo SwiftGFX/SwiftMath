@@ -9,13 +9,18 @@ import simd
 /// - remark:
 /// Matrices are stored in column-major order
 public struct Matrix3x3f {
-    internal var d: float3x3
+    internal var d: matrix_float3x3
     
     //MARK: - initializers
     
-    /// Creates an instance initialized to zero
-    public init() {
-        self.d = matrix_float3x3()
+    /// Creates an instance initialized with either existing simd matrix or zeros
+    public init(simdMatrix: matrix_float3x3 = .init()) {
+        self.d = simdMatrix
+    }
+    
+    /// Convenience initializer for type casting
+    public init(_ simdMatrix: matrix_float3x3) {
+        self.init(simdMatrix: simdMatrix)
     }
     
     /// Creates an instance using the vector to initialize the diagonal elements

@@ -27,7 +27,6 @@ public struct Vector4f {
         get {
             return d[x]
         }
-        
         set {
             d[x] = newValue
         }
@@ -43,15 +42,19 @@ public struct Vector4f {
         self.d = float4(scalar)
     }
     
-    internal init(float4 scalar4: float4) {
+    public init(float4 scalar4: float4) {
         self.d = scalar4
     }
     
-    public init(_ x: Float, _ y: Float, _ z: Float, _ w: Float) {
-        self.d = float4(x, y, z, w)
+    public init(_ scalar4: float4) {
+        self.d = scalar4
     }
     
     public init(x: Float, y: Float, z: Float, w: Float) {
+        self.d = float4(x, y, z, w)
+    }
+    
+    public init(_ x: Float, _ y: Float, _ z: Float, _ w: Float) {
         self.d = float4(x, y, z, w)
     }
     
@@ -137,6 +140,18 @@ public extension Vector4f {
     
     public static func *=(lhs: inout Vector4f, rhs: Float) {
         lhs.d *= rhs
+    }
+}
+    
+extension Vector4f: Equatable {
+    public static func ==(lhs: Vector4f, rhs: Vector4f) -> Bool {
+        return lhs.d == rhs.d
+    }
+}
+    
+public extension float4 {
+    public init(_ v4f: Vector4f) {
+        self = v4f.d
     }
 }
 

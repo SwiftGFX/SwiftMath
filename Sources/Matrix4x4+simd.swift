@@ -9,13 +9,18 @@ import simd
 /// - remark:
 /// Matrices are stored in column-major order
 public struct Matrix4x4f {
-    internal var d: float4x4
+    internal var d: matrix_float4x4
     
     //MARK: - initializers
 	
-	/// Creates an instance initialized to zero
-    public init() {
-        self.d = matrix_float4x4()
+	/// Creates an instance initialized with either existing simd matrix or zeros
+    public init(simdMatrix: matrix_float4x4 = .init()) {
+        self.d = simdMatrix
+    }
+    
+    /// Convenience initializer for type casting
+    public init(_ simdMatrix: matrix_float4x4) {
+        self.init(simdMatrix: simdMatrix)
     }
 	
 	/// Creates an instance using the vector to initialize the diagonal elements
@@ -79,6 +84,12 @@ public struct Matrix4x4f {
     
     public static func *(lhs: Matrix4x4f, rhs: Matrix4x4f) -> Matrix4x4f {
         return unsafeBitCast(lhs.d * rhs.d, to: Matrix4x4f.self)
+    }
+}
+    
+public extension matrix_float4x4 {
+    public init(_ mat4x4f: Matrix4x4f) {
+        self = mat4x4f.d
     }
 }
 
