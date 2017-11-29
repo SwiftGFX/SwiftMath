@@ -19,8 +19,8 @@ public protocol VectorfXYZWAccess: VectorfXYZAccess {
 }
 
 extension Vector2f: VectorfXYAccess {}
-extension Vector3f: VectorfXYZAccess {}
-extension Vector4f: VectorfXYZWAccess {}
+extension Vector3f: VectorfXYZAccess, VectorfXYAccess {}
+extension Vector4f: VectorfXYZWAccess, VectorfXYZAccess, VectorfXYAccess {}
 
 public extension VectorfXYAccess {
     
