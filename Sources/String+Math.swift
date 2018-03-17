@@ -11,7 +11,7 @@ internal extension String {
     internal var floatArray: [Float] {
         let ignoredCharacters = CharacterSet(charactersIn: "{} ,")
         let components = self.components(separatedBy: ignoredCharacters)
-        return components.filter { $0.characters.count > 0 }
+        return components.filter { $0.count > 0 }
                          .map { return Float($0)! }
     }
 }
