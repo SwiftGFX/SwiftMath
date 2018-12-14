@@ -141,3 +141,26 @@ public extension Rect {
         return Rect(bottomLeft: newBL, topRight: newTR)
     }
 }
+
+public extension Rect {
+    /**
+     * Returns an array of 2d points which repsent triangles,
+     * ordered in counter-clockwise manner
+     */
+    public var triangles: [Vector2f] {
+        return [
+            origin, topLeft, bottomRight,
+            bottomRight, topLeft, topRight
+        ]
+    }
+    
+    /**
+     * Returns an array of 2d points which represent a triangle strip
+     * First triangle is ordered in counter-clockwise manner
+     */
+    public var triangleStrip: [Vector2f] {
+        return [
+            origin, topLeft, bottomRight, topRight
+        ]
+    }
+}
