@@ -64,7 +64,7 @@ public struct Rect {
     public var maxY: Float { return origin.y + size.y }
     
     public var bottomLeft:  Point { return Point(minX, minY) }
-    public var bottomRight: Point { return Point(maxX, maxY) }
+    public var bottomRight: Point { return Point(maxX, minY) }
     public var topLeft:     Point { return Point(minX, maxY) }
     public var topRight:    Point { return Point(maxX, maxY) }
     
