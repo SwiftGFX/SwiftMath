@@ -39,7 +39,7 @@ public struct Angle {
     public static let pi2   = 360°
 }
 
-extension Angle: CustomStringConvertible, CustomDebugStringConvertible, CustomPlaygroundQuickLookable {
+extension Angle: CustomStringConvertible, CustomDebugStringConvertible {
     public var description: String {
         return "\(degrees)°"
     }
@@ -47,9 +47,11 @@ extension Angle: CustomStringConvertible, CustomDebugStringConvertible, CustomPl
     public var debugDescription: String {
         return "\(degrees)°"
     }
-    
-    public var customPlaygroundQuickLook: PlaygroundQuickLook {
-        return .text(description)
+}
+
+extension Angle: CustomPlaygroundDisplayConvertible {
+    public var playgroundDescription: Any {
+        return degrees
     }
 }
 
