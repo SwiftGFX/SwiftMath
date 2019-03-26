@@ -10,7 +10,7 @@ public typealias Point = Vector2f
 public typealias p2d = Point
 
 public extension Rect {
-    public nonmutating func contains(point: Point) -> Bool {
+    nonmutating func contains(point: Point) -> Bool {
         let x = point.x
         let y = point.y
         return x >= minX && x <= maxX && y >= minY && y <= maxY

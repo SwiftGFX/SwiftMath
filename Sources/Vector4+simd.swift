@@ -65,7 +65,7 @@ public extension Vector4f {
     // MARK: - properties
     
     /// Length (two-norm or “Euclidean norm”) of x.
-    public var length: Float {
+    var length: Float {
         return simd.length(d)
     }
     
@@ -80,17 +80,17 @@ public extension Vector4f {
     /// `if (length_squared(x) < length_squared(y)) { … }`
     ///
     /// Doing it this way avoids one or two square roots, which is a fairly costly operation.
-    public var lengthSquared: Float {
+    var lengthSquared: Float {
         return simd.length_squared(d)
     }
     
-    public var normalized: Vector4f {
+    var normalized: Vector4f {
         return unsafeBitCast(simd.normalize(self.d), to: Vector4f.self)
     }
     
     // MARK: - functions
     
-    public func dot(x: Vector4f) -> Float {
+    func dot(x: Vector4f) -> Float {
         return simd.dot(self.d, x.d)
     }
     
@@ -104,41 +104,41 @@ public extension Vector4f {
     /// - parameter factor: factor
     ///
     /// - returns: interpolated vector
-    public func interpolated(to: Vector4f, factor: Float) -> Vector4f {
+    func interpolated(to: Vector4f, factor: Float) -> Vector4f {
         return unsafeBitCast(simd.mix(d, to.d, t: factor), to: Vector4f.self)
     }
     
     // MARK: - operators
     
-    public static func +(lhs: Vector4f, rhs: Vector4f) -> Vector4f {
+    static func +(lhs: Vector4f, rhs: Vector4f) -> Vector4f {
         return unsafeBitCast(lhs.d + rhs.d, to: Vector4f.self)
     }
     
-    public static func -(lhs: Vector4f, rhs: Vector4f) -> Vector4f {
+    static func -(lhs: Vector4f, rhs: Vector4f) -> Vector4f {
         return unsafeBitCast(lhs.d - rhs.d, to: Vector4f.self)
     }
 
-    public static prefix func -(lhs: Vector4f) -> Vector4f {
+    static prefix func -(lhs: Vector4f) -> Vector4f {
         return unsafeBitCast(-lhs.d, to: Vector4f.self)
     }
     
-    public static func *(lhs: Vector4f, rhs: Float) -> Vector4f {
+    static func *(lhs: Vector4f, rhs: Float) -> Vector4f {
         return unsafeBitCast(lhs.d * rhs, to: Vector4f.self)
     }
     
-    public static func *(lhs: Vector4f, rhs: Vector4f) -> Vector4f {
+    static func *(lhs: Vector4f, rhs: Vector4f) -> Vector4f {
         return unsafeBitCast(lhs.d * rhs.d, to: Vector4f.self)
     }
     
-    public static func *(lhs: Matrix4x4f, rhs: Vector4f) -> Vector4f {
+    static func *(lhs: Matrix4x4f, rhs: Vector4f) -> Vector4f {
         return unsafeBitCast(lhs.d * rhs.d, to: Vector4f.self)
     }
     
-    public static func *(lhs: Vector4f, rhs: Matrix4x4f) -> Vector4f {
+    static func *(lhs: Vector4f, rhs: Matrix4x4f) -> Vector4f {
         return unsafeBitCast(lhs.d * rhs.d, to: Vector4f.self)
     }
     
-    public static func *=(lhs: inout Vector4f, rhs: Float) {
+    static func *=(lhs: inout Vector4f, rhs: Float) {
         lhs.d *= rhs
     }
 }
@@ -150,7 +150,7 @@ extension Vector4f: Equatable {
 }
     
 public extension float4 {
-    public init(_ v4f: Vector4f) {
+    init(_ v4f: Vector4f) {
         self = v4f.d
     }
 }

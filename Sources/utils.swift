@@ -15,7 +15,7 @@ public extension UInt {
      - If "value" is 16, it will return 16.
      - If "value" is 17, it will return 32.
      */
-    public var nextPOT: UInt {
+    var nextPOT: UInt {
         var x = self - 1
         x = x | (x >> 1)
         x = x | (x >> 2)

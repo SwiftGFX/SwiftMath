@@ -7,41 +7,41 @@ public typealias vec3 = Vector3f
 public extension Vector3f {
     //MARK: - initializers
     
-    public init(_ v: Vector4f) {
+    init(_ v: Vector4f) {
         self.init(v.x, v.y, v.z)
     }
     
-    public init(x: Int, y: Int, z: Int) {
+    init(x: Int, y: Int, z: Int) {
         self.init(x: Float(x), y: Float(y), z: Float(z))
     }
     
-    public init(_ x: Int, _ y: Int, _ z: Int) {
+    init(_ x: Int, _ y: Int, _ z: Int) {
         self.init(x: Float(x), y: Float(y), z: Float(z))
     }
     
-    public init(_ v: Vector2f, _ z: Float = 0.0) {
+    init(_ v: Vector2f, _ z: Float = 0.0) {
         self.init(v.x, v.y, z)
     }
     
-    public init(_ v: Vector2f, _ z: Int) {
+    init(_ v: Vector2f, _ z: Int) {
         self.init(v.x, v.y, Float(z))
     }
     
-    public init(_ x: Float, _ v: Vector2f) {
+    init(_ x: Float, _ v: Vector2f) {
         self.init(x, v.x, v.y)
     }
     
-    public init(_ x: Int, _ v: Vector2f) {
+    init(_ x: Int, _ v: Vector2f) {
         self.init(Float(x), v.x, v.y)
     }
 }
 
 public extension Vector3f {
-    public var isZero: Bool {
+    var isZero: Bool {
         return x == 0.0 && y == 0.0 && z == 0.0
     }
     
-    public static let zero = Vector3f()
+    static let zero = Vector3f()
 }
 
 extension Vector3f: CustomStringConvertible {

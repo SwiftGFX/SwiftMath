@@ -8,10 +8,10 @@
 
 public extension Matrix4x4f {
     /// Returns the identity matrix
-    public static let identity = Matrix4x4f(diagonal: vec4(1.0))
+    static let identity = Matrix4x4f(diagonal: vec4(1.0))
 	
 	/// Creates a new instance from the values provided in row-major order
-    public init(
+    init(
         _ m00: Float, _ m01: Float, _ m02: Float, _ m03: Float,
         _ m10: Float, _ m11: Float, _ m12: Float, _ m13: Float,
         _ m20: Float, _ m21: Float, _ m22: Float, _ m23: Float,
@@ -26,11 +26,11 @@ public extension Matrix4x4f {
     
     //MARK: matrix operations
     
-    public static func lookAt(eye: Vector3f, at: Vector3f, up: Vector3f = Vector3f(0.0, 1.0, 0.0)) -> Matrix4x4f {
+    static func lookAt(eye: Vector3f, at: Vector3f, up: Vector3f = Vector3f(0.0, 1.0, 0.0)) -> Matrix4x4f {
         return lookAtLH(eye: eye, at: at, up: up)
     }
     
-    public static func lookAtLH(eye: Vector3f, at: Vector3f, up: Vector3f) -> Matrix4x4f {
+    static func lookAtLH(eye: Vector3f, at: Vector3f, up: Vector3f) -> Matrix4x4f {
         let view = (at - eye).normalized
         return lookAt(eye: eye, view: view, up: up)
     }
@@ -48,14 +48,14 @@ public extension Matrix4x4f {
     }
     
     /// Creates a left-handed perspective projection matrix
-    public static func proj(fovy: Angle, aspect: Float, near: Float, far: Float) -> Matrix4x4f {
+    static func proj(fovy: Angle, aspect: Float, near: Float, far: Float) -> Matrix4x4f {
         let height = 1.0 / tan(fovy * 0.5)
         let width  = height * 1.0/aspect;
         return projLH(x: 0, y: 0, w: width, h: height, near: near, far: far)
     }
     
     /// Creates a left-handed perspective projection matrix
-    public static func projLH(x: Float, y: Float, w: Float, h: Float, near: Float, far: Float) -> Matrix4x4f {
+    static func projLH(x: Float, y: Float, w: Float, h: Float, near: Float, far: Float) -> Matrix4x4f {
         let diff = far - near
         let aa   = far / diff
         let bb   = near * aa
@@ -73,7 +73,7 @@ public extension Matrix4x4f {
     }
     
     /// Creates a right-handed perspective projection matrix
-    public static func projRH(x: Float, y: Float, w: Float, h: Float, near: Float, far: Float) -> Matrix4x4f {
+    static func projRH(x: Float, y: Float, w: Float, h: Float, near: Float, far: Float) -> Matrix4x4f {
         let diff = far - near
         let aa   = far / diff
         let bb   = near * aa
@@ -91,12 +91,12 @@ public extension Matrix4x4f {
     }
     
     /// Creates a left-handed orthographic projection matrix
-    public static func ortho(left: Float, right: Float, bottom: Float, top: Float, near: Float, far: Float) -> Matrix4x4f {
+    static func ortho(left: Float, right: Float, bottom: Float, top: Float, near: Float, far: Float) -> Matrix4x4f {
         return orthoLH(left: left, right: right, bottom: bottom, top: top, near: near, far: far)
     }
     
     /// Creates a left-handed orthographic projection matrix
-    public static func orthoLH(left: Float, right: Float, bottom: Float, top: Float, near: Float, far: Float, offset: Float = 0.0) -> Matrix4x4f {
+    static func orthoLH(left: Float, right: Float, bottom: Float, top: Float, near: Float, far: Float, offset: Float = 0.0) -> Matrix4x4f {
         let aa = 2.0 / (right - left)
         let bb = 2.0 / (top - bottom)
         let cc = 1.0 / (far - near)
@@ -117,7 +117,7 @@ public extension Matrix4x4f {
     }
     
     /// Creates a right-handed orthographic projection matrix
-    public static func orthoRH(left: Float, right: Float, bottom: Float, top: Float, near: Float, far: Float, offset: Float = 0.0) -> Matrix4x4f {
+    static func orthoRH(left: Float, right: Float, bottom: Float, top: Float, near: Float, far: Float, offset: Float = 0.0) -> Matrix4x4f {
         let aa = 2.0 / (right - left)
         let bb = 2.0 / (top - bottom)
         let cc = 1.0 / (far - near)
@@ -139,11 +139,11 @@ public extension Matrix4x4f {
     
     //MARK: matrix operations
     
-    public static func scale(sx: Float, sy: Float, sz: Float) -> Matrix4x4f {
+    static func scale(sx: Float, sy: Float, sz: Float) -> Matrix4x4f {
         return Matrix4x4f(diagonal: vec4(sx, sy, sz, 1.0))
     }
     
-    public static func translate(tx: Float, ty: Float, tz: Float) -> Matrix4x4f {
+    static func translate(tx: Float, ty: Float, tz: Float) -> Matrix4x4f {
         return Matrix4x4f(
             vec4(1.0, 0.0, 0.0, 0.0),
             vec4(0.0, 1.0, 0.0, 0.0),
@@ -158,7 +158,7 @@ public extension Matrix4x4f {
     /// - parameter x: angle
     ///
     /// - returns: a new rotation matrix
-    public static func rotate(x: Angle) -> Matrix4x4f {
+    static func rotate(x: Angle) -> Matrix4x4f {
         let (sin: sx, cos: cx) = sincos(x)
         
         var r = Matrix4x4f()
@@ -173,7 +173,7 @@ public extension Matrix4x4f {
     }
     
 	/// Returns a transformation matrix that rotates around the y axis
-    public static func rotate(y: Angle) -> Matrix4x4f {
+    static func rotate(y: Angle) -> Matrix4x4f {
         let (sin: sy, cos: cy) = sincos(y)
         
         var r = Matrix4x4f()
@@ -188,7 +188,7 @@ public extension Matrix4x4f {
     }
     
     /// Returns a transformation matrix that rotates around the z axis
-    public static func rotate(z: Angle) -> Matrix4x4f {
+    static func rotate(z: Angle) -> Matrix4x4f {
         let (sin: sz, cos: cz) = sincos(z)
         
         var r = Matrix4x4f()
@@ -203,7 +203,7 @@ public extension Matrix4x4f {
     }
     
     /// Returns a transformation matrix that rotates around the x and then y axes
-    public static func rotate(x: Angle, y: Angle) -> Matrix4x4f {
+    static func rotate(x: Angle, y: Angle) -> Matrix4x4f {
         let (sin: sx, cos: cx) = sincos(x)
         let (sin: sy, cos: cy) = sincos(y)
         
@@ -216,7 +216,7 @@ public extension Matrix4x4f {
     }
     
 	/// Returns a transformation matrix that rotates around the x, y and then z axes
-    public static func rotate(x: Angle, y: Angle, z: Angle) -> Matrix4x4f {
+    static func rotate(x: Angle, y: Angle, z: Angle) -> Matrix4x4f {
         let (sin: sx, cos: cx) = sincos(x)
         let (sin: sy, cos: cy) = sincos(y)
         let (sin: sz, cos: cz) = sincos(z)
@@ -237,7 +237,7 @@ public extension Matrix4x4f {
     }
 	
 	/// Returns a transformation matrix that rotates around the z, y and then x axes
-    public static func rotate(z: Angle, y: Angle, x: Angle) -> Matrix4x4f {
+    static func rotate(z: Angle, y: Angle, x: Angle) -> Matrix4x4f {
         let (sin: sx, cos: cx) = sincos(x)
         let (sin: sy, cos: cy) = sincos(y)
         let (sin: sz, cos: cz) = sincos(z)
@@ -258,7 +258,7 @@ public extension Matrix4x4f {
     }
     
     /// Returns a transformation matrix which can be used to scale, rotate and translate vectors
-    public static func scaleRotateTranslate(sx _sx: Float, sy _sy: Float, sz _sz: Float,
+    static func scaleRotateTranslate(sx _sx: Float, sy _sy: Float, sz _sz: Float,
                                             ax: Angle, ay: Angle, az: Angle,
                                             tx: Float, ty: Float, tz: Float) -> Matrix4x4f {
         let (sin: sx, cos: cx) = sincos(ax)

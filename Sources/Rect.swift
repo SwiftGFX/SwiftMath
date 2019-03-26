@@ -9,7 +9,7 @@
 public typealias Size = Vector2f
 
 public extension Size {
-    public var width: Float {
+    var width: Float {
         get {
            return x
         }
@@ -18,7 +18,7 @@ public extension Size {
         }
     }
     
-    public var height: Float {
+    var height: Float {
         get {
             return y
         }
@@ -27,11 +27,11 @@ public extension Size {
         }
     }
     
-    public init(width: Float, height: Float) {
+    init(width: Float, height: Float) {
         self.init(width, height)
     }
     
-    public init(width: Int, height: Int) {
+    init(width: Int, height: Int) {
         self.init(Float(width), Float(height))
     }
 }
@@ -40,7 +40,7 @@ public extension Size {
     /**
      Check if a size has power of two dimensions.
      */
-    public var isPOT: Bool {
+    var isPOT: Bool {
         let w = UInt(width)
         let h = UInt(height)
         return w == w.nextPOT && h == h.nextPOT
@@ -99,15 +99,15 @@ extension Rect: Equatable {
 }
 
 public extension Rect {
-    public func sizeScaled(by s: Float) -> Rect {
+    func sizeScaled(by s: Float) -> Rect {
         return Rect(origin: origin, size: size * s)
     }
     
-    public func originScaled(by s: Float) -> Rect {
+    func originScaled(by s: Float) -> Rect {
         return Rect(origin: origin * s, size: size)
     }
     
-    public func scaled(by s: Float) -> Rect {
+    func scaled(by s: Float) -> Rect {
         return Rect(origin: origin * s, size: size * s)
     }
 }
@@ -119,7 +119,7 @@ public extension Rect {
      consists solely of scales, flips and translations, then the returned
      rectangle coincides with the rectangle constructed from the four
      transformed corners. */
-    public nonmutating func applying(matrix: Matrix4x4f) -> Rect {
+    nonmutating func applying(matrix: Matrix4x4f) -> Rect {
         let bl = matrix * bottomLeft
         let br = matrix * bottomRight
         let tl = matrix * topLeft
@@ -147,7 +147,7 @@ public extension Rect {
      * Returns an array of 2d points which repsent triangles,
      * ordered in counter-clockwise manner
      */
-    public var triangles: [Vector2f] {
+    var triangles: [Vector2f] {
         return [
             origin, topLeft, bottomRight,
             bottomRight, topLeft, topRight
@@ -158,7 +158,7 @@ public extension Rect {
      * Returns an array of 2d points which represent a triangle strip
      * First triangle is ordered in counter-clockwise manner
      */
-    public var triangleStrip: [Vector2f] {
+    var triangleStrip: [Vector2f] {
         return [
             origin, topLeft, bottomRight, topRight
         ]
