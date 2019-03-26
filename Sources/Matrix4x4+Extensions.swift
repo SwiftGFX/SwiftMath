@@ -7,7 +7,7 @@
 //
 
 public extension Matrix4x4f {
-    public func translated(by v: Vector3f) -> Matrix4x4f {
+    func translated(by v: Vector3f) -> Matrix4x4f {
         let col3 = self * vec4(v)
         
         return Matrix4x4f(
@@ -34,7 +34,7 @@ public extension Matrix4x4f {
     /// - returns: 
     /// A new vector created by first multiplying the matrix by the
     /// vector and then performing perspective division on the result vector.
-    public func multiplyAndProject(v: Vector3f) -> Vector3f {
+    func multiplyAndProject(v: Vector3f) -> Vector3f {
         var r = self * Vector4f(v)
         r *= 1.0/r.w
         return Vector3f(r.x, r.y, r.z)

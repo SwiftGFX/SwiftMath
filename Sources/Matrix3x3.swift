@@ -4,10 +4,10 @@
 
 public extension Matrix3x3f {
     /// Returns the identity matrix
-    public static let identity = Matrix3x3f(diagonal: vec3(1.0))
+    static let identity = Matrix3x3f(diagonal: vec3(1.0))
     
     /// Creates a new instance from the values provided in row-major order
-    public init(
+    init(
         _ m00: Float, _ m01: Float, _ m02: Float,
         _ m10: Float, _ m11: Float, _ m12: Float,
         _ m20: Float, _ m21: Float, _ m22: Float) {

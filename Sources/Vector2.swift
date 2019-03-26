@@ -7,28 +7,28 @@ public typealias vec2 = Vector2f
 public extension Vector2f {
     //MARK: - initializers
     
-    public init(_ v: Vector4f) {
+    init(_ v: Vector4f) {
         self.init(v.x, v.y)
     }
     
-    public init(_ v: Vector3f) {
+    init(_ v: Vector3f) {
         self.init(v.x, v.y)
     }
     
-    public init(x: Int, y: Int) {
+    init(x: Int, y: Int) {
         self.init(x: Float(x), y: Float(y))
     }
     
-    public init(_ x: Int, _ y: Int) {
+    init(_ x: Int, _ y: Int) {
         self.init(x: Float(x), y: Float(y))
     }
 }
 
 public extension Vector2f {
     
-    public static let zero = Vector2f()
+    static let zero = Vector2f()
     
-    public var isZero: Bool {
+    var isZero: Bool {
         return x == 0.0 && y == 0.0
     }
 }

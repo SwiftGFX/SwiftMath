@@ -8,7 +8,7 @@
 
 import Foundation
 internal extension String {
-    internal var floatArray: [Float] {
+    var floatArray: [Float] {
         let ignoredCharacters = CharacterSet(charactersIn: "{} ,")
         let components = self.components(separatedBy: ignoredCharacters)
         return components.filter { $0.count > 0 }
@@ -18,7 +18,7 @@ internal extension String {
 
 public extension Vector2f {
     // String should be {p.x, p.y}
-    public init(_ string: String) {
+    init(_ string: String) {
         let components = string.floatArray
         
         if components.count == 2 {
@@ -31,7 +31,7 @@ public extension Vector2f {
 
 public extension Rect {
     // String should be {o.x, o.y, s.w, s.h}
-    public init(_ string: String) {
+    init(_ string: String) {
         let components = string.floatArray
         
         if components.count == 2 {

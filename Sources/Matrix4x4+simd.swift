@@ -88,7 +88,7 @@ public struct Matrix4x4f {
 }
     
 public extension matrix_float4x4 {
-    public init(_ mat4x4f: Matrix4x4f) {
+    init(_ mat4x4f: Matrix4x4f) {
         self = mat4x4f.d
     }
 }
