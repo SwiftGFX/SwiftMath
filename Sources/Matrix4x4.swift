@@ -2,7 +2,7 @@
 // License: https://github.com/SwiftGFX/SwiftMath#license-bsd-2-clause
 //
 
-#if !NOSIMD
+#if canImport(simd)
     import simd
 #endif
 

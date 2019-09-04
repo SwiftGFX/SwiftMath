@@ -2,7 +2,7 @@
 // License: https://github.com/SwiftGFX/SwiftMath#license-bsd-2-clause
 //
 
-#if !NOSIMD
+#if canImport(simd)
 import simd
 
 /// Represents a standard 4x4 transformation matrix.
