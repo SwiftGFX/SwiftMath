@@ -7,7 +7,7 @@
 //
 
 public extension UInt {
-    
+
     /** returns the Next Power of Two value.
      
      Examples:

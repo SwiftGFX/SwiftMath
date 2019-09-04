@@ -7,24 +7,24 @@ import simd
 
 public struct Vector3f {
     internal var d: float3
-    
+
     public var x: Float { get { return d.x } set { d.x = newValue } }
     public var y: Float { get { return d.y } set { d.y = newValue } }
     public var z: Float { get { return d.z } set { d.z = newValue } }
-    
+
     public var r: Float { get { return d.x } set { d.x = newValue } }
     public var g: Float { get { return d.y } set { d.y = newValue } }
     public var b: Float { get { return d.z } set { d.z = newValue } }
-    
+
     public var s: Float { get { return d.x } set { d.x = newValue } }
     public var t: Float { get { return d.y } set { d.y = newValue } }
     public var p: Float { get { return d.z } set { d.z = newValue } }
-    
+
     public subscript(x: Int) -> Float {
         get {
             return d[x]
         }
-        
+
         set {
             d[x] = newValue
         }
@@ -32,32 +32,32 @@ public struct Vector3f {
 }
 
 public extension Vector3f {
-    
-    //MARK: - initializers
-    
+
+    // MARK: - initializers
+
     init() {
         self.d = float3()
     }
-    
+
     init(_ scalar: Float) {
         self.d = float3(scalar)
     }
-    
+
     init(_ x: Float, _ y: Float, _ z: Float) {
         self.d = float3(x, y, z)
     }
-    
+
     init(x: Float, y: Float, z: Float) {
         self.d = float3(x, y, z)
     }
-    
-    //MARK: - properties
-    
+
+    // MARK: - properties
+
     /// Length (two-norm or “Euclidean norm”) of x.
     var length: Float {
         return simd.length(d)
     }
-    
+
     /// Length of x, squared. This is more efficient to compute than the length,
     /// so you should use it if you only need to compare lengths to each other.
     /// I.e. instead of writing:
@@ -72,27 +72,27 @@ public extension Vector3f {
     var lengthSquared: Float {
         return simd.length_squared(d)
     }
-    
+
     var normalized: Vector3f {
         return unsafeBitCast(simd.normalize(self.d), to: Vector3f.self)
     }
-    
-    //MARK: - functions
-    
+
+    // MARK: - functions
+
     func dot(_ y: Vector3f) -> Float {
         return simd.dot(self.d, y.d)
     }
-    
+
     func cross(_ y: Vector3f) -> Vector3f {
         return unsafeBitCast(simd.cross(self.d, y.d), to: Vector3f.self)
     }
-    
+
     func interpolated(to: Vector3f, factor: Float) -> Vector3f {
         return unsafeBitCast(simd.mix(d, to.d, t: factor), to: Vector3f.self)
     }
-    
-    //MARK: - operators
-    
+
+    // MARK: - operators
+
     static func +(lhs: Vector3f, rhs: Vector3f) -> Vector3f {
         return unsafeBitCast(lhs.d + rhs.d, to: Vector3f.self)
     }
@@ -104,23 +104,23 @@ public extension Vector3f {
     static prefix func -(lhs: Vector3f) -> Vector3f {
         return unsafeBitCast(-lhs.d, to: Vector3f.self)
     }
-    
+
     static func *(lhs: Vector3f, rhs: Float) -> Vector3f {
         return unsafeBitCast(lhs.d * rhs, to: Vector3f.self)
     }
-    
+
     static func *(lhs: Vector3f, rhs: Vector3f) -> Vector3f {
         return unsafeBitCast(lhs.d * rhs.d, to: Vector3f.self)
     }
-    
+
     static func *(lhs: Matrix3x3f, rhs: Vector3f) -> Vector3f {
         return unsafeBitCast(lhs.d * rhs.d, to: Vector3f.self)
     }
-    
+
     static func *(lhs: Vector3f, rhs: Matrix3x3f) -> Vector3f {
         return unsafeBitCast(lhs.d * rhs.d, to: Vector3f.self)
     }
-    
+
     static func *=(lhs: inout Vector3f, rhs: Float) {
         lhs.d *= rhs
     }
@@ -131,7 +131,7 @@ extension Vector3f: Equatable {
         return lhs.d == rhs.d
     }
 }
-    
+
 public extension float3 {
     init(_ v3f: Vector3f) {
         self = v3f.d

@@ -17,7 +17,7 @@ public extension Size {
             x = newValue
         }
     }
-    
+
     var height: Float {
         get {
             return y
@@ -26,11 +26,11 @@ public extension Size {
             y = newValue
         }
     }
-    
+
     init(width: Float, height: Float) {
         self.init(width, height)
     }
-    
+
     init(width: Int, height: Int) {
         self.init(Float(width), Float(height))
     }
@@ -54,33 +54,33 @@ public extension Size {
 public struct Rect {
     public var origin: Point
     // TODO: Gracefully handle negative size case or forbid it
-    public var size:   Size
-    
+    public var size: Size
+
     public var minX: Float { return origin.x }
     public var minY: Float { return origin.y }
     public var midX: Float { return origin.x + size.x / 2.0 }
     public var midY: Float { return origin.y + size.y / 2.0 }
     public var maxX: Float { return origin.x + size.x }
     public var maxY: Float { return origin.y + size.y }
-    
-    public var bottomLeft:  Point { return Point(minX, minY) }
+
+    public var bottomLeft: Point { return Point(minX, minY) }
     public var bottomRight: Point { return Point(maxX, minY) }
-    public var topLeft:     Point { return Point(minX, maxY) }
-    public var topRight:    Point { return Point(maxX, maxY) }
-    
-    public var width : Float { return size.width }
+    public var topLeft: Point { return Point(minX, maxY) }
+    public var topRight: Point { return Point(maxX, maxY) }
+
+    public var width: Float { return size.width }
     public var height: Float { return size.height }
-    
+
     public init(bottomLeft: Point, topRight: Point) {
         origin = bottomLeft
         size = topRight - bottomLeft
     }
-    
+
     public init(origin: Point = .zero, size: Size = .zero) {
         self.origin = origin
         self.size   = size
     }
-    
+
     public static let zero = Rect(origin: Point.zero, size: Vector2f.zero)
 }
 
@@ -102,11 +102,11 @@ public extension Rect {
     func sizeScaled(by s: Float) -> Rect {
         return Rect(origin: origin, size: size * s)
     }
-    
+
     func originScaled(by s: Float) -> Rect {
         return Rect(origin: origin * s, size: size)
     }
-    
+
     func scaled(by s: Float) -> Rect {
         return Rect(origin: origin * s, size: size * s)
     }
@@ -124,20 +124,20 @@ public extension Rect {
         let br = matrix * bottomRight
         let tl = matrix * topLeft
         let tr = matrix * topRight
-        
+
         // TODO: Add test for simple matrix (without rotation, skew, etc)
         // return (bl, tr) in that case
         var newBL = bl
         var newTR = tr
-        
+
         for v in [bl, br, tl, tr] {
             newBL.x = min(v.x, newBL.x)
             newBL.y = min(v.y, newBL.y)
-            
+
             newTR.x = max(v.x, newTR.x)
             newTR.y = max(v.y, newTR.y)
         }
-        
+
         return Rect(bottomLeft: newBL, topRight: newTR)
     }
 }
@@ -153,7 +153,7 @@ public extension Rect {
             bottomRight, topLeft, topRight
         ]
     }
-    
+
     /**
      * Returns an array of 2d points which represent a triangle strip
      * First triangle is ordered in counter-clockwise manner

@@ -5,18 +5,17 @@
 #if !(os(OSX) || os(iOS) || os(tvOS) || os(watchOS))
 
 import Glibc
-    
+
 @inline(__always)
 internal func __sincospif(_ a: Float, _ sina: inout Float, _ cosa: inout Float) {
     sina = sin(a * Float.pi)
     cosa = cos(a * Float.pi)
 }
-	
+
 @inline(__always)
 internal func __sinpif(_ a: Float) -> Float {
 	return sin(a * Float.pi)
 }
-
 
 @inline(__always)
 internal func __cospif(_ a: Float) -> Float {
@@ -29,7 +28,7 @@ internal func __tanpif(_ a: Float) -> Float {
 }
 
 #else
-    
+
 import Darwin
 
 #endif
@@ -42,7 +41,7 @@ public func sincos(_ a: Angle) -> (sin: Float, cos: Float) {
     var s: Float = 0.0
     var c: Float = 0.0
     sincos(a, &s, &c)
-    
+
     return (sin: s, cos: c)
 }
 

@@ -20,7 +20,7 @@ public extension Vector2f {
     // String should be {p.x, p.y}
     init(_ string: String) {
         let components = string.floatArray
-        
+
         if components.count == 2 {
             self.init(components[0], components[1])
         } else {
@@ -33,10 +33,10 @@ public extension Rect {
     // String should be {o.x, o.y, s.w, s.h}
     init(_ string: String) {
         let components = string.floatArray
-        
+
         if components.count == 2 {
             self.init(origin: Point(components[0], components[1]),
-                      size:    Size(components[2], components[3]))
+                      size: Size(components[2], components[3]))
         } else {
             self.init()
         }

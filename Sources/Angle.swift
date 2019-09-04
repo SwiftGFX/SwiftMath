@@ -4,10 +4,10 @@
 
 /// A floating point value that represents an angle
 public struct Angle {
-	
+
     /// The value of the angle in degrees
     public let degrees: Float
-	
+
     /// The value of the angle in radians
     public var radians: Float {
         return degrees * Float.pi / 180.0
@@ -17,16 +17,16 @@ public struct Angle {
     public init(radians val: Float) {
         degrees = val / Float.pi * 180.0
     }
-	
+
 	/// Creates an instance using the value in degrees
     public init(degrees val: Float) {
         degrees = val
     }
-    
+
     internal init(_ val: Float) {
         degrees = val
     }
-    
+
     // MARK: Constants
     public static let zero  = 0°
     public static let pi_6  = 30°
@@ -43,7 +43,7 @@ extension Angle: CustomStringConvertible, CustomDebugStringConvertible {
     public var description: String {
         return "\(degrees)°"
     }
-    
+
     public var debugDescription: String {
         return "\(degrees)°"
     }
@@ -64,59 +64,59 @@ extension Int {
 
 extension Angle {
     // MARK: - operators
-    
+
     // MARK: multiplication (scaling)
-  
+
     public static func *=(lhs: inout Angle, rhs: Float) {
         lhs = Angle(lhs.degrees * rhs)
     }
-    
+
     public static func *(lhs: Angle, rhs: Float) -> Angle {
         return Angle(lhs.degrees * rhs)
     }
-    
+
     public static func *(lhs: Float, rhs: Angle) -> Angle {
         return Angle(rhs.degrees * lhs)
     }
-    
+
     // MARK: division (scaling)
-    
+
     public static func /=(lhs: inout Angle, rhs: Float) {
         lhs = Angle(lhs.degrees / rhs)
     }
-    
+
     public static func /(lhs: Angle, rhs: Float) -> Angle {
         return Angle(lhs.degrees / rhs)
     }
-    
+
     // MARK: addition
-  
+
     public static func +=(lhs: inout Angle, rhs: Angle) {
         lhs = Angle(lhs.degrees + rhs.degrees)
     }
-    
+
     public static func +(lhs: Angle, rhs: Angle) -> Angle {
         return Angle(lhs.degrees + rhs.degrees)
     }
-    
+
     // MARK: subtraction
-    
+
     public static func -=(lhs: inout Angle, rhs: Angle) {
         lhs = Angle(lhs.degrees - rhs.degrees)
     }
-  
+
     public static func -(lhs: Angle, rhs: Angle) -> Angle {
         return Angle(lhs.degrees - rhs.degrees)
     }
-    
+
     // MARK: Modulus
-    
+
     public static func %(lhs: Angle, rhs: Angle) -> Angle {
         return Angle(lhs.degrees.truncatingRemainder(dividingBy: rhs.degrees))
     }
-    
+
     // MARK: Unary
-    
+
     public static prefix func -(lhs: Angle) -> Angle {
         return Angle(-lhs.degrees)
     }
@@ -136,15 +136,15 @@ extension Angle: Comparable {
 	public static func <(lhs: Angle, rhs: Angle) -> Bool {
 		return lhs.degrees < rhs.degrees
 	}
-	
+
 	public static func <=(lhs: Angle, rhs: Angle) -> Bool {
 		return lhs.degrees <= rhs.degrees
 	}
-	
+
 	public static func >(lhs: Angle, rhs: Angle) -> Bool {
 		return lhs.degrees > rhs.degrees
 	}
-	
+
 	public static func >=(lhs: Angle, rhs: Angle) -> Bool {
 		return lhs.degrees >= rhs.degrees
 	}

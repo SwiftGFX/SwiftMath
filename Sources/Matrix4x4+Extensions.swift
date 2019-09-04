@@ -9,7 +9,7 @@
 public extension Matrix4x4f {
     func translated(by v: Vector3f) -> Matrix4x4f {
         let col3 = self * vec4(v)
-        
+
         return Matrix4x4f(
             self[0],
             self[1],
@@ -17,7 +17,7 @@ public extension Matrix4x4f {
             col3
         )
     }
-    
+
     /// Multiplies a 4×4 matrix by a position vector to create a vector in
     /// homogenous coordinates, then projects the result to a 3-component vector.
     ///

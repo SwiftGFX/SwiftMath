@@ -17,7 +17,7 @@ import SwiftGlibc
 internal func arc4random() -> UInt32 {
     return UInt32(random())
 }
-    
+
 internal func arc4random_uniform(_ val: UInt32) -> UInt32 {
     return UInt32(random()) % val
 }
@@ -36,7 +36,7 @@ public extension Int {
     static func random(range: Range<Int>) -> Int {
         return random(range.lowerBound, range.upperBound)
     }
-    
+
     /// SwiftRandom extension
     static func random(_ lower: Int = 0, _ upper: Int = 100) -> Int {
         return lower + Int(arc4random_uniform(UInt32(upper - lower + 1)))
@@ -48,7 +48,7 @@ public extension Int32 {
     static func random(range: Range<Int>) -> Int32 {
         return random(range.lowerBound, range.upperBound)
     }
-    
+
     /// SwiftRandom extension
     ///
     /// - note: Using `Int` as parameter type as we usually just want to write `Int32.random(13, 37)` and not `Int32.random(Int32(13), Int32(37))`
@@ -84,7 +84,7 @@ public extension Vector2f {
             }
         }
     }
-    
+
     /**Returns a random Vector2f with a length less than 1.0.
     */
     var randomInUnitCircle: Vector2f {

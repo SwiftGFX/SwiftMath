@@ -123,8 +123,7 @@ public func expoEaseInOut(_ time: Float) -> Float {
     time /= 0.5
     if time < 1 {
         time = 0.5 * powf(2, 10 * (time - 1))
-    }
-    else {
+    } else {
         time = 0.5 * (-powf(2, -10 * (time - 1)) + 2)
     }
     return time
@@ -157,8 +156,7 @@ public func elasticEaseIn(_ time: Float, period: Float) -> Float {
     var newT: Float = 0
     if time == 0 || time == 1 {
         newT = time
-    }
-    else {
+    } else {
         let s: Float = period / 4
         time = time - 1
         newT = -powf(2, 10 * time) * sin((time - s) * Angle.pi2 / period)
@@ -170,8 +168,7 @@ public func elasticEaseOut(_ time: Float, period: Float) -> Float {
     var newT: Float = 0
     if time == 0 || time == 1 {
         newT = time
-    }
-    else {
+    } else {
         let s: Float = period / 4
         newT = powf(2, -10 * time) * sin((time - s) * Angle.pi2 / period) + 1
     }
@@ -184,8 +181,7 @@ public func elasticEaseInOut(_ time: Float, period: Float) -> Float {
     var newT: Float = 0
     if time == 0 || time == 1 {
         newT = time
-    }
-    else {
+    } else {
         time = time * 2
         if period == 0.0 {
             period = 0.3 * 1.5
@@ -194,14 +190,12 @@ public func elasticEaseInOut(_ time: Float, period: Float) -> Float {
         time = time - 1
         if time < 0 {
             newT = -0.5 * powf(2, 10 * time) * sin((time - s) * Angle.pi2 / period)
-        }
-        else {
+        } else {
             newT = powf(2, -10 * time) * sin((time - s) * Angle.pi2 / period) * 0.5 + 1
         }
     }
     return newT
 }
-
 
 // MARK: Back Ease
 public func backEaseIn(_ time: Float, overshoot: Float) -> Float {
@@ -222,8 +216,7 @@ public func backEaseInOut(_ time: Float, overshoot: Float) -> Float {
     time = time * 2
     if time < 1 {
         return (time * time * ((overshoot + 1) * time - overshoot)) / 2
-    }
-    else {
+    } else {
         time = time - 2
         time *= time
         time *= (overshoot + 1) * time + overshoot
@@ -231,22 +224,19 @@ public func backEaseInOut(_ time: Float, overshoot: Float) -> Float {
     }
 }
 
-
 // MARK: Bounce Ease
 public func bounceTime(_ time: Float) -> Float {
     var time = time
     if time < 1 / 2.75 {
         return 7.5625 * time * time
-    }
-    else if time < 2 / 2.75 {
+    } else if time < 2 / 2.75 {
         time -= 1.5 / 2.75
         return 7.5625 * time * time + 0.75
-    }
-    else if time < 2.5 / 2.75 {
+    } else if time < 2.5 / 2.75 {
         time -= 2.25 / 2.75
         return 7.5625 * time * time + 0.9375
     }
-    
+
     time -= 2.625 / 2.75
     return 7.5625 * time * time + 0.984375
 }
@@ -265,13 +255,11 @@ public func bounceEaseInOut(_ time: Float) -> Float {
     if time < 0.5 {
         time = time * 2
         newT = (1 - bounceTime(1 - time)) * 0.5
-    }
-    else {
+    } else {
         newT = bounceTime(time * 2 - 1) * 0.5 + 0.5
     }
     return newT
 }
-
 
 // MARK: Custom Ease
 public func customEase(_ time: Float, easingParam: [Float]) -> Float {
@@ -296,8 +284,7 @@ public func easeInOut(_ time: Float, rate: Float) -> Float {
     time *= 2
     if time < 1 {
         return 0.5 * powf(time, rate)
-    }
-    else {
+    } else {
         return (1.0 - 0.5 * powf(2 - time, rate))
     }
 }
@@ -316,8 +303,7 @@ public func quadraticInOut(_ time: Float) -> Float {
     time = time * 2
     if time < 1 {
         resultTime = time * time * 0.5
-    }
-    else {
+    } else {
         time -= 1
         resultTime = -0.5 * (time * (time - 2) - 1)
     }

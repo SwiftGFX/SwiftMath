@@ -7,12 +7,12 @@
 /// - parameter x:   value to be clamped
 /// - parameter min: minimum
 /// - parameter max: maximum
-public func clamp<T:Comparable>(_ x: T, min _min: T, max _max: T) -> T {
+public func clamp<T: Comparable>(_ x: T, min _min: T, max _max: T) -> T {
     return min(max(x, _min), _max)
 }
 
 /// Returns x, where 0.0 ≤ x ≤ 1.0
-public func saturate<T:BinaryFloatingPoint>(_ x: T) -> T {
+public func saturate<T: BinaryFloatingPoint>(_ x: T) -> T {
     return clamp(x, min: 0.0, max: 1.0)
 }
 
@@ -23,6 +23,6 @@ public func saturate<T:BinaryFloatingPoint>(_ x: T) -> T {
 /// - parameter t: interpolant
 ///
 /// - returns: a value interpolated from a to b
-public func interpolate<T:BinaryFloatingPoint>(a: T, b: T, t: T) -> T {
+public func interpolate<T: BinaryFloatingPoint>(a: T, b: T, t: T) -> T {
     return a + (b - a) * t
 }
