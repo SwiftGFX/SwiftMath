@@ -6,7 +6,7 @@
 //
 //
 
-#if NOSIMD
+#if !canImport(simd)
 public struct Matrix3x3f {
     public var m11: Float = 0.0
     public var m12: Float = 0.0

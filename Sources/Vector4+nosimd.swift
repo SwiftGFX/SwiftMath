@@ -5,9 +5,9 @@
 //  Created by Andrey Volodin on 07.10.16.
 //
 //
-#if NOSIMD
+#if !canImport(simd)
 
-#if (os(OSX) || os(iOS) || os(tvOS) || os(watchOS))
+#if canImport(Darwin)
 import Darwin
 #else
 import Glibc
