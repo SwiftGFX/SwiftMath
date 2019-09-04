@@ -1,4 +1,4 @@
-// swift-tools-version:4.0
+// swift-tools-version:5.0
 import PackageDescription
 
 let package = Package(
@@ -13,6 +13,8 @@ let package = Package(
         .target(
             name: "SwiftMath",
             path: ".",
-            sources: ["Sources"])
+            sources: ["Sources"]),
+        .testTarget(name: "SwiftMathTests",
+                    dependencies: ["SwiftMath"])
     ]
 )
