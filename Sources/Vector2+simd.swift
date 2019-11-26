@@ -6,8 +6,9 @@
 
 import simd
 
+@frozen
 public struct Vector2f {
-    internal var d: float2
+    internal var d: SIMD2<Float>
     
     public var x: Float { get { return d.x } set { d.x = newValue } }
     public var y: Float { get { return d.y } set { d.y = newValue } }
@@ -31,19 +32,19 @@ public struct Vector2f {
     //MARK: - initializers
     
     public init() {
-        self.d = float2()
+        self.d = SIMD2<Float>()
     }
     
     public init(x: Float, y: Float) {
-        self.d = float2(x, y)
+        self.d = SIMD2<Float>(x, y)
     }
     
     public init(_ scalar: Float) {
-        self.d = float2(scalar)
+        self.d = SIMD2<Float>(repeating: scalar)
     }
     
     public init(_ x: Float, _ y: Float) {
-        self.d = float2(x, y)
+        self.d = SIMD2<Float>(x, y)
     }
 }
 
@@ -134,7 +135,7 @@ extension Vector2f: Equatable {
     }
 }
 
-public extension float2 {
+public extension SIMD2 where Scalar == Float {
     init(_ v2f: Vector2f) {
         self = v2f.d
     }
