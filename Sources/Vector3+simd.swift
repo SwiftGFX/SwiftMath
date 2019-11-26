@@ -5,8 +5,9 @@
 #if !NOSIMD
 import simd
 
+@frozen
 public struct Vector3f {
-    internal var d: float3
+    internal var d: SIMD3<Float>
     
     public var x: Float { get { return d.x } set { d.x = newValue } }
     public var y: Float { get { return d.y } set { d.y = newValue } }
@@ -36,19 +37,19 @@ public extension Vector3f {
     //MARK: - initializers
     
     init() {
-        self.d = float3()
+        self.d = SIMD3<Float>()
     }
     
     init(_ scalar: Float) {
-        self.d = float3(scalar)
+        self.d = SIMD3<Float>(repeating: scalar)
     }
     
     init(_ x: Float, _ y: Float, _ z: Float) {
-        self.d = float3(x, y, z)
+        self.d = SIMD3<Float>(x, y, z)
     }
     
     init(x: Float, y: Float, z: Float) {
-        self.d = float3(x, y, z)
+        self.d = SIMD3<Float>(x, y, z)
     }
     
     //MARK: - properties
@@ -132,7 +133,7 @@ extension Vector3f: Equatable {
     }
 }
     
-public extension float3 {
+public extension SIMD3 where Scalar == Float {
     init(_ v3f: Vector3f) {
         self = v3f.d
     }
