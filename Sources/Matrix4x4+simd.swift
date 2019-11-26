@@ -8,6 +8,7 @@ import simd
 /// Represents a standard 4x4 transformation matrix.
 /// - remark:
 /// Matrices are stored in column-major order
+@frozen
 public struct Matrix4x4f {
     internal var d: matrix_float4x4
     

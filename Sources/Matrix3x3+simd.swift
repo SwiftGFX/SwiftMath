@@ -8,6 +8,7 @@ import simd
 /// Represents a standard 4x4 transformation matrix.
 /// - remark:
 /// Matrices are stored in column-major order
+@frozen
 public struct Matrix3x3f {
     internal var d: matrix_float3x3
     
@@ -79,6 +80,12 @@ public struct Matrix3x3f {
         set {
             d[col, row] = newValue
         }
+    }
+}
+
+public extension matrix_float3x3 {
+    init(_ mat3x3f: Matrix3x3f) {
+        self = mat3x3f.d
     }
 }
 #endif
