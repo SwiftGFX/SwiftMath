@@ -13,7 +13,7 @@
     #else
     import Glibc
 #endif
-    
+    @frozen
     public struct Vector2f {
         public var x: Float = 0.0
         public var y: Float = 0.0
