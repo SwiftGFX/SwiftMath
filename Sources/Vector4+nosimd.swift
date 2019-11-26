@@ -12,7 +12,8 @@ import Darwin
 #else
 import Glibc
 #endif
-    
+
+@frozen
 public struct Vector4f {
     public var x: Float = 0.0
     public var y: Float = 0.0
