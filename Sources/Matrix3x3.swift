@@ -17,6 +17,29 @@ public extension Matrix3x3f {
             vec3(m02, m12, m22)
         )
     }
+
+    static func scale(sx: Float, sy: Float) -> Matrix3x3f {
+        return Matrix3x3f(diagonal: vec3(sx, sy, 1.0))
+    }
+
+    static func translate(tx: Float, ty: Float) -> Matrix3x3f {
+        return Matrix3x3f(
+            vec3(1.0, 0.0, 0.0),
+            vec3(0.0, 1.0, 0.0),
+            vec3(tx,  ty,  1.0)
+        )
+    }
+
+    /// Returns a transformation matrix that rotates around the x and then y axes
+    static func rotate(angle: Angle) -> Matrix3x3f {
+        let (sin: sx, cos: cx) = sincos(angle)
+
+        return Matrix3x3f(
+            vec3(cx,  -sx, 0.0),
+            vec3(sx,  cx,  0.0),
+            vec3(0.0, 0.0, 1.0)
+        )
+    }
     
 }
 
