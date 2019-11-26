@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SwiftMath"
-  s.version      = "3.1.4"
+  s.version      = "3.2.0"
   s.summary      = "Floating point math library written using idiomatic Swift"
 
   s.description  = <<-DESC
@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
 
   s.author           = { "Andrey Volodin" => "siddok@gmail.com" }
   s.social_media_url = "http://twitter.com/s1ddok"
+  s.swift_versions = ['4.2', '5.0']
 
   #  When using multiple platforms
   s.ios.deployment_target = "9.0"
