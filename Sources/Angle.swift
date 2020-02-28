@@ -3,6 +3,7 @@
 //
 
 /// A floating point value that represents an angle
+@frozen
 public struct Angle {
 	
     /// The value of the angle in degrees

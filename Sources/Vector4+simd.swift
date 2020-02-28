@@ -5,8 +5,9 @@
 #if !NOSIMD
 import simd
 
+@frozen
 public struct Vector4f {
-    internal var d: float4
+    internal var d: SIMD4<Float>
     
     public var x: Float { get { return d.x } set { d.x = newValue } }
     public var y: Float { get { return d.y } set { d.y = newValue } }
@@ -35,27 +36,27 @@ public struct Vector4f {
     // MARK: - initializers
     
     public init() {
-        self.d = float4()
+        self.d = SIMD4<Float>()
     }
     
     public init(_ scalar: Float) {
-        self.d = float4(scalar)
+        self.d = SIMD4<Float>(repeating: scalar)
     }
     
-    public init(float4 scalar4: float4) {
+    public init(float4 scalar4: SIMD4<Float>) {
         self.d = scalar4
     }
     
-    public init(_ scalar4: float4) {
+    public init(_ scalar4: SIMD4<Float>) {
         self.d = scalar4
     }
     
     public init(x: Float, y: Float, z: Float, w: Float) {
-        self.d = float4(x, y, z, w)
+        self.d = SIMD4<Float>(x, y, z, w)
     }
     
     public init(_ x: Float, _ y: Float, _ z: Float, _ w: Float) {
-        self.d = float4(x, y, z, w)
+        self.d = SIMD4<Float>(x, y, z, w)
     }
     
 }
@@ -149,7 +150,7 @@ extension Vector4f: Equatable {
     }
 }
     
-public extension float4 {
+public extension SIMD4 where Scalar == Float {
     init(_ v4f: Vector4f) {
         self = v4f.d
     }
