@@ -1,5 +1,5 @@
 //
-//  Matrix3x3+Codable.swift
+//  Matrix3x3+Extensions.swift
 //  org.SwiftGFX.SwiftMath
 //
 //  Created by Eugene Bokhan on 28.02.20.
@@ -24,5 +24,11 @@ extension Matrix3x3f: Codable {
 
     private enum CodingKeys: String, CodingKey {
         case float3x3
+    }
+}
+
+extension Matrix3x3f: Equatable {
+    public static func == (lhs: Matrix3x3f, rhs: Matrix3x3f) -> Bool {
+        float3x3(lhs) == float3x3(rhs)
     }
 }

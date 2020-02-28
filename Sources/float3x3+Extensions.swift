@@ -1,5 +1,5 @@
 //
-//  float3x3+Codable.swift
+//  float3x3+Extensions.swift
 //  org.SwiftGFX.SwiftMath
 //
 //  Created by Eugene Bokhan on 28.02.20.
