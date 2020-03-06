@@ -59,7 +59,7 @@ public struct Matrix3x3f: Codable, Equatable {
     }
 
     public static func == (lhs: Matrix3x3f, rhs: Matrix3x3f) -> Bool {
-        float3x3(lhs) == float3x3(rhs)
+        lhs.d == rhs.d
     }
     
     // MARK: - subscript operations

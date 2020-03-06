@@ -88,7 +88,7 @@ public struct Matrix4x4f: Codable, Equatable {
     }
 
     public static func == (lhs: Matrix4x4f, rhs: Matrix4x4f) -> Bool {
-        float4x4(lhs) == float4x4(rhs)
+        lhs.d == rhs.d
     }
 }
     
