@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "SwiftMath"
-  s.version      = "3.2.0"
+  s.version      = "3.2.1"
   s.summary      = "Floating point math library written using idiomatic Swift"
 
   s.description  = <<-DESC
