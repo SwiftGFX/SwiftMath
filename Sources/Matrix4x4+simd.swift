@@ -9,10 +9,10 @@ import simd
 /// - remark:
 /// Matrices are stored in column-major order
 @frozen
-public struct Matrix4x4f {
+public struct Matrix4x4f: Codable, Equatable {
     internal var d: matrix_float4x4
     
-    //MARK: - initializers
+    // MARK: - initializers
 	
 	/// Creates an instance initialized with either existing simd matrix or zeros
     public init(simdMatrix: matrix_float4x4 = .init()) {
@@ -39,7 +39,7 @@ public struct Matrix4x4f {
         self.d = matrix_float4x4(columns: (c0.d, c1.d, c2.d, c3.d))
     }
     
-    //MARK:- properties
+    // MARK:- properties
     
     public var transposed: Matrix4x4f {
         return unsafeBitCast(d.transpose, to: Matrix4x4f.self)
@@ -73,7 +73,7 @@ public struct Matrix4x4f {
         }
     }
     
-    //MARK:- operators
+    // MARK:- operators
     
     public static prefix func -(lhs: Matrix4x4f) -> Matrix4x4f {
         return unsafeBitCast(-lhs.d, to: Matrix4x4f.self)
@@ -85,6 +85,10 @@ public struct Matrix4x4f {
     
     public static func *(lhs: Matrix4x4f, rhs: Matrix4x4f) -> Matrix4x4f {
         return unsafeBitCast(lhs.d * rhs.d, to: Matrix4x4f.self)
+    }
+
+    public static func == (lhs: Matrix4x4f, rhs: Matrix4x4f) -> Bool {
+        float4x4(lhs) == float4x4(rhs)
     }
 }
     
