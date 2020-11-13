@@ -7,6 +7,10 @@ public typealias vec4 = Vector4f
 public extension Vector4f {
     //MARK: - initializers
     
+    init(_ v1: Vector2f, _ v2: Vector2f) {
+        self.init(v1.x, v1.y, v2.x, v2.y)
+    }
+    
     init(_ v: Vector2f, _ z: Float = 0.0, _ w: Float = 1.0) {
         self.init(v.x, v.y, z, w)
     }

@@ -7,7 +7,7 @@
 import simd
 
 @frozen
-public struct Vector2f {
+public struct Vector2f: Codable {
     internal var d: SIMD2<Float>
     
     public var x: Float { get { return d.x } set { d.x = newValue } }
@@ -46,6 +46,10 @@ public struct Vector2f {
     public init(_ x: Float, _ y: Float) {
         self.d = SIMD2<Float>(x, y)
     }
+    
+    public init(_ simdV: SIMD2<Float>) {
+        self.d = simdV
+    }
 }
 
 public extension Vector2f {
@@ -78,6 +82,14 @@ public extension Vector2f {
     
     //MARK: - functions
     
+    func distance(to other: Vector2f) -> Float {
+        return (self - other).length
+    }
+    
+    func angle(with other: Vector2f) -> Float {
+        return atan2f(other.y - self.y, other.x - self.x)
+    }
+    
     func dot(_ x: Vector2f) -> Float {
         return simd.dot(d, x.d)
     }
@@ -90,7 +102,23 @@ public extension Vector2f {
         return unsafeBitCast(simd.mix(d, to.d, t: factor), to: Vector2f.self)
     }
     
+    func min() -> Float {
+        return self.d.min()
+    }
+    
+    func max() -> Float {
+        return self.d.max()
+    }
+    
+    mutating func round(_ rule: FloatingPointRoundingRule) {
+        self.d.round(rule)
+    }
+    
     //MARK: - operators
+    
+    static func +(lhs: Vector2f, rhs: Float) -> Vector2f {
+        return unsafeBitCast(lhs.d + rhs, to: Vector2f.self)
+    }
     
     static func +(lhs: Vector2f, rhs: Vector2f) -> Vector2f {
         return unsafeBitCast(lhs.d + rhs.d, to: Vector2f.self)
@@ -112,6 +140,18 @@ public extension Vector2f {
         return unsafeBitCast(lhs.d * rhs.d, to: Vector2f.self)
     }
     
+    static func /(lhs: Vector2f, rhs: Float) -> Vector2f {
+        return unsafeBitCast(lhs.d / rhs, to: Vector2f.self)
+    }
+    
+    static func /(lhs: Float, rhs: Vector2f) -> Vector2f {
+        return unsafeBitCast(lhs / rhs.d, to: Vector2f.self)
+    }
+    
+    static func /(lhs: Vector2f, rhs: Vector2f) -> Vector2f {
+        return unsafeBitCast(lhs.d / rhs.d, to: Vector2f.self)
+    }
+    
     static func *(lhs: Matrix4x4f, rhs: Vector2f) -> Vector2f {
         let res = lhs.d * Vector4f(rhs).d
         return Vector2f(res.x, res.y)
@@ -124,6 +164,18 @@ public extension Vector2f {
     
     static func *=(lhs: inout Vector2f, rhs: Float) {
         lhs.d *= rhs
+    }
+    
+    static func /=(lhs: inout Vector2f, rhs: Float) {
+        lhs.d /= rhs
+    }
+    
+    static func *=(lhs: inout Vector2f, rhs: Vector2f) {
+        lhs.d *= rhs.d
+    }
+    
+    static func /=(lhs: inout Vector2f, rhs: Vector2f) {
+        lhs.d /= rhs.d
     }
 }
 
