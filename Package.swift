@@ -1,4 +1,4 @@
-// swift-tools-version:4.0
+// swift-tools-version:5.3
 import PackageDescription
 
 let package = Package(
@@ -13,6 +13,7 @@ let package = Package(
         .target(
             name: "SwiftMath",
             path: ".",
-            sources: ["Sources"])
+            sources: ["Sources"],
+            swiftSettings: [ .define("NOSIMD", .when(platforms: [.linux, .android])),])
     ]
 )
