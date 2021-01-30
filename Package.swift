@@ -14,6 +14,10 @@ let package = Package(
             name: "SwiftMath",
             path: ".",
             sources: ["Sources"],
-            swiftSettings: [ .define("NOSIMD", .when(platforms: [.linux, .android])),])
+            swiftSettings: [ .define("NOSIMD", .when(platforms: [.linux, .android, .windows, .wasi, ])),]),
+        
+        .testTarget(
+            name: "SwiftMathTests",
+            dependencies: ["SwiftMath"]),
     ]
 )
