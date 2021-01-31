@@ -48,6 +48,7 @@ class Matrix4x4Tests: XCTestCase {
         
         XCTAssertEqual(10.0, i[0,1])
         XCTAssertEqual(10.0, i[0][1])
+        XCTAssertEqual(12.0, i[2][1])
         
         XCTAssertEqual(32.0, i[2][3])
     }
