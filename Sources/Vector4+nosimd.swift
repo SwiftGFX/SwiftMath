@@ -125,7 +125,12 @@ extension Vector4f: Equatable {
     }
     
     public static func *(lhs: Vector4f, rhs: Matrix4x4f) -> Vector4f {
-        return rhs.transposed * lhs
+        return Vector4f(
+            lhs.x * rhs.m11 + lhs.y * rhs.m12 + lhs.z * rhs.m13 + lhs.w * rhs.m14,
+            lhs.x * rhs.m21 + lhs.y * rhs.m22 + lhs.z * rhs.m23 + lhs.w * rhs.m24,
+            lhs.x * rhs.m31 + lhs.y * rhs.m32 + lhs.z * rhs.m33 + lhs.w * rhs.m34,
+            lhs.x * rhs.m41 + lhs.y * rhs.m42 + lhs.z * rhs.m43 + lhs.w * rhs.m44
+        )
     }
     
     public static func *(lhs: Matrix4x4f, rhs: Vector4f) -> Vector4f {
