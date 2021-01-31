@@ -10,7 +10,7 @@
 
 #if (os(OSX) || os(iOS) || os(tvOS) || os(watchOS))
 import Darwin
-#else
+#elseif os(Linux) || os(Android)
 import Glibc
 import SwiftGlibc
 
@@ -20,6 +20,16 @@ internal func arc4random() -> UInt32 {
     
 internal func arc4random_uniform(_ val: UInt32) -> UInt32 {
     return UInt32(random()) % val
+}
+
+#elseif os(Windows)
+
+internal func arc4random() -> UInt32 {
+    return UInt32.random(in: UInt32.min...UInt32.max)
+}
+
+internal func arc4random_uniform(_ val: UInt32) -> UInt32 {
+    return UInt32.random(in: 0...val)
 }
 #endif
 
