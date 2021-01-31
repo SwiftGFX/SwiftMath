@@ -2,8 +2,6 @@
 // License: https://github.com/SwiftGFX/SwiftMath#license-bsd-2-clause
 //
 
-#if (os(Linux) || os(Android) || os(Windows))
-
 #if os(Linux) || os(Android)
 import Glibc
 #elseif os(Windows)
@@ -62,6 +60,9 @@ internal func powf(_ a: Float, _ b: Float) -> Float {
 
 #endif
     
+
+#if (os(Linux) || os(Android) || os(Windows))
+
 @inline(__always)
 internal func __sincospif(_ a: Float, _ sina: inout Float, _ cosa: inout Float) {
     sina = sin(a * Float.pi)
