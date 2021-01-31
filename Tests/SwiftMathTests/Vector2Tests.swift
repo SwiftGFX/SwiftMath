@@ -23,7 +23,17 @@ class Vector2fTests: XCTestCase {
         let b = Matrix4x4f.rotate(z: rad(Float.pi/2.0))
         let c = a * b
         
-        XCTAssertEqualWithAccuracy(0.0, c.x, accuracy: 0.001)
-        XCTAssertEqualWithAccuracy(1.0, c.y, accuracy: 0.001)
+        XCTAssertEqual(0.0, c.x, accuracy: 0.001)
+        XCTAssertEqual(1.0, c.y, accuracy: 0.001)
+    }
+    
+    func testVectorMultiplyWithMatrix4x4_2() {
+        let a = Vector2f(1.0, 0.0)
+        var b = Matrix4x4f.rotate(z: rad(Float.pi / -1.5))
+        b =  b * Matrix4x4f.rotate(x: rad(Float.pi / 1.5))
+        let c = a * b
+        
+        XCTAssertEqual(-0.499999881, c.x, accuracy: 0.001)
+        XCTAssertEqual(0.433012635, c.y, accuracy: 0.001)
     }
 }

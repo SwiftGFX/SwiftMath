@@ -172,7 +172,7 @@ public struct Matrix4x4f {
 }
     
 public extension Matrix4x4f {
-    public var adjugate: Matrix4x4f {
+    var adjugate: Matrix4x4f {
         var m = Matrix4x4f.identity
         
         m.m11 = m22 * m33 * m44 - m22 * m34 * m43
@@ -246,11 +246,11 @@ public extension Matrix4x4f {
         return m11 * m.m11 + m12 * m.m21 + m13 * m.m31 + m14 * m.m41
     }
     
-    public var determinant: Float {
+    var determinant: Float {
         return determinant(forAdjugate: adjugate)
     }
     
-    public var transposed: Matrix4x4f {
+    var transposed: Matrix4x4f {
         return Matrix4x4f(
             vec4(m11, m21, m31, m41),
             vec4(m12, m22, m32, m42),
@@ -259,12 +259,12 @@ public extension Matrix4x4f {
         )
     }
     
-    public var inversed: Matrix4x4f {
+    var inversed: Matrix4x4f {
         let adjugate = self.adjugate // avoid recalculating
         return adjugate * (1 / determinant(forAdjugate: adjugate))
     }
     
-    public static func *(lhs: Matrix4x4f, rhs: Matrix4x4f) -> Matrix4x4f {
+    static func *(lhs: Matrix4x4f, rhs: Matrix4x4f) -> Matrix4x4f {
         var m = Matrix4x4f.identity
         
         m.m11 = lhs.m11 * rhs.m11 + lhs.m21 * rhs.m12
@@ -318,7 +318,7 @@ public extension Matrix4x4f {
         return m
     }
     
-    public static func *(lhs: Matrix4x4f, rhs: Float) -> Matrix4x4f {
+    static func *(lhs: Matrix4x4f, rhs: Float) -> Matrix4x4f {
         return Matrix4x4f(
             vec4(lhs.m11 * rhs, lhs.m12 * rhs, lhs.m13 * rhs, lhs.m14 * rhs),
             vec4(lhs.m21 * rhs, lhs.m22 * rhs, lhs.m23 * rhs, lhs.m24 * rhs),
@@ -327,7 +327,7 @@ public extension Matrix4x4f {
         )
     }
     
-    public static prefix func -(lhs: Matrix4x4f) -> Matrix4x4f {
+    static prefix func -(lhs: Matrix4x4f) -> Matrix4x4f {
         return Matrix4x4f(
             vec4(-lhs.m11, -lhs.m12, -lhs.m13, -lhs.m14),
             vec4(-lhs.m21, -lhs.m22, -lhs.m23, -lhs.m24),

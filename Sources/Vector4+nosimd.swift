@@ -126,15 +126,20 @@ extension Vector4f: Equatable {
     
     public static func *(lhs: Vector4f, rhs: Matrix4x4f) -> Vector4f {
         return Vector4f(
-            lhs.x * rhs.m11 + lhs.y * rhs.m21 + lhs.z * rhs.m31 + lhs.w * rhs.m41,
-            lhs.x * rhs.m12 + lhs.y * rhs.m22 + lhs.z * rhs.m32 + lhs.w * rhs.m42,
-            lhs.x * rhs.m13 + lhs.y * rhs.m23 + lhs.z * rhs.m33 + lhs.w * rhs.m43,
-            lhs.x * rhs.m14 + lhs.y * rhs.m24 + lhs.z * rhs.m34 + lhs.w * rhs.m44
+            lhs.x * rhs.m11 + lhs.y * rhs.m12 + lhs.z * rhs.m13 + lhs.w * rhs.m14,
+            lhs.x * rhs.m21 + lhs.y * rhs.m22 + lhs.z * rhs.m23 + lhs.w * rhs.m24,
+            lhs.x * rhs.m31 + lhs.y * rhs.m32 + lhs.z * rhs.m33 + lhs.w * rhs.m34,
+            lhs.x * rhs.m41 + lhs.y * rhs.m42 + lhs.z * rhs.m43 + lhs.w * rhs.m44
         )
     }
     
     public static func *(lhs: Matrix4x4f, rhs: Vector4f) -> Vector4f {
-        return rhs * lhs
+        return Vector4f(
+            rhs.x * lhs.m11 + rhs.y * lhs.m21 + rhs.z * lhs.m31 + rhs.w * lhs.m41,
+            rhs.x * lhs.m12 + rhs.y * lhs.m22 + rhs.z * lhs.m32 + rhs.w * lhs.m42,
+            rhs.x * lhs.m13 + rhs.y * lhs.m23 + rhs.z * lhs.m33 + rhs.w * lhs.m43,
+            rhs.x * lhs.m14 + rhs.y * lhs.m24 + rhs.z * lhs.m34 + rhs.w * lhs.m44
+        )
     }
     
     public static func /(lhs: Vector4f, rhs: Vector4f) -> Vector4f {

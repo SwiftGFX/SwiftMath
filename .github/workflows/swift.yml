@@ -1,0 +1,34 @@
+name: Swift
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-20.04]
+
+    runs-on: ${{matrix.os}}
+
+    steps:
+    - name: Install Swift
+      if: runner.os == 'Linux'
+      uses: sersoft-gmbh/SwiftyActions@v1
+      with:
+          release-version: 5.3.2
+          platform: ${{matrix.os}}
+    - uses: actions/checkout@v2
+    - uses: actions/cache@v2
+      with:
+          path: .build
+          key: ${{runner.os}}-${{github.repository}}-spm-${{hashFiles('**/Package.resolved')}}
+          restore-keys: |
+            ${{runner.os}}-${{github.repository}}-spm-
+    - name: Build
+      run: swift build -v
+    - name: Run tests
+      run: swift test -v
