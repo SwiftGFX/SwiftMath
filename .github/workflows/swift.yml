@@ -2,7 +2,7 @@ name: Swift
 
 on:
   push:
-    branches: [ master , feature/windows-ci]
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
