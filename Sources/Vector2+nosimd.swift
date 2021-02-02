@@ -9,10 +9,11 @@
 #if NOSIMD
     
 #if (os(OSX) || os(iOS) || os(tvOS) || os(watchOS))
-    import Darwin
-    #else
-    import Glibc
+import Darwin
+#elseif os(Linux) || os(Android)
+import Glibc
 #endif
+
     @frozen
     public struct Vector2f {
         public var x: Float = 0.0

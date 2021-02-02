@@ -2,10 +2,67 @@
 // License: https://github.com/SwiftGFX/SwiftMath#license-bsd-2-clause
 //
 
-#if !(os(OSX) || os(iOS) || os(tvOS) || os(watchOS))
-
+#if os(Linux) || os(Android)
 import Glibc
+#elseif os(Windows)
+
+import ucrt
+
+@inline(__always)
+internal func sin(_ a: Float) -> Float {
+    return ucrt.sinf(a)
+}
+
+@inline(__always)
+internal func sin(_ a: Double) -> Double {
+    return ucrt.sin(a)
+}
+
+@inline(__always)
+internal func cos(_ a: Float) -> Float {
+    return ucrt.cosf(a)
+}
+
+@inline(__always)
+internal func cos(_ a: Double) -> Double {
+    return ucrt.cos(a)
+}
+
+@inline(__always)
+internal func tan(_ a: Float) -> Float {
+    return ucrt.tanf(a)
+}
+
+@inline(__always)
+internal func tan(_ a: Double) -> Double {
+    return ucrt.tan(a)
+}
+
+@inline(__always)
+internal func sqrtf(_ a: Float) -> Float {
+    return ucrt.sqrtf(a)
+}
+
+@inline(__always)
+internal func sqrt(_ a: Float) -> Float {
+    return ucrt.sqrtf(a)
+}
+
+@inline(__always)
+internal func sqrt(_ a: Double) -> Double {
+    return ucrt.sqrt(a)
+}
+
+@inline(__always)
+internal func powf(_ a: Float, _ b: Float) -> Float {
+    return ucrt.powf(a, b)
+}
+
+#endif
     
+
+#if (os(Linux) || os(Android) || os(Windows))
+
 @inline(__always)
 internal func __sincospif(_ a: Float, _ sina: inout Float, _ cosa: inout Float) {
     sina = sin(a * Float.pi)
@@ -28,7 +85,7 @@ internal func __tanpif(_ a: Float) -> Float {
     return tan(a * Float.pi)
 }
 
-#else
+#elseif (os(OSX) || os(iOS) || os(tvOS) || os(watchOS))
     
 import Darwin
 
