@@ -68,7 +68,7 @@ extension Vector3f {
     }
     
     public var length: Float {
-        return sqrt(lengthSquared)
+        return sqrt(self.lengthSquared)
     }
     
     public func dot(_ v: Vector3f) -> Float {

@@ -78,7 +78,7 @@ extension Vector4f: Equatable {
     }
     
     public var length: Float {
-        return sqrt(lengthSquared)
+        return sqrt(self.lengthSquared)
     }
     
     public func dot(_ v: Vector4f) -> Float {

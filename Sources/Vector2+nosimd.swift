@@ -62,7 +62,7 @@ import Glibc
         }
         
         public var length: Float {
-            return sqrt(lengthSquared)
+            return sqrt(self.lengthSquared)
         }
         
         public func dot(_ v: Vector2f) -> Float {

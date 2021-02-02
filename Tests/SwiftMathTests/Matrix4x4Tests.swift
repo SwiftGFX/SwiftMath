@@ -85,5 +85,24 @@ class Matrix4x4Tests: XCTestCase {
         XCTAssertEqual(4.0, c.z)
         XCTAssertEqual(4.0, c.w)
     }
+    
+    func testInvert() {
+        let m = Matrix4x4f.init(diagonal: Vector4f.init(2.0))
+        let mInverse = m.inversed
+        XCTAssertEqual(0.5, mInverse[0,0], accuracy: 0.00001)
+        XCTAssertEqual(0.5, mInverse[1,1], accuracy: 0.00001)
+        XCTAssertEqual(0.5, mInverse[2,2], accuracy: 0.00001)
+    }
 
+    func testTranspose() {
+        let m = Matrix4x4f.init(0.0, 1.0, 2.0, 3.0, 
+                                4.0, 5.0, 6.0, 7.0, 
+                                8.0, 9.0, 10.0, 11.0,
+                                12, 13, 14, 15)
+        let mTranspose = m.transposed
+        XCTAssertEqual(1.0, mTranspose[0,1])
+        XCTAssertEqual(4.0, mTranspose[1,0])
+        XCTAssertEqual(5.0, mTranspose[1,1])
+        XCTAssertEqual(14.0, mTranspose[3,2])
+    }
 }
