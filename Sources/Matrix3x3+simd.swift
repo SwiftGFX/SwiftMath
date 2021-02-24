@@ -44,6 +44,10 @@ public struct Matrix3x3f: Codable, Equatable {
         return unsafeBitCast(d.inverse, to: Matrix3x3f.self)
     }
     
+    public var transposed: Matrix3x3f {
+        return unsafeBitCast(d.transpose, to: Matrix3x3f.self)
+    }
+    
     // MARK:- operators
     
     public static prefix func -(lhs: Matrix3x3f) -> Matrix3x3f {

@@ -148,12 +148,14 @@ public struct Matrix3x3f {
             - (m13 * m22 * m31 + m11 * m23 * m32 + m12 * m21 * m33)
     }
     
-    public var transpose: Matrix3x3f {
-        return Matrix3x3f(m11, m21, m31, m12, m22, m32, m13, m23, m33)
+    public var transposed: Matrix3x3f {
+        return Matrix3x3f(m11, m12, m13, 
+                          m21, m22, m23, 
+                          m31, m32, m33)
     }
     
-    public var inverse: Matrix3x3f {
-        return adjugate * (1 / determinant)
+    public var inversed: Matrix3x3f {
+        return adjugate * (1.0 / determinant)
     }
     
     public func interpolated(with m: Matrix3x3f, by t: Float) -> Matrix3x3f {
