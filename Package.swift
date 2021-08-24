@@ -13,6 +13,7 @@ let package = Package(
         .target(
             name: "SwiftMath",
             path: ".",
+            exclude: ["SwiftMath.podspec", "README.md", "Tests", "LICENSE"],
             sources: ["Sources"],
             swiftSettings: [ .define("NOSIMD", .when(platforms: [.linux, .android, .windows, .wasi, ])),]),
         
