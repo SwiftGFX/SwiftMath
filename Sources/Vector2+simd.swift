@@ -116,10 +116,6 @@ public extension Vector2f {
     
     //MARK: - operators
     
-    static func +(lhs: Vector2f, rhs: Float) -> Vector2f {
-        return unsafeBitCast(lhs.d + rhs, to: Vector2f.self)
-    }
-    
     static func +(lhs: Vector2f, rhs: Vector2f) -> Vector2f {
         return unsafeBitCast(lhs.d + rhs.d, to: Vector2f.self)
     }
@@ -136,8 +132,24 @@ public extension Vector2f {
         return unsafeBitCast(lhs.d * rhs, to: Vector2f.self)
     }
     
-    static func *(lhs: Vector2f, rhs: Vector2f) -> Vector2f {
-        return unsafeBitCast(lhs.d * rhs.d, to: Vector2f.self)
+    static func *(lhs: Float, rhs: Vector2f) -> Vector2f {
+        return unsafeBitCast(rhs.d * lhs, to: Vector2f.self)
+    }
+    
+    static func -(lhs: Vector2f, rhs: Float) -> Vector2f {
+        return unsafeBitCast(lhs.d - rhs, to: Vector2f.self)
+    }
+    
+    static func -(lhs: Float, rhs: Vector2f) -> Vector2f {
+        return unsafeBitCast(lhs - rhs.d, to: Vector2f.self)
+    }
+    
+    static func +(lhs: Vector2f, rhs: Float) -> Vector2f {
+        return unsafeBitCast(lhs.d + rhs, to: Vector2f.self)
+    }
+    
+    static func +(lhs: Float, rhs: Vector2f) -> Vector2f {
+        return unsafeBitCast(rhs.d + lhs, to: Vector2f.self)
     }
     
     static func /(lhs: Vector2f, rhs: Float) -> Vector2f {
@@ -146,6 +158,10 @@ public extension Vector2f {
     
     static func /(lhs: Float, rhs: Vector2f) -> Vector2f {
         return unsafeBitCast(lhs / rhs.d, to: Vector2f.self)
+    }
+    
+    static func *(lhs: Vector2f, rhs: Vector2f) -> Vector2f {
+        return unsafeBitCast(lhs.d * rhs.d, to: Vector2f.self)
     }
     
     static func /(lhs: Vector2f, rhs: Vector2f) -> Vector2f {
@@ -181,9 +197,7 @@ public extension Vector2f {
 
 extension Vector2f: Equatable {
     public static func ==(lhs: Vector2f, rhs: Vector2f) -> Bool {
-        return
-            lhs.d.x == rhs.d.x &&
-            lhs.d.y == rhs.d.y
+        return lhs.d == rhs.d
     }
 }
 

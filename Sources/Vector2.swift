@@ -29,7 +29,11 @@ public extension Vector2f {
     static let zero = Vector2f()
     
     var isZero: Bool {
-        return x == 0.0 && y == 0.0
+        x == 0.0 && y == 0.0
+    }
+    
+    var perpendicular: Vector2f {
+        .init(-y, x)
     }
 }
 
