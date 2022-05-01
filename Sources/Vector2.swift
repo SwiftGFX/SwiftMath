@@ -43,3 +43,11 @@ extension Vector2f: CustomStringConvertible {
     }
 }
 
+public func min(_ lhs: Vector2f, _ rhs: Vector2f) -> Vector2f {
+    return .init(min(lhs.x, rhs.x), min(lhs.y, rhs.y))
+}
+
+public func max(_ lhs: Vector2f, _ rhs: Vector2f) -> Vector2f {
+    return .init(max(lhs.x, rhs.x), max(lhs.y, rhs.y))
+}
+
